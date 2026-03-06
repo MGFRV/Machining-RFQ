@@ -1,5 +1,12 @@
 [
   {
+    "slug": "swiss-screw-machining",
+    "title": "Swiss Screw Machining: High-Volume Small-Diameter Parts",
+    "date": "2025-03-06",
+    "preview": "Swiss screw machines produce small-diameter precision parts at high volume with unmatched repeatability. Learn when to specify Swiss and what tolerances to expect.",
+    "icon": "gear"
+  },
+  {
     "slug": "cnc-turning-basics",
     "title": "CNC Turning Basics: What Every Engineer Should Know",
     "date": "2025-03-01",

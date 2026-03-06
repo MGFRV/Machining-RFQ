@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Material Selection for CNC Parts: Aluminum vs Steel vs Titanium — RFQplus</title>
+  <meta name="description" content="The material you choose affects machinability, lead time, and cost dramatically. A practical breakdown for engineers sourcing precision parts." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    :root {
+      --c50: #F5F4F0; --c100: #ECEAE6; --c200: #D5D1CB;
+      --c400: #9E978D; --c500: #857F77; --c600: #665F57;
+      --c900: #1C1917; --white: #FFFFFF; --accent: #0A1930;
+      --mono: 'IBM Plex Mono', monospace;
+    }
+    body { font-family: var(--mono); background: var(--c50); color: var(--c900); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    .grid-bg { background-image: linear-gradient(rgba(28,25,23,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(28,25,23,.04) 1px, transparent 1px); background-size: 44px 44px; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+    .section-label { display: inline-flex; align-items: center; gap: 8px; font-size: 0.68rem; font-weight: 500; color: var(--accent); text-transform: uppercase; letter-spacing: 0.18em; border-bottom: 1px solid var(--accent); padding-bottom: 2px; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; background: rgba(245,244,240,.96); backdrop-filter: blur(10px); border-bottom: 1px solid var(--c200); height: 64px; }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; height: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-size: 0.82rem; font-weight: 600; color: var(--c900); text-decoration: none; letter-spacing: 0.16em; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 36px; }
+    .nav-links a { font-size: 0.68rem; font-weight: 500; color: var(--c600); text-decoration: none; text-transform: uppercase; letter-spacing: 0.14em; transition: color .15s; }
+    .nav-links a:hover { color: var(--c900); }
+    .nav-cta { font-size: 0.68rem; font-weight: 600; background: var(--accent); color: var(--white); padding: 10px 22px; text-decoration: none; text-transform: uppercase; letter-spacing: 0.12em; border: 1px solid var(--accent); transition: background .15s; display: flex; align-items: center; gap: 8px; }
+    .nav-cta:hover { background: #162840; border-color: #162840; }
+    .article-header { padding: 112px 0 56px; border-bottom: 1px solid var(--c200); }
+    .article-header .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 0.65rem; color: var(--c400); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 24px; }
+    .article-header .breadcrumb a { color: var(--c400); text-decoration: none; transition: color .15s; }
+    .article-header .breadcrumb a:hover { color: var(--accent); }
+    .article-header .breadcrumb span { color: var(--c200); }
+    .article-meta-row { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+    .article-date { font-size: 0.65rem; color: var(--c400); text-transform: uppercase; letter-spacing: 0.12em; }
+    .article-h1 { font-size: clamp(1.6rem, 3.5vw, 2.8rem); font-weight: 300; line-height: 1.15; letter-spacing: -0.02em; max-width: 800px; margin-bottom: 20px; }
+    .article-h1 strong { font-weight: 500; }
+    .article-lead { font-size: 0.9rem; color: var(--c500); max-width: 640px; line-height: 1.7; }
+    .article-wrap { padding: 56px 0 80px; display: grid; grid-template-columns: 1fr 280px; gap: 80px; align-items: start; }
+    .article-content h2 { font-size: 1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; margin: 40px 0 14px; padding-top: 40px; border-top: 1px solid var(--c200); }
+    .article-content h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+    .article-content p { font-size: 0.85rem; color: var(--c600); line-height: 1.8; margin-bottom: 16px; }
+    .article-content ul, .article-content ol { padding-left: 20px; margin-bottom: 16px; }
+    .article-content li { font-size: 0.85rem; color: var(--c600); line-height: 1.8; margin-bottom: 6px; }
+    .article-content strong { color: var(--c900); font-weight: 500; }
+    .mat-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; }
+    .mat-table th { font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--c500); text-align: left; padding: 10px 16px; background: var(--c100); border: 1px solid var(--c200); }
+    .mat-table td { font-size: 0.8rem; color: var(--c600); padding: 10px 16px; border: 1px solid var(--c200); line-height: 1.5; }
+    .mat-table tr:nth-child(even) td { background: var(--c50); }
+    .article-sidebar { position: sticky; top: 88px; }
+    .sidebar-block { border: 1px solid var(--c200); padding: 24px; margin-bottom: 24px; }
+    .sidebar-block-head { font-size: 0.65rem; font-weight: 600; color: var(--c500); text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 16px; }
+    .sidebar-cta { display: inline-flex; align-items: center; gap: 8px; font-size: 0.68rem; font-weight: 600; background: var(--accent); color: var(--white); padding: 12px 20px; text-decoration: none; text-transform: uppercase; letter-spacing: 0.12em; border: 1px solid var(--accent); transition: background .15s; width: 100%; justify-content: center; }
+    .sidebar-cta:hover { background: #162840; }
+    .sidebar-p { font-size: 0.75rem; color: var(--c500); line-height: 1.65; margin-bottom: 16px; }
+    .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 0.68rem; font-weight: 500; color: var(--c500); text-decoration: none; text-transform: uppercase; letter-spacing: 0.12em; transition: color .15s; margin-bottom: 40px; }
+    .back-link:hover { color: var(--accent); }
+    footer { background: var(--c900); padding: 56px 0 32px; }
+    .footer-top { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 0; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,.08); margin-bottom: 28px; }
+    .footer-col { padding-right: 40px; }
+    .footer-col:last-child { padding-right: 0; }
+    .footer-logo { font-size: 0.82rem; font-weight: 600; color: var(--white); letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 10px; display: block; }
+    .footer-tagline { font-size: 0.75rem; color: var(--c500); line-height: 1.65; max-width: 220px; }
+    .footer-col-head { font-size: 0.65rem; font-weight: 600; color: var(--c500); text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 14px; }
+    .footer-col a, .footer-col p { font-size: 0.75rem; color: var(--c400); display: block; text-decoration: none; margin-bottom: 7px; line-height: 1.5; }
+    .footer-col a:hover { color: var(--white); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; font-size: 0.65rem; color: var(--c600); flex-wrap: wrap; gap: 8px; letter-spacing: 0.06em; }
+    @media (max-width: 960px) {
+      .container { padding: 0 28px; } .nav-inner { padding: 0 28px; }
+      .nav-links a { display: none; }
+      .article-wrap { grid-template-columns: 1fr; gap: 48px; }
+      .article-sidebar { position: static; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+    @media (max-width: 640px) { .footer-top { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">RFQplus</a>
+    <div class="nav-links">
+      <a href="/#process">Process</a>
+      <a href="/#capabilities">Capabilities</a>
+      <a href="/#why">Why Us</a>
+      <a href="/blog/">Blog</a>
+      <a href="/#rfq" class="nav-cta">Contact Us →</a>
+    </div>
+  </div>
+</nav>
+
+<div class="article-header grid-bg">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="/">Home</a>
+      <span>/</span>
+      <a href="/blog/">Blog</a>
+      <span>/</span>
+      <span>Material Selection</span>
+    </div>
+    <div class="article-meta-row">
+      <span class="section-label">// materials</span>
+      <span class="article-date">Feb 10, 2025</span>
+    </div>
+    <h1 class="article-h1">Material Selection for CNC Parts:<br /><strong>Aluminum vs Steel vs Titanium</strong></h1>
+    <p class="article-lead">The material you choose affects machinability, lead time, and cost dramatically. A practical breakdown for engineers sourcing precision parts.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="article-wrap">
+
+    <article class="article-content">
+      <a href="/blog/" class="back-link">← Back to Blog</a>
+
+      <h2>How Material Choice Drives Cost</h2>
+      <p>Material selection is one of the highest-leverage decisions in part design. The same geometry in aluminum versus titanium can differ by <strong>5–10× in machining cost</strong> — not just material price, but cycle time, tooling wear, and scrap rate. Choose the right material for the application, not the most impressive one on the spec sheet.</p>
+
+      <h2>Quick Comparison</h2>
+      <table class="mat-table">
+        <thead>
+          <tr><th>Material</th><th>Machinability</th><th>Strength</th><th>Corrosion Resistance</th><th>Relative Cost</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Al 6061-T6</td><td>Excellent</td><td>Moderate</td><td>Good (anodized)</td><td>1×</td></tr>
+          <tr><td>Al 7075-T6</td><td>Good</td><td>High</td><td>Fair (anodized)</td><td>1.5×</td></tr>
+          <tr><td>303 Stainless</td><td>Good</td><td>High</td><td>Excellent</td><td>2–3×</td></tr>
+          <tr><td>316 Stainless</td><td>Fair</td><td>High</td><td>Superior</td><td>3–4×</td></tr>
+          <tr><td>4140 Steel</td><td>Good</td><td>Very High</td><td>Poor (uncoated)</td><td>1.5–2×</td></tr>
+          <tr><td>Ti-6Al-4V</td><td>Difficult</td><td>Very High</td><td>Excellent</td><td>8–12×</td></tr>
+          <tr><td>Brass C360</td><td>Excellent</td><td>Low–Moderate</td><td>Good</td><td>2–3×</td></tr>
+          <tr><td>PEEK</td><td>Good</td><td>Moderate</td><td>Excellent</td><td>6–9×</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Aluminum: The Default Choice</h2>
+      <p><strong>6061-T6</strong> is the workhorse of CNC machining. It cuts fast, holds tight tolerances, anodizes well, and is available everywhere. If your part doesn't have extreme strength or temperature requirements, start here.</p>
+      <p><strong>7075-T6</strong> offers roughly 2× the strength of 6061 with similar machinability. Use it for aerospace structural brackets, high-load fixtures, and anything where weight-to-strength ratio is critical. It's less weldable and more expensive, but the tradeoff is often worth it.</p>
+
+      <h2>Stainless Steel: Corrosion and Strength</h2>
+      <p><strong>303 stainless</strong> is the free-machining grade — sulfur additions improve chip breaking and surface finish on turned parts. Default stainless choice for most machined components that don't require welding.</p>
+      <p><strong>316 stainless</strong> adds molybdenum for superior resistance to chlorides and acids. Use it for marine, chemical processing, and medical applications where 303 would pit or corrode. Machines slower than 303 — factor this into lead time.</p>
+      <p><strong>17-4 PH</strong> is precipitation-hardened stainless — high strength (comparable to titanium) with good corrosion resistance. Machines in the annealed state, then heat treated to condition H900/H1025. Common in aerospace and defense.</p>
+
+      <h2>Steel: When You Need Strength and Budget</h2>
+      <p><strong>4140 alloy steel</strong> is the cost-effective choice for high-strength structural parts — shafts, gears, tooling components. It machines well in the pre-hardened condition (28–34 HRC), and can be heat treated to 54+ HRC after machining. Requires surface coating or plating for corrosion protection.</p>
+
+      <h2>Titanium: High Performance, High Cost</h2>
+      <p><strong>Ti-6Al-4V (Grade 5)</strong> is the most commonly machined titanium alloy. Exceptional strength-to-weight ratio and corrosion resistance make it irreplaceable in aerospace, medical implants, and motorsport. However, titanium is thermally poor — heat concentrates at the cutting edge, requiring slow feeds, sharp carbide tooling, and aggressive coolant.</p>
+      <p>Expect 3–5× longer cycle times versus aluminum for equivalent geometry. Budget accordingly and allow extra lead time, especially for complex parts.</p>
+
+      <h2>Plastics: Delrin and PEEK</h2>
+      <p><strong>Delrin (POM)</strong> machines cleanly, holds tolerances well, and is used for bushings, guides, and housings where metal is overkill. Inexpensive and widely available.</p>
+      <p><strong>PEEK</strong> is the high-performance engineering plastic — rated to 250°C continuous service, chemically inert, and sterilizable. Used in medical devices and semiconductor equipment where metal contamination is a concern. Material cost alone is significant; machine time adds up quickly.</p>
+
+      <h2>Decision Framework</h2>
+      <ol>
+        <li>Define your structural loads — minimum required yield strength?</li>
+        <li>Define your environment — temperature, corrosive media, regulatory requirements (ITAR, FDA)?</li>
+        <li>Define your weight target — if not constrained, steel is often cheaper than aluminum at equivalent strength.</li>
+        <li>Consider post-processing — anodize, plating, heat treat — and whether the chosen alloy supports it.</li>
+        <li>If multiple materials meet requirements, choose the one with the highest machinability rating to minimize shop cost.</li>
+      </ol>
+    </article>
+
+    <aside class="article-sidebar">
+      <div class="sidebar-block">
+        <div class="sidebar-block-head">Need a Quote?</div>
+        <p class="sidebar-p">Not sure which material to specify? Include your application requirements in the RFQ — we'll advise before quoting.</p>
+        <a href="/#rfq" class="sidebar-cta">Submit RFQ →</a>
+      </div>
+      <div class="sidebar-block">
+        <div class="sidebar-block-head">Related</div>
+        <a href="/blog/cnc-turning-basics/" style="font-size:0.75rem;color:var(--c500);display:block;text-decoration:none;padding:6px 0;border-bottom:1px solid var(--c100);transition:color .15s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--c500)'">CNC Turning Basics</a>
+        <a href="/blog/tolerances-guide/" style="font-size:0.75rem;color:var(--c500);display:block;text-decoration:none;padding:6px 0;border-bottom:1px solid var(--c100);transition:color .15s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--c500)'">Understanding Tolerances</a>
+        <a href="/blog/" style="font-size:0.75rem;color:var(--c500);display:block;text-decoration:none;padding:6px 0;transition:color .15s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--c500)'">← All Articles</a>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-col">
+        <span class="footer-logo">RFQplus</span>
+        <p class="footer-tagline">US machined &amp; turned parts sourcing. RFQ to delivery, handled.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-head">Processes</div>
+        <a href="/#capabilities">CNC Milling</a>
+        <a href="/#capabilities">CNC Turning</a>
+        <a href="/#capabilities">Mill-Turn</a>
+        <a href="/#capabilities">Swiss Screw Machining</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-head">Industries</div>
+        <a href="/#capabilities">Aerospace</a>
+        <a href="/#capabilities">Defense / ITAR</a>
+        <a href="/#capabilities">Medical Devices</a>
+        <a href="/#capabilities">Robotics &amp; Automation</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-head">Contact</div>
+        <a href="mailto:rfq@precisionmachining.co">rfq@precisionmachining.co</a>
+        <p>+1 302 248 3229</p>
+        <p>Wilmington, DE</p>
+        <p>United States</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Advanced Tech Solutions LLC. All rights reserved.</span>
+      <span>Privacy Policy · Terms of Service</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
