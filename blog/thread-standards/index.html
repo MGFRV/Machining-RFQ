@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thread Standards for Machined Parts: UNC, UNF, Metric, and NPT — RFQplus</title>
+  <meta name="description" content="Mixing thread standards causes costly rework. A concise reference on the most common thread callouts, tolerances, and how to specify them correctly on your drawings." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    :root {
+      --c50: #F5F4F0; --c100: #ECEAE6; --c200: #D5D1CB;
+      --c400: #9E978D; --c500: #857F77; --c600: #665F57;
+      --c900: #1C1917; --white: #FFFFFF; --accent: #0A1930;
+      --mono: 'IBM Plex Mono', monospace;
+    }
+    body { font-family: var(--mono); background: var(--c50); color: var(--c900); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    .grid-bg { background-image: linear-gradient(rgba(28,25,23,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(28,25,23,.04) 1px, transparent 1px); background-size: 44px 44px; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+    .section-label { display: inline-flex; align-items: center; gap: 8px; font-size: 0.68rem; font-weight: 500; color: var(--accent); text-transform: uppercase; letter-spacing: 0.18em; border-bottom: 1px solid var(--accent); padding-bottom: 2px; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; background: rgba(245,244,240,.96); backdrop-filter: blur(10px); border-bottom: 1px solid var(--c200); height: 64px; }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; height: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-size: 0.82rem; font-weight: 600; color: var(--c900); text-decoration: none; letter-spacing: 0.16em; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 36px; }
+    .nav-links a { font-size: 0.68rem; font-weight: 500; color: var(--c600); text-decoration: none; text-transform: uppercase; letter-spacing: 0.14em; transition: color .15s; }
+    .nav-links a:hover { color: var(--c900); }
+    .nav-cta { font-size: 0.68rem; font-weight: 600; background: var(--accent); color: var(--white); padding: 10px 22px; text-decoration: none; text-transform: uppercase; letter-spacing: 0.12em; border: 1px solid var(--accent); transition: background .15s; display: flex; align-items: center; gap: 8px; }
+    .nav-cta:hover { background: #162840; border-color: #162840; }
+    .article-header { padding: 112px 0 56px; border-bottom: 1px solid var(--c200); }
+    .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 0.65rem; color: var(--c400); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 24px; }
+    .breadcrumb a { color: var(--c400); text-decoration: none; transition: color .15s; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb span { color: var(--c200); }
+    .article-meta-row { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+    .article-date { font-size: 0.65rem; color: var(--c400); text-transform: uppercase; letter-spacing: 0.12em; }
+    .article-h1 { font-size: clamp(1.6rem, 3.5vw, 2.8rem); font-weight: 300; line-height: 1.15; letter-spacing: -0.02em; max-width: 800px; margin-bottom: 20px; }
+    .article-h1 strong { font-weight: 500; }
+    .article-lead { font-size: 0.9rem; color: var(--c500); max-width: 640px; line-height: 1.7; }
+    .article-wrap { padding: 56px 0 80px; display: grid; grid-template-columns: 1fr 280px; gap: 80px; align-items: start; }
+    .article-content p { font-size: 0.85rem; color: var(--c600); line-height: 1.8; margin-bottom: 16px; }
+    .coming-soon { border: 1px solid var(--c200); padding: 48px 36px; text-align: center; }
+    .coming-soon-label { font-size: 0.65rem; font-weight: 600; color: var(--c400); text-transform: uppercase; letter-spacing: 0.16em; margin-bottom: 12px; }
+    .coming-soon-title { font-size: 1rem; font-weight: 300; color: var(--c600); }
+    .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 0.68rem; font-weight: 500; color: var(--c500); text-decoration: none; text-transform: uppercase; letter-spacing: 0.12em; transition: color .15s; margin-bottom: 40px; }
+    .back-link:hover { color: var(--accent); }
+    .article-sidebar { position: sticky; top: 88px; }
+    .sidebar-block { border: 1px solid var(--c200); padding: 24px; margin-bottom: 24px; }
+    .sidebar-block-head { font-size: 0.65rem; font-weight: 600; color: var(--c500); text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 16px; }
+    .sidebar-cta { display: inline-flex; align-items: center; gap: 8px; font-size: 0.68rem; font-weight: 600; background: var(--accent); color: var(--white); padding: 12px 20px; text-decoration: none; text-transform: uppercase; letter-spacing: 0.12em; border: 1px solid var(--accent); transition: background .15s; width: 100%; justify-content: center; }
+    .sidebar-cta:hover { background: #162840; }
+    .sidebar-p { font-size: 0.75rem; color: var(--c500); line-height: 1.65; margin-bottom: 16px; }
+    footer { background: var(--c900); padding: 56px 0 32px; }
+    .footer-top { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 0; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,.08); margin-bottom: 28px; }
+    .footer-col { padding-right: 40px; }
+    .footer-col:last-child { padding-right: 0; }
+    .footer-logo { font-size: 0.82rem; font-weight: 600; color: var(--white); letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 10px; display: block; }
+    .footer-tagline { font-size: 0.75rem; color: var(--c500); line-height: 1.65; max-width: 220px; }
+    .footer-col-head { font-size: 0.65rem; font-weight: 600; color: var(--c500); text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 14px; }
+    .footer-col a, .footer-col p { font-size: 0.75rem; color: var(--c400); display: block; text-decoration: none; margin-bottom: 7px; line-height: 1.5; }
+    .footer-col a:hover { color: var(--white); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; font-size: 0.65rem; color: var(--c600); flex-wrap: wrap; gap: 8px; letter-spacing: 0.06em; }
+    @media (max-width: 960px) {
+      .container { padding: 0 28px; } .nav-inner { padding: 0 28px; }
+      .nav-links a { display: none; }
+      .article-wrap { grid-template-columns: 1fr; gap: 48px; }
+      .article-sidebar { position: static; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+    @media (max-width: 640px) { .footer-top { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">RFQplus</a>
+    <div class="nav-links">
+      <a href="/#process">Process</a>
+      <a href="/#capabilities">Capabilities</a>
+      <a href="/#why">Why Us</a>
+      <a href="/blog/">Blog</a>
+      <a href="/#rfq" class="nav-cta">Contact Us →</a>
+    </div>
+  </div>
+</nav>
+<div class="article-header grid-bg">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="/">Home</a><span>/</span>
+      <a href="/blog/">Blog</a><span>/</span>
+      <span>Thread Standards</span>
+    </div>
+    <div class="article-meta-row">
+      <span class="section-label">// machining</span>
+      <span class="article-date">Jan 10, 2025</span>
+    </div>
+    <h1 class="article-h1"><strong>Thread Standards for Machined Parts: UNC, UNF, Metric, and NPT</strong></h1>
+    <p class="article-lead">Mixing thread standards causes costly rework. A concise reference on the most common thread callouts, tolerances, and how to specify them correctly on your drawings.</p>
+  </div>
+</div>
+<div class="container">
+  <div class="article-wrap">
+    <article class="article-content">
+      <a href="/blog/" class="back-link">← Back to Blog</a>
+      <div class="coming-soon">
+        <div class="coming-soon-label">// coming soon</div>
+        <div class="coming-soon-title">Full article in progress.</div>
+      </div>
+    </article>
+    <aside class="article-sidebar">
+      <div class="sidebar-block">
+        <div class="sidebar-block-head">Need a Quote?</div>
+        <p class="sidebar-p">Submit your RFQ and get quotes from vetted US manufacturers within 24 hours.</p>
+        <a href="/#rfq" class="sidebar-cta">Submit RFQ →</a>
+      </div>
+      <div class="sidebar-block">
+        <div class="sidebar-block-head">Related</div>
+        <a href="/blog/" style="font-size:0.75rem;color:var(--c500);display:block;text-decoration:none;padding:6px 0;transition:color .15s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--c500)'">← All Articles</a>
+      </div>
+    </aside>
+  </div>
+</div>
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-col">
+        <span class="footer-logo">RFQplus</span>
+        <p class="footer-tagline">US machined &amp; turned parts sourcing. RFQ to delivery, handled.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-head">Processes</div>
+        <a href="/#capabilities">CNC Milling</a>
+        <a href="/#capabilities">CNC Turning</a>
+        <a href="/#capabilities">Mill-Turn</a>
+        <a href="/#capabilities">Swiss Screw Machining</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-head">Industries</div>
+        <a href="/#capabilities">Aerospace</a>
+        <a href="/#capabilities">Defense / ITAR</a>
+        <a href="/#capabilities">Medical Devices</a>
+        <a href="/#capabilities">Robotics &amp; Automation</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-head">Contact</div>
+        <a href="mailto:rfq@precisionmachining.co">rfq@precisionmachining.co</a>
+        <p>+1 302 248 3229</p>
+        <p>Wilmington, DE</p>
+        <p>United States</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Advanced Tech Solutions LLC. All rights reserved.</span>
+      <span>Privacy Policy · Terms of Service</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
