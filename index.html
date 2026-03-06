@@ -1,1 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PrecisionSource — CNC Machined & Turned Parts</title>
+  <meta name="description" content="Request quotes on CNC machined and turned parts. We connect you with vetted US manufacturers." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    :root {
+      --c50:   #F5F4F0;
+      --c100:  #ECEAE6;
+      --c200:  #D5D1CB;
+      --c400:  #9E978D;
+      --c500:  #857F77;
+      --c600:  #665F57;
+      --c900:  #1C1917;
+      --white: #FFFFFF;
+      --accent:#0A1930;
+      --mono:  'IBM Plex Mono', monospace;
+    }
+    body { font-family: var(--mono); background: var(--c50); color: var(--c900); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    .grid-bg {
+      background-image: linear-gradient(rgba(28,25,23,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(28,25,23,.04) 1px, transparent 1px);
+      background-size: 44px 44px;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+    .section-label { display: inline-flex; align-items: center; gap: 8px; font-size: 0.68rem; font-weight: 500; color: var(--accent); text-transform: uppercase; letter-spacing: 0.18em; border-bottom: 1px solid var(--accent); padding-bottom: 2px; }
 
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; background: rgba(245,244,240,.96); backdrop-filter: blur(10px); border-bottom: 1px solid var(--c200); height: 64px; }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; height: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-size: 0.82rem; font-weight: 600; color: var(--c900); text-decoration: none; letter-spacing: 0.16em; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 36px; }
+    .nav-links a { font-size: 0.68rem; font-weight: 500; color: var(--c600); text-decoration: none; text-transform: uppercase; letter-spacing: 0.14em; transition: color .15s; }
+    .nav-links a:hover { color: var(--c900); }
+    .nav-cta { font-size: 0.68rem; font-weight: 600; background: var(--accent); color: var(--white); padding: 10px 22px; text-decoration: none; text-transform: uppercase; letter-spacing: 0.12em; border: 1px solid var(--accent); transition: background .15s; display: flex; align-items: center; gap: 8px; }
+    .nav-cta:hover { background: #162840; border-color: #162840; }
+
+    /* HERO */
+    #hero { padding: 112px 0 0; border-bottom: 1px solid var(--c200); }
+    .hero-live-dot { display: flex; align-items: center; gap: 6px; font-size: 0.65rem; font-weight: 500; color: var(--c600); text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 40px; }
+    .live-dot { width: 7px; height: 7px; border-radius: 50%; background: #22C55E; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+    .hero-h1 { font-size: clamp(2.8rem, 5.5vw, 5.2rem); font-weight: 300; line-height: 1.08; letter-spacing: -0.02em; color: var(--c900); max-width: 880px; margin-bottom: 28px; }
+    .hero-h1 strong { font-weight: 500; }
+    .hero-sub { font-size: 1rem; color: var(--c600); max-width: 560px; line-height: 1.8; letter-spacing: 0.02em; margin-bottom: 44px; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 72px; }
+    .btn-primary { font-family: var(--mono); font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; background: var(--accent); color: var(--white); padding: 14px 32px; text-decoration: none; border: 1px solid var(--accent); transition: background .15s; display: inline-flex; align-items: center; gap: 10px; }
+    .btn-primary:hover { background: #162840; }
+    .btn-ghost { font-family: var(--mono); font-size: 0.72rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.12em; background: transparent; color: var(--c600); padding: 14px 28px; text-decoration: none; border: 1px solid var(--c200); transition: all .15s; display: inline-flex; align-items: center; gap: 8px; }
+    .btn-ghost:hover { border-color: var(--c600); color: var(--c900); }
+    .hero-stats { display: grid; grid-template-columns: repeat(4,1fr); border-top: 1px solid var(--c200); }
+    .stat-cell { padding: 28px 0; border-right: 1px solid var(--c200); }
+    .stat-cell:last-child { border-right: none; }
+    .stat-num { font-size: 2.2rem; font-weight: 300; color: var(--c900); line-height: 1; letter-spacing: -0.02em; margin-bottom: 6px; }
+    .stat-num sup { font-size: 1rem; font-weight: 500; color: var(--accent); vertical-align: top; margin-top: 4px; display: inline-block; }
+    .stat-label { font-size: 0.68rem; color: var(--c500); text-transform: uppercase; letter-spacing: 0.14em; }
+
+    /* PROCESS */
+    #process { padding: 88px 0; background: var(--white); border-bottom: 1px solid var(--c200); }
+    .sec-head { display: grid; grid-template-columns: 280px 1fr; gap: 48px; align-items: start; margin-bottom: 56px; }
+    .sec-title { font-size: clamp(1.6rem, 2.5vw, 2.2rem); font-weight: 300; line-height: 1.2; letter-spacing: -0.01em; color: var(--c900); margin-top: 12px; }
+    .sec-title strong { font-weight: 500; }
+    .sec-note { font-size: 0.85rem; color: var(--c600); max-width: 580px; line-height: 1.8; letter-spacing: 0.02em; margin-top: 12px; }
+    .steps-grid { display: grid; grid-template-columns: repeat(3,1fr); border: 1px solid var(--c200); }
+    .step-card { padding: 40px 36px; border-right: 1px solid var(--c200); position: relative; overflow: hidden; }
+    .step-card:last-child { border-right: none; }
+    .step-icon-wrap { position: relative; width: 72px; height: 72px; display: flex; align-items: center; justify-content: center; margin-bottom: 28px; }
+    .step-icon-wrap::before, .step-icon-wrap::after, .step-icon-wrap > span::before, .step-icon-wrap > span::after { content: ''; position: absolute; width: 14px; height: 14px; }
+    .step-icon-wrap::before { top: 0; left: 0; border-top: 2px solid var(--accent); border-left: 2px solid var(--accent); }
+    .step-icon-wrap::after { bottom: 0; right: 0; border-bottom: 2px solid var(--accent); border-right: 2px solid var(--accent); }
+    .step-icon-wrap > span::before { top: 0; right: 0; border-top: 2px solid var(--c200); border-right: 2px solid var(--c200); }
+    .step-icon-wrap > span::after { bottom: 0; left: 0; border-bottom: 2px solid var(--c200); border-left: 2px solid var(--c200); }
+    .step-num-inner { font-size: 0.65rem; font-weight: 600; color: var(--accent); letter-spacing: 0.14em; text-transform: uppercase; }
+    .step-n { font-size: 0.65rem; font-weight: 600; color: var(--c500); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 14px; }
+    .step-title { font-size: 1rem; font-weight: 500; color: var(--c900); margin-bottom: 12px; letter-spacing: -0.01em; }
+    .step-body { font-size: 0.8rem; color: var(--c600); line-height: 1.75; letter-spacing: 0.02em; }
+    .step-card::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--accent); transition: width .4s ease; }
+    .step-card:hover::after { width: 100%; }
+
+    /* CAPABILITIES */
+    #capabilities { padding: 88px 0; background: var(--c50); border-bottom: 1px solid var(--c200); }
+    .cap-grid { display: grid; grid-template-columns: repeat(3,1fr); border: 1px solid var(--c200); margin-top: 56px; }
+    .cap-card { padding: 36px 32px; border-right: 1px solid var(--c200); border-bottom: 1px solid var(--c200); position: relative; overflow: hidden; background: var(--white); transition: background .15s; }
+    .cap-card:hover { background: var(--c50); }
+    .cap-card::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--accent); transition: width .4s ease; }
+    .cap-card:hover::after { width: 100%; }
+    .cap-card:nth-child(3n) { border-right: none; }
+    .cap-icon { width: 48px; height: 48px; border: 1px solid var(--c200); background: var(--c50); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; transition: border-color .15s; }
+    .cap-card:hover .cap-icon { border-color: var(--accent); }
+    .cap-icon svg { width: 22px; height: 22px; stroke: var(--c600); transition: stroke .15s; }
+    .cap-card:hover .cap-icon svg { stroke: var(--accent); }
+    .cap-title { font-size: 0.92rem; font-weight: 500; color: var(--c900); margin-bottom: 8px; letter-spacing: -0.01em; }
+    .cap-body { font-size: 0.78rem; color: var(--c600); line-height: 1.75; letter-spacing: 0.02em; }
+    .spec-block { margin-top: 56px; border: 1px solid var(--c200); }
+    .spec-head { background: var(--c900); color: var(--white); padding: 13px 24px; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; }
+    .spec-row { display: grid; grid-template-columns: 260px 1fr; border-bottom: 1px solid var(--c100); }
+    .spec-row:last-child { border-bottom: none; }
+    .spec-key { padding: 11px 24px; font-size: 0.75rem; color: var(--c500); border-right: 1px solid var(--c100); background: var(--c50); letter-spacing: 0.04em; }
+    .spec-val { padding: 11px 24px; font-size: 0.75rem; color: var(--c900); }
+
+    /* WHY */
+    #why { padding: 88px 0; background: var(--white); border-bottom: 1px solid var(--c200); }
+    .why-grid { display: grid; grid-template-columns: repeat(3,1fr); border: 1px solid var(--c200); margin-top: 56px; }
+    .why-card { padding: 36px 32px; border-right: 1px solid var(--c200); border-bottom: 1px solid var(--c200); position: relative; overflow: hidden; background: var(--white); transition: background .15s; }
+    .why-card:hover { background: var(--c50); }
+    .why-card::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--accent); transition: width .4s ease; }
+    .why-card:hover::after { width: 100%; }
+    .why-card:nth-child(3n) { border-right: none; }
+    .why-mark { font-size: 0.65rem; font-weight: 600; color: var(--c500); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 14px; }
+    .why-title { font-size: 0.92rem; font-weight: 500; color: var(--c900); margin-bottom: 10px; letter-spacing: -0.01em; }
+    .why-body { font-size: 0.78rem; color: var(--c600); line-height: 1.75; letter-spacing: 0.02em; }
+
+    /* RFQ — MAILTO */
+    #rfq { padding: 88px 0 100px; background: var(--c50); border-bottom: 1px solid var(--c200); }
+    .rfq-mailto-wrap { display: grid; grid-template-columns: 1fr 1.2fr; gap: 64px; margin-top: 56px; align-items: start; }
+    .mailto-tag { font-size: 0.65rem; font-weight: 600; color: var(--c500); text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 16px; }
+    .mailto-email { font-size: clamp(1.2rem, 2.2vw, 1.8rem); font-weight: 300; color: var(--c900); letter-spacing: -0.01em; margin-bottom: 16px; word-break: break-all; }
+    .mailto-sub { font-size: 0.8rem; color: var(--c600); line-height: 1.75; max-width: 340px; margin-bottom: 32px; }
+    .btn-mailto { display: flex; align-items: center; gap: 12px; font-family: var(--mono); font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; background: var(--accent); color: var(--white); padding: 16px 32px; text-decoration: none; border: 1px solid var(--accent); transition: background .15s; width: 100%; justify-content: center; margin-bottom: 12px; }
+    .btn-mailto:hover { background: #162840; }
+    .btn-mailto-arrow { margin-left: auto; }
+    .mailto-or { display: flex; align-items: center; gap: 12px; margin: 4px 0; }
+    .mailto-or::before, .mailto-or::after { content: ''; flex: 1; height: 1px; background: var(--c200); }
+    .mailto-or span { font-size: 0.65rem; color: var(--c500); text-transform: uppercase; letter-spacing: 0.12em; white-space: nowrap; }
+    .btn-copy { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; font-family: var(--mono); font-size: 0.72rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.12em; color: var(--c600); background: transparent; border: 1px solid var(--c200); padding: 13px 24px; cursor: pointer; transition: all .15s; margin-top: 12px; }
+    .btn-copy:hover { border-color: var(--c600); color: var(--c900); }
+    .btn-copy.copied { border-color: #22C55E; color: #22C55E; }
+    .checklist-card { border: 1px solid var(--c200); background: var(--white); margin-bottom: 16px; }
+    .checklist-head { background: var(--c100); border-bottom: 1px solid var(--c200); padding: 13px 24px; }
+    .checklist-label { font-size: 0.65rem; font-weight: 600; color: var(--c500); text-transform: uppercase; letter-spacing: 0.14em; }
+    .checklist-body { padding: 0 24px; }
+    .checklist-item { display: flex; gap: 20px; align-items: flex-start; padding: 18px 0; border-bottom: 1px solid var(--c100); }
+    .checklist-item:last-child { border-bottom: none; }
+    .ci-num { font-size: 0.65rem; font-weight: 600; color: var(--accent); letter-spacing: 0.1em; flex-shrink: 0; margin-top: 2px; width: 20px; }
+    .ci-title { font-size: 0.82rem; font-weight: 500; color: var(--c900); margin-bottom: 4px; }
+    .ci-sub { font-size: 0.72rem; color: var(--c500); line-height: 1.6; letter-spacing: 0.02em; }
+    .sla-strip { border: 1px solid var(--c200); background: var(--c900); display: flex; }
+    .sla-cell { flex: 1; padding: 20px 24px; text-align: center; }
+    .sla-divider { width: 1px; background: rgba(255,255,255,.1); margin: 16px 0; }
+    .sla-num { font-size: 1.6rem; font-weight: 300; color: var(--white); letter-spacing: -0.02em; line-height: 1; margin-bottom: 6px; }
+    .sla-label { font-size: 0.62rem; color: var(--c500); text-transform: uppercase; letter-spacing: 0.12em; line-height: 1.4; }
+
+    /* FOOTER */
+    footer { background: var(--c900); padding: 56px 0 32px; }
+    .footer-top { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 0; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,.08); margin-bottom: 28px; }
+    .footer-col { padding-right: 40px; }
+    .footer-col:last-child { padding-right: 0; }
+    .footer-logo { font-size: 0.82rem; font-weight: 600; color: var(--white); letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 10px; display: block; }
+    .footer-tagline { font-size: 0.75rem; color: var(--c500); line-height: 1.65; max-width: 220px; }
+    .footer-col-head { font-size: 0.65rem; font-weight: 600; color: var(--c500); text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 14px; }
+    .footer-col a, .footer-col p { font-size: 0.75rem; color: var(--c400); display: block; text-decoration: none; margin-bottom: 7px; line-height: 1.5; }
+    .footer-col a:hover { color: var(--white); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; font-size: 0.65rem; color: var(--c600); flex-wrap: wrap; gap: 8px; letter-spacing: 0.06em; }
+
+    /* RESPONSIVE */
+    @media (max-width: 960px) {
+      .container { padding: 0 28px; }
+      .nav-inner { padding: 0 28px; }
+      .nav-links a { display: none; }
+      .hero-stats { grid-template-columns: 1fr 1fr; }
+      .stat-cell:nth-child(2) { border-right: none; }
+      .sec-head { grid-template-columns: 1fr; gap: 8px; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .step-card { border-right: none; border-bottom: 1px solid var(--c200); }
+      .cap-grid { grid-template-columns: 1fr 1fr; }
+      .cap-card:nth-child(3n) { border-right: 1px solid var(--c200); }
+      .cap-card:nth-child(2n) { border-right: none; }
+      .why-grid { grid-template-columns: 1fr 1fr; }
+      .why-card:nth-child(3n) { border-right: 1px solid var(--c200); }
+      .why-card:nth-child(2n) { border-right: none; }
+      .rfq-mailto-wrap { grid-template-columns: 1fr; gap: 40px; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+    @media (max-width: 640px) {
+      .cap-grid { grid-template-columns: 1fr; }
+      .cap-card { border-right: none !important; }
+      .why-grid { grid-template-columns: 1fr; }
+      .why-card { border-right: none !important; }
+      .footer-top { grid-template-columns: 1fr; }
+      .spec-row { grid-template-columns: 1fr; }
+      .spec-key { border-right: none; }
+      .sla-strip { flex-direction: column; }
+      .sla-divider { width: 100%; height: 1px; margin: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">PrecisionSource</a>
+    <div class="nav-links">
+      <a href="#process">Process</a>
+      <a href="#capabilities">Capabilities</a>
+      <a href="#why">Why Us</a>
+      <a href="#rfq" class="nav-cta">Contact Us →</a>
+    </div>
+  </div>
+</nav>
+
+<section id="hero" class="grid-bg">
+  <div class="container">
+    <div class="hero-live-dot">
+      <span class="live-dot"></span>
+      US Manufacturing Network · CNC Machined &amp; Turned Parts
+    </div>
+    <h1 class="hero-h1">From RFQ to<br /><strong>production-ready parts</strong><br />in 24 hours.</h1>
+    <p class="hero-sub">We source and qualify machined parts across a vetted network of US shops. Submit your requirements — we handle sourcing, quoting, and delivery.</p>
+    <div class="hero-actions">
+      <a href="#rfq" class="btn-primary">Get a Quote →</a>
+      <a href="#process" class="btn-ghost">How It Works</a>
+    </div>
+  </div>
+  <div class="container">
+    <div class="hero-stats">
+      <div class="stat-cell"><div class="stat-num">24<sup>h</sup></div><div class="stat-label">Quote Turnaround</div></div>
+      <div class="stat-cell"><div class="stat-num">50<sup>+</sup></div><div class="stat-label">Vetted Shops</div></div>
+      <div class="stat-cell"><div class="stat-num">98<sup>%</sup></div><div class="stat-label">On-Time Delivery</div></div>
+      <div class="stat-cell"><div class="stat-num">±.001<sup>"</sup></div><div class="stat-label">Achievable Tolerance</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="container">
+    <div class="sec-head">
+      <div><span class="section-label">Process</span><h2 class="sec-title">Three steps<br />to <strong>finished parts.</strong></h2></div>
+      <p class="sec-note">We act as a single point of contact between your engineering team and production. No vendor management, no RFQ chasing — just parts delivered on spec.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-icon-wrap"><span></span><div class="step-num-inner">01</div></div>
+        <div class="step-n">Step 01</div>
+        <div class="step-title">Send Your RFQ</div>
+        <div class="step-body">Email your part specs, material, quantity, and drawings directly to our engineering inbox. Files stay between you and us — no third-party servers.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-icon-wrap"><span></span><div class="step-num-inner">02</div></div>
+        <div class="step-n">Step 02</div>
+        <div class="step-title">We Source &amp; Quote</div>
+        <div class="step-body">Within 24 hours we match your requirements to the best-fit shops in our network and return a competitive, itemized quote. Volume pricing negotiated at scale.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-icon-wrap"><span></span><div class="step-num-inner">03</div></div>
+        <div class="step-n">Step 03</div>
+        <div class="step-title">Production &amp; Delivery</div>
+        <div class="step-body">We manage production scheduling, QC checkpoints, and shipping. You get a single invoice and real-time status updates until parts reach your dock.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="capabilities">
+  <div class="container">
+    <div class="sec-head">
+      <div><span class="section-label">Capabilities</span><h2 class="sec-title">What<br /><strong>we source.</strong></h2></div>
+      <p class="sec-note">Our network covers the full range of subtractive manufacturing processes, from prototype quantities to production volumes.</p>
+    </div>
+    <div class="cap-grid">
+      <div class="cap-card">
+        <div class="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+        <div class="cap-title">CNC Milling</div>
+        <div class="cap-body">3-axis, 4-axis, and 5-axis milling. Prismatic parts, complex contours, pockets and bores to tight tolerances.</div>
+      </div>
+      <div class="cap-card">
+        <div class="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3m0 14v3M4.22 4.22l2.12 2.12m11.32 11.32l2.12 2.12M2 12h3m14 0h3M4.22 19.78l2.12-2.12M18.66 5.34l-2.12 2.12"/></svg></div>
+        <div class="cap-title">CNC Turning</div>
+        <div class="cap-body">Precision turned parts, shafts, bushings, and threaded components. OD/ID to ±0.0005" on demand.</div>
+      </div>
+      <div class="cap-card">
+        <div class="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-4 0v2M8 7V5a2 2 0 014 0"/></svg></div>
+        <div class="cap-title">Mill-Turn / Swiss</div>
+        <div class="cap-body">Complex rotational parts requiring milling features. Swiss screw machining for high-volume small-diameter parts.</div>
+      </div>
+      <div class="cap-card" style="border-bottom:none;">
+        <div class="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/></svg></div>
+        <div class="cap-title">Secondary Operations</div>
+        <div class="cap-body">Anodizing, plating, heat treat, grinding, EDM, and CMM inspection — coordinated end to end.</div>
+      </div>
+      <div class="cap-card" style="border-bottom:none;">
+        <div class="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg></div>
+        <div class="cap-title">Materials</div>
+        <div class="cap-body">Al 6061 / 7075 · 303 / 316 / 17-4 SS · 4140 / 4340 Steel · Ti-6Al-4V · Brass · Delrin · PEEK</div>
+      </div>
+      <div class="cap-card" style="border-bottom:none; border-right:none;">
+        <div class="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
+        <div class="cap-title">Industries Served</div>
+        <div class="cap-body">Aerospace · Defense / ITAR · Medical Devices · Robotics &amp; Automation · Semiconductor · Industrial Equipment</div>
+      </div>
+    </div>
+    <div class="spec-block">
+      <div class="spec-head">Technical Reference</div>
+      <div class="spec-row"><div class="spec-key">Materials</div><div class="spec-val">Al 6061 / 7075 / 2024 · 303 / 316 / 17-4 SS · Steel 4140 / 4340 · Ti-6Al-4V · Brass 360 · Delrin · PEEK</div></div>
+      <div class="spec-row"><div class="spec-key">Tolerances</div><div class="spec-val">General ±0.005" · Precision ±0.001" · High-precision ±0.0005" (shop dependent)</div></div>
+      <div class="spec-row"><div class="spec-key">Part size range</div><div class="spec-val">0.060" dia. (Swiss) up to 24" × 24" × 10" (milled envelope)</div></div>
+      <div class="spec-row"><div class="spec-key">Volume range</div><div class="spec-val">1 piece (prototype) to 10,000+ per run (production)</div></div>
+      <div class="spec-row"><div class="spec-key">File formats</div><div class="spec-val">STEP · IGES · DWG · DXF · PDF (2D) · SolidWorks · Fusion 360</div></div>
+      <div class="spec-row"><div class="spec-key">Select shop certs</div><div class="spec-val">ISO 9001 · AS9100 · ITAR registered · NADCAP</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="container">
+    <div class="sec-head">
+      <div><span class="section-label">Why Us</span><h2 class="sec-title">Built for procurement<br /><strong>and engineering teams.</strong></h2></div>
+      <p class="sec-note">We designed this process around the real frustrations of sourcing machined parts — slow quotes, unpredictable quality, too many points of contact.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card"><div class="why-mark">// IP Protection</div><div class="why-title">Drawing Confidentiality</div><div class="why-body">Your files are shared only with the selected manufacturer. NDAs available on request. We do not upload drawings to third-party platforms.</div></div>
+      <div class="why-card"><div class="why-mark">// Speed</div><div class="why-title">24-Hour Quote SLA</div><div class="why-body">Submit today, receive a quoted price tomorrow. Same-day rush quoting available for critical-path projects — note it in your email.</div></div>
+      <div class="why-card"><div class="why-mark">// US Only</div><div class="why-title">Vetted Domestic Shops</div><div class="why-body">Every manufacturer in our network has passed capability, quality, and on-time delivery audits. ITAR-compliant sourcing available.</div></div>
+      <div class="why-card" style="border-bottom:none;"><div class="why-mark">// Efficiency</div><div class="why-title">One Contact, One Invoice</div><div class="why-body">Your team deals with us — not six different shops. One PO, one invoice, one point of accountability from RFQ to delivery.</div></div>
+      <div class="why-card" style="border-bottom:none;"><div class="why-mark">// Quality</div><div class="why-title">First Article &amp; Inspection</div><div class="why-body">FAI reports and dimensional inspection available for production orders. CMM data and material certs supplied on request.</div></div>
+      <div class="why-card" style="border-bottom:none; border-right:none;"><div class="why-mark">// Pricing</div><div class="why-title">Network-Scale Pricing</div><div class="why-body">We negotiate pricing across order volume. You benefit from the aggregate demand of our entire customer base — not just your own.</div></div>
+    </div>
+  </div>
+</section>
+<section id="rfq">
+  <div class="container">
+    <div class="sec-head">
+      <div><span class="section-label">Request a Quote</span><h2 class="sec-title">Start<br /><strong>your RFQ.</strong></h2></div>
+      <p class="sec-note">No forms, no logins. Email us directly — we respond within 24 business hours.</p>
+    </div>
+
+    <div class="rfq-mailto-wrap">
+
+      <div class="mailto-main">
+        <div class="mailto-tag">// Direct Contact</div>
+        <div class="mailto-email">anton.penteleychuk@mdcplus.fi</div>
+        <p class="mailto-sub">Your email goes directly to our engineering team. No third-party servers, no cloud storage. NDAs available on request.</p>
+        <a href="mailto:anton.penteleychuk@mdcplus.fi?subject=RFQ — [Your Company]&body=Part description:%0D%0AMaterial:%0D%0AProcess (milling / turning / other):%0D%0AQuantity:%0D%0ALead time:%0D%0ATolerance requirements:%0D%0ANotes:%0D%0A%0D%0A(Please attach PDF / STEP / DWG drawings)" class="btn-mailto">
+          <span>✉</span>
+          Open Email Client
+          <span class="btn-mailto-arrow">→</span>
+        </a>
+        <div class="mailto-or"><span>or copy the address above</span></div>
+        <button class="btn-copy" onclick="copyEmail(this)">
+          <span>⎘</span> Copy email address
+        </button>
+      </div>
+
+      <div class="mailto-right">
+        <div class="checklist-card">
+          <div class="checklist-head">
+            <span class="checklist-label">// What to include in your email</span>
+          </div>
+          <div class="checklist-body">
+            <div class="checklist-item">
+              <span class="ci-num">01</span>
+              <div>
+                <div class="ci-title">Part description &amp; material</div>
+                <div class="ci-sub">e.g. "Turned housing, Al 6061-T6, OD 1.5 in"</div>
+              </div>
+            </div>
+            <div class="checklist-item">
+              <span class="ci-num">02</span>
+              <div>
+                <div class="ci-title">Process &amp; quantity</div>
+                <div class="ci-sub">Milling / turning / swiss · prototype or production run</div>
+              </div>
+            </div>
+            <div class="checklist-item">
+              <span class="ci-num">03</span>
+              <div>
+                <div class="ci-title">Tolerances &amp; finish</div>
+                <div class="ci-sub">GD&amp;T callouts, surface finish Ra, thread specs</div>
+              </div>
+            </div>
+            <div class="checklist-item">
+              <span class="ci-num">04</span>
+              <div>
+                <div class="ci-title">Lead time required</div>
+                <div class="ci-sub">Rush (&lt;5 days), 1–2 weeks, or flexible</div>
+              </div>
+            </div>
+            <div class="checklist-item">
+              <span class="ci-num">05</span>
+              <div>
+                <div class="ci-title">Attach drawings</div>
+                <div class="ci-sub">PDF · STEP · DWG · IGES · SolidWorks · Fusion 360</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sla-strip">
+          <div class="sla-cell">
+            <div class="sla-num">24h</div>
+            <div class="sla-label">Quote turnaround SLA</div>
+          </div>
+          <div class="sla-divider"></div>
+          <div class="sla-cell">
+            <div class="sla-num">NDA</div>
+            <div class="sla-label">Available on request</div>
+          </div>
+          <div class="sla-divider"></div>
+          <div class="sla-cell">
+            <div class="sla-num">US</div>
+            <div class="sla-label">Domestic shops only</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-col">
+        <span class="footer-logo">PrecisionSource</span>
+        <p class="footer-tagline">US machined &amp; turned parts sourcing. RFQ to delivery, handled.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-head">Processes</div>
+        <a href="#">CNC Milling</a>
+        <a href="#">CNC Turning</a>
+        <a href="#">Mill-Turn</a>
+        <a href="#">Swiss Screw Machining</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-head">Industries</div>
+        <a href="#">Aerospace</a>
+        <a href="#">Defense / ITAR</a>
+        <a href="#">Medical Devices</a>
+        <a href="#">Robotics &amp; Automation</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-head">Contact</div>
+        <a href="mailto:anton.penteleychuk@mdcplus.fi">anton.penteleychuk@mdcplus.fi</a>
+        <p>+1 (555) 000-0000</p>
+        <p>United States</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 PrecisionSource LLC. All rights reserved.</span>
+      <span>Privacy Policy · Terms of Service</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function copyEmail(btn) {
+    navigator.clipboard.writeText('anton.penteleychuk@mdcplus.fi').then(() => {
+      btn.classList.add('copied');
+      btn.innerHTML = '<span>✓</span> Copied!';
+      setTimeout(() => {
+        btn.classList.remove('copied');
+        btn.innerHTML = '<span>⎘</span> Copy email address';
+      }, 2000);
+    });
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+</script>
+</body>
+</html>
