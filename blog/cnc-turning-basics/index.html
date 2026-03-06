@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CNC Turning Basics: What Every Engineer Should Know — PrecisionSource</title>
+  <meta name="description" content="CNC turning is one of the most efficient ways to produce cylindrical parts. This guide breaks down tolerances, materials, and when turning beats milling." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ── RESET ─────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    /* ── TOKENS ────────────────────────────────────────────── */
+    :root {
+      --c50:    #F5F4F0;
+      --c100:   #ECEAE6;
+      --c200:   #D5D1CB;
+      --c400:   #9E978D;
+      --c500:   #857F77;
+      --c600:   #665F57;
+      --c900:   #1C1917;
+      --white:  #FFFFFF;
+      --accent: #0A1930;
+      --mono:   'IBM Plex Mono', monospace;
+    }
+
+    body {
+      font-family: var(--mono);
+      background: var(--c50);
+      color: var(--c900);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .grid-bg {
+      background-image:
+        linear-gradient(rgba(28,25,23,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(28,25,23,.04) 1px, transparent 1px);
+      background-size: 44px 44px;
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+
+    .section-label {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.68rem; font-weight: 500; color: var(--accent);
+      text-transform: uppercase; letter-spacing: 0.18em;
+      border-bottom: 1px solid var(--accent); padding-bottom: 2px;
+    }
+
+    /* ── NAV ───────────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: rgba(245,244,240,.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--c200);
+      height: 64px;
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 48px;
+      height: 100%; display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo {
+      font-size: 0.82rem; font-weight: 600; color: var(--c900);
+      text-decoration: none; letter-spacing: 0.16em; text-transform: uppercase;
+    }
+    .nav-links { display: flex; align-items: center; gap: 36px; }
+    .nav-links a {
+      font-size: 0.68rem; font-weight: 500; color: var(--c600);
+      text-decoration: none; text-transform: uppercase; letter-spacing: 0.14em;
+      transition: color .15s;
+    }
+    .nav-links a:hover { color: var(--c900); }
+    .nav-cta {
+      font-size: 0.68rem; font-weight: 600;
+      background: var(--accent); color: var(--white);
+      padding: 10px 22px; text-decoration: none;
+      text-transform: uppercase; letter-spacing: 0.12em;
+      border: 1px solid var(--accent); transition: background .15s;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .nav-cta:hover { background: #162840; border-color: #162840; }
+
+    /* ── ARTICLE HEADER ────────────────────────────────────── */
+    .article-header {
+      padding: 112px 0 56px;
+      border-bottom: 1px solid var(--c200);
+    }
+    .article-header .breadcrumb {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 0.65rem; color: var(--c400);
+      text-transform: uppercase; letter-spacing: 0.12em;
+      margin-bottom: 24px;
+    }
+    .article-header .breadcrumb a {
+      color: var(--c400); text-decoration: none; transition: color .15s;
+    }
+    .article-header .breadcrumb a:hover { color: var(--accent); }
+    .article-header .breadcrumb span { color: var(--c200); }
+
+    .article-meta-row {
+      display: flex; align-items: center; gap: 16px;
+      margin-bottom: 20px;
+    }
+    .article-date {
+      font-size: 0.65rem; color: var(--c400);
+      text-transform: uppercase; letter-spacing: 0.12em;
+    }
+    .article-h1 {
+      font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+      font-weight: 300; line-height: 1.15;
+      letter-spacing: -0.02em; max-width: 800px;
+      margin-bottom: 20px;
+    }
+    .article-h1 strong { font-weight: 500; }
+    .article-lead {
+      font-size: 0.9rem; color: var(--c500);
+      max-width: 640px; line-height: 1.7;
+    }
+
+    /* ── ARTICLE BODY ──────────────────────────────────────── */
+    .article-wrap {
+      padding: 56px 0 80px;
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .article-content h2 {
+      font-size: 1rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.12em;
+      margin: 40px 0 14px;
+      padding-top: 40px;
+      border-top: 1px solid var(--c200);
+    }
+    .article-content h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+    .article-content p {
+      font-size: 0.85rem; color: var(--c600);
+      line-height: 1.8; margin-bottom: 16px;
+    }
+    .article-content ul, .article-content ol {
+      padding-left: 20px; margin-bottom: 16px;
+    }
+    .article-content li {
+      font-size: 0.85rem; color: var(--c600);
+      line-height: 1.8; margin-bottom: 6px;
+    }
+    .article-content strong { color: var(--c900); font-weight: 500; }
+
+    /* ── SIDEBAR ───────────────────────────────────────────── */
+    .article-sidebar { position: sticky; top: 88px; }
+    .sidebar-block {
+      border: 1px solid var(--c200);
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .sidebar-block-head {
+      font-size: 0.65rem; font-weight: 600; color: var(--c500);
+      text-transform: uppercase; letter-spacing: 0.14em;
+      margin-bottom: 16px;
+    }
+    .sidebar-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.68rem; font-weight: 600;
+      background: var(--accent); color: var(--white);
+      padding: 12px 20px; text-decoration: none;
+      text-transform: uppercase; letter-spacing: 0.12em;
+      border: 1px solid var(--accent); transition: background .15s;
+      width: 100%; justify-content: center;
+    }
+    .sidebar-cta:hover { background: #162840; }
+    .sidebar-p {
+      font-size: 0.75rem; color: var(--c500); line-height: 1.65;
+      margin-bottom: 16px;
+    }
+
+    /* back link */
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.68rem; font-weight: 500; color: var(--c500);
+      text-decoration: none; text-transform: uppercase; letter-spacing: 0.12em;
+      transition: color .15s; margin-bottom: 40px;
+    }
+    .back-link:hover { color: var(--accent); }
+
+    /* ── FOOTER ────────────────────────────────────────────── */
+    footer {
+      background: var(--c900);
+      padding: 56px 0 32px;
+    }
+    .footer-top {
+      display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 0; padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      margin-bottom: 28px;
+    }
+    .footer-col { padding-right: 40px; }
+    .footer-col:last-child { padding-right: 0; }
+    .footer-logo { font-size: 0.82rem; font-weight: 600; color: var(--white); letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 10px; display: block; }
+    .footer-tagline { font-size: 0.75rem; color: var(--c500); line-height: 1.65; max-width: 220px; }
+    .footer-col-head { font-size: 0.65rem; font-weight: 600; color: var(--c500); text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 14px; }
+    .footer-col a, .footer-col p { font-size: 0.75rem; color: var(--c400); display: block; text-decoration: none; margin-bottom: 7px; line-height: 1.5; }
+    .footer-col a:hover { color: var(--white); }
+    .footer-bottom {
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.65rem; color: var(--c600); flex-wrap: wrap; gap: 8px;
+      letter-spacing: 0.06em;
+    }
+
+    /* ── RESPONSIVE ────────────────────────────────────────── */
+    @media (max-width: 960px) {
+      .container { padding: 0 28px; }
+      .nav-inner { padding: 0 28px; }
+      .nav-links a { display: none; }
+      .article-wrap { grid-template-columns: 1fr; gap: 48px; }
+      .article-sidebar { position: static; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+    @media (max-width: 640px) {
+      .footer-top { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">PrecisionSource</a>
+    <div class="nav-links">
+      <a href="/#process">Process</a>
+      <a href="/#capabilities">Capabilities</a>
+      <a href="/#why">Why Us</a>
+      <a href="/#rfq" class="nav-cta">Submit RFQ →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ARTICLE HEADER -->
+<div class="article-header grid-bg">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="/">Home</a>
+      <span>/</span>
+      <a href="/blog/">Blog</a>
+      <span>/</span>
+      <span>CNC Turning Basics</span>
+    </div>
+    <div class="article-meta-row">
+      <span class="section-label">// machining</span>
+      <span class="article-date">Mar 1, 2025</span>
+    </div>
+    <h1 class="article-h1"><strong>CNC Turning Basics:</strong> What Every Engineer Should Know</h1>
+    <p class="article-lead">CNC turning is one of the most efficient ways to produce cylindrical parts. This guide breaks down tolerances, materials, and when turning beats milling.</p>
+  </div>
+</div>
+
+<!-- ARTICLE BODY -->
+<div class="container">
+  <div class="article-wrap">
+
+    <article class="article-content">
+      <a href="/blog/" class="back-link">← Back to Blog</a>
+
+      <h2>What is CNC Turning?</h2>
+      <p>CNC turning is a subtractive manufacturing process where a workpiece rotates at high speed while a stationary cutting tool removes material. The result is a cylindrical or conical part produced with high repeatability and tight tolerances.</p>
+      <p>Unlike milling — where the tool moves — in turning the part moves. This fundamental difference makes turning ideal for shafts, pins, bushings, and any rotationally symmetric geometry.</p>
+
+      <h2>When to Choose Turning Over Milling</h2>
+      <p>Use turning when your part is primarily cylindrical. Common examples include:</p>
+      <ul>
+        <li>Shafts and axles</li>
+        <li>Threaded fasteners and studs</li>
+        <li>Hydraulic fittings and connectors</li>
+        <li>Bushings and spacers</li>
+        <li>Nozzles and valve bodies</li>
+      </ul>
+      <p>Milling is better suited for prismatic parts with flat surfaces, pockets, or complex 3D features that can't be achieved through rotation.</p>
+
+      <h2>Tolerances You Can Expect</h2>
+      <p>Standard CNC turning tolerances run <strong>±0.005"</strong> (±0.127 mm) without special effort. With careful setup and finishing passes, tolerances of <strong>±0.001"</strong> (±0.025 mm) are achievable on diameter.</p>
+      <p>Surface finish of Ra 1.6 µm (63 µin) is typical off the machine. Ground finishes can reach Ra 0.4 µm (16 µin) for bearing fits and sealing surfaces.</p>
+
+      <h2>Material Considerations</h2>
+      <p>Most machinable metals run well on a lathe. Here's a quick reference:</p>
+      <ul>
+        <li><strong>6061 Aluminum</strong> — Fast, cheap, excellent finish. Default choice for non-critical parts.</li>
+        <li><strong>303 Stainless</strong> — Free-machining grade. Better choice than 304 for turned parts.</li>
+        <li><strong>4140 Steel</strong> — Strong, tough, machines well. Good for shafts under load.</li>
+        <li><strong>Brass (C360)</strong> — Exceptional machinability. Great for fittings and connectors.</li>
+        <li><strong>Titanium Grade 5</strong> — Slow feeds, sharp tools, coolant required. High cost but high performance.</li>
+      </ul>
+
+      <h2>Specifying Your Turned Parts</h2>
+      <p>When submitting an RFQ for turned parts, include:</p>
+      <ol>
+        <li>STEP or IGES file (or a 2D print with full GD&amp;T)</li>
+        <li>Material and any required certifications (e.g., material certs, ITAR)</li>
+        <li>Critical tolerances called out explicitly — don't rely on title block defaults for anything that matters</li>
+        <li>Surface finish requirements and any post-processing (anodize, plating, passivation)</li>
+        <li>Quantity and target delivery</li>
+      </ol>
+      <p>The more complete your package, the faster and more accurate the quotes you'll receive.</p>
+    </article>
+
+    <!-- SIDEBAR -->
+    <aside class="article-sidebar">
+      <div class="sidebar-block">
+        <div class="sidebar-block-head">Need Turned Parts?</div>
+        <p class="sidebar-p">Submit an RFQ and get quotes from vetted US manufacturers within 24–48 hours.</p>
+        <a href="/#rfq" class="sidebar-cta">Submit RFQ →</a>
+      </div>
+      <div class="sidebar-block">
+        <div class="sidebar-block-head">Related</div>
+        <a href="/blog/" style="font-size:0.75rem;color:var(--c500);display:block;text-decoration:none;padding:6px 0;border-bottom:1px solid var(--c100);transition:color .15s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--c500)'">← All Articles</a>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-col">
+        <span class="footer-logo">PrecisionSource</span>
+        <p class="footer-tagline">US machined &amp; turned parts sourcing. RFQ to delivery, handled.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-head">Processes</div>
+        <a href="/#capabilities">CNC Milling</a>
+        <a href="/#capabilities">CNC Turning</a>
+        <a href="/#capabilities">Mill-Turn</a>
+        <a href="/#capabilities">Swiss Screw Machining</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-head">Industries</div>
+        <a href="/#capabilities">Aerospace</a>
+        <a href="/#capabilities">Defense / ITAR</a>
+        <a href="/#capabilities">Medical Devices</a>
+        <a href="/#capabilities">Robotics &amp; Automation</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-head">Contact</div>
+        <a href="mailto:rfq@yourdomain.com">rfq@yourdomain.com</a>
+        <p>+1 (555) 000-0000</p>
+        <p>United States</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 PrecisionSource LLC. All rights reserved.</span>
+      <span>Privacy Policy · Terms of Service</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
