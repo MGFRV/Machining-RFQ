@@ -165,6 +165,27 @@
     .footer-col a:hover { color: var(--white); }
     .footer-bottom { display: flex; justify-content: space-between; align-items: center; font-size: 0.65rem; color: var(--c600); flex-wrap: wrap; gap: 8px; letter-spacing: 0.06em; }
 
+    /* HERO MAP */
+    .hero-content-wrap { position: relative; min-height: 420px; }
+    .hero-content-wrap .container { position: relative; z-index: 1; }
+    .hero-map {
+      position: absolute; top: 0; right: -2%; bottom: 0; width: 60%;
+      pointer-events: none; z-index: 0;
+      display: flex; align-items: center; justify-content: flex-end;
+    }
+    .hero-map-svg { width: 100%; height: auto; max-height: 100%; }
+    .map-dot { transition: fill 0.5s ease; }
+    .map-dot.green { fill: #22C55E; filter: url(#dot-glow); }
+    .map-dot.gray { fill: #9E978D; filter: none; }
+    @keyframes dot-blink { 0%,100%{opacity:1} 45%{opacity:0.1} }
+    .map-dot.blinking { animation: dot-blink 0.55s ease-in-out; }
+    @media (max-width: 960px) {
+      .hero-map { width: 100%; right: -5%; opacity: 0.28; }
+    }
+    @media (max-width: 640px) {
+      .hero-map { width: 140%; right: -20%; opacity: 0.20; }
+    }
+
     /* RESPONSIVE */
     @media (max-width: 960px) {
       .container { padding: 0 28px; }
@@ -221,17 +242,133 @@
 </nav>
 
 <section id="hero" class="grid-bg">
-  <div class="container">
-    <div class="hero-live-dot">
-      <span class="live-dot"></span>
-      US Manufacturing Network · CNC Machined &amp; Turned Parts
+  <div class="hero-content-wrap">
+    <div class="container">
+      <div class="hero-live-dot">
+        <span class="live-dot"></span>
+        US Manufacturing Network · CNC Machined &amp; Turned Parts
+      </div>
+      <h1 class="hero-h1">Custom parts <br /><strong>quoted and confirmed </strong><br />within 24 hours.</h1>
+      <p class="hero-sub">We source and qualify machined parts across a vetted network of US shops.</p>
+      <p class="hero-sub">Submit your requirements — we handle all the rest.</p>
+      <div class="hero-actions">
+        <a href="#rfq" class="btn-primary">Get a Quote →</a>
+        <a href="#process" class="btn-ghost">How It Works</a>
+      </div>
     </div>
-    <h1 class="hero-h1">Custom parts <br /><strong>quoted and confirmed </strong><br />within 24 hours.</h1>
-    <p class="hero-sub">We source and qualify machined parts across a vetted network of US shops.</p>
-    <p class="hero-sub">Submit your requirements — we handle all the rest.</p>
-    <div class="hero-actions">
-      <a href="#rfq" class="btn-primary">Get a Quote →</a>
-      <a href="#process" class="btn-ghost">How It Works</a>
+    <div class="hero-map" aria-hidden="true">
+      <svg class="hero-map-svg" viewBox="0 0 960 600" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="dot-glow" x="-80%" y="-80%" width="260%" height="260%">
+            <feGaussianBlur stdDeviation="2.5" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+        <g fill="none" stroke="rgba(28,25,23,0.11)" stroke-width="0.8" stroke-linejoin="round">
+          <!-- WA --><path d="M118,88 L220,80 L252,145 L204,162 L155,184 L118,184Z"/>
+          <!-- OR --><path d="M118,184 L155,184 L204,162 L252,176 L240,295 L118,295Z"/>
+          <!-- CA --><path d="M118,295 L240,295 L226,382 L208,464 L134,448 L118,398Z"/>
+          <!-- NV --><path d="M240,295 L300,260 L293,393 L226,382Z"/>
+          <!-- ID --><path d="M252,145 L316,126 L311,208 L278,218 L256,290 L252,176 L204,162Z"/>
+          <!-- MT --><path d="M252,145 L448,128 L445,208 L311,208 L316,126Z"/>
+          <!-- WY --><path d="M300,260 L448,252 L445,342 L300,348Z"/>
+          <!-- UT --><path d="M300,348 L380,342 L380,440 L293,448 L293,393Z"/>
+          <!-- CO --><path d="M380,342 L508,336 L504,418 L380,440Z"/>
+          <!-- AZ --><path d="M293,448 L380,440 L380,506 L265,520 L248,472Z"/>
+          <!-- NM --><path d="M380,440 L504,418 L500,480 L380,506Z"/>
+          <!-- ND --><path d="M448,128 L592,120 L590,205 L445,208Z"/>
+          <!-- SD --><path d="M445,208 L590,205 L586,275 L445,275Z"/>
+          <!-- NE --><path d="M445,275 L586,275 L580,342 L445,342Z"/>
+          <!-- KS --><path d="M445,342 L580,342 L576,406 L445,406Z"/>
+          <!-- OK --><path d="M445,406 L576,406 L600,456 L445,456 L442,430Z"/>
+          <!-- TX --><path d="M445,456 L600,456 L645,580 L445,580Z"/>
+          <!-- MN --><path d="M590,120 L672,116 L670,206 L590,205Z"/>
+          <!-- IA --><path d="M590,205 L670,206 L672,292 L586,275Z"/>
+          <!-- MO --><path d="M586,275 L672,292 L695,390 L648,390 L604,406 L580,342Z"/>
+          <!-- AR --><path d="M604,406 L648,390 L695,390 L698,460 L604,460Z"/>
+          <!-- LA --><path d="M604,460 L698,460 L706,516 L620,528 L598,494Z"/>
+          <!-- WI --><path d="M600,118 L672,116 L670,206 L645,222 L622,218 L600,206Z"/>
+          <!-- IL --><path d="M645,222 L702,218 L705,346 L648,356 L645,295Z"/>
+          <!-- MI --><path d="M654,126 L710,120 L736,196 L700,230 L663,226Z"/>
+          <!-- IN --><path d="M702,218 L748,218 L750,333 L705,346Z"/>
+          <!-- OH --><path d="M748,218 L810,216 L814,310 L750,333Z"/>
+          <!-- KY --><path d="M648,356 L814,322 L815,378 L700,390 L648,390Z"/>
+          <!-- TN --><path d="M648,390 L700,390 L815,378 L818,428 L648,435Z"/>
+          <!-- MS --><path d="M648,435 L700,430 L712,516 L648,520Z"/>
+          <!-- AL --><path d="M700,430 L800,424 L805,512 L712,516Z"/>
+          <!-- GA --><path d="M800,424 L864,404 L860,504 L805,512Z"/>
+          <!-- FL --><path d="M805,512 L860,504 L880,560 L768,572 L760,532Z"/>
+          <!-- SC --><path d="M810,374 L875,378 L864,440 L810,436Z"/>
+          <!-- NC --><path d="M808,320 L892,324 L884,376 L810,374Z"/>
+          <!-- VA --><path d="M808,258 L894,254 L896,302 L808,320Z"/>
+          <!-- WV --><path d="M808,258 L848,252 L855,318 L808,320Z"/>
+          <!-- MD --><path d="M848,260 L910,256 L910,284 L855,295Z"/>
+          <!-- DE --><path d="M893,248 L920,250 L920,282 L893,282Z"/>
+          <!-- NJ --><path d="M893,227 L930,234 L924,272 L893,248Z"/>
+          <!-- PA --><path d="M808,205 L893,202 L893,227 L855,250 L808,258Z"/>
+          <!-- NY --><path d="M805,165 L912,160 L912,227 L893,202 L808,205Z"/>
+          <!-- CT --><path d="M893,202 L930,198 L930,227 L893,227Z"/>
+          <!-- RI --><path d="M930,198 L950,205 L950,227 L930,227Z"/>
+          <!-- MA --><path d="M893,183 L952,180 L952,202 L893,202Z"/>
+          <!-- NH --><path d="M893,145 L918,143 L918,183 L893,183Z"/>
+          <!-- VT --><path d="M868,142 L893,145 L893,183 L868,183Z"/>
+          <!-- ME --><path d="M893,86 L960,86 L960,168 L918,168 L918,145 L893,145Z"/>
+          <!-- AK inset --><path d="M56,495 L232,495 L248,555 L185,565 L110,558 L58,530Z"/>
+          <!-- HI inset --><path d="M288,543 L366,543 L372,573 L282,573Z"/>
+        </g>
+        <g>
+          <circle class="map-dot gray" cx="162" cy="138" r="4.5"/><!-- WA -->
+          <circle class="map-dot gray" cx="175" cy="236" r="4.5"/><!-- OR -->
+          <circle class="map-dot gray" cx="155" cy="388" r="4.5"/><!-- CA -->
+          <circle class="map-dot gray" cx="252" cy="330" r="4.5"/><!-- NV -->
+          <circle class="map-dot gray" cx="265" cy="190" r="4.5"/><!-- ID -->
+          <circle class="map-dot gray" cx="355" cy="168" r="4.5"/><!-- MT -->
+          <circle class="map-dot gray" cx="372" cy="293" r="4.5"/><!-- WY -->
+          <circle class="map-dot gray" cx="334" cy="390" r="4.5"/><!-- UT -->
+          <circle class="map-dot gray" cx="442" cy="376" r="4.5"/><!-- CO -->
+          <circle class="map-dot gray" cx="330" cy="476" r="4.5"/><!-- AZ -->
+          <circle class="map-dot gray" cx="440" cy="456" r="4.5"/><!-- NM -->
+          <circle class="map-dot gray" cx="518" cy="162" r="4.5"/><!-- ND -->
+          <circle class="map-dot gray" cx="516" cy="238" r="4.5"/><!-- SD -->
+          <circle class="map-dot gray" cx="512" cy="308" r="4.5"/><!-- NE -->
+          <circle class="map-dot gray" cx="512" cy="372" r="4.5"/><!-- KS -->
+          <circle class="map-dot gray" cx="518" cy="430" r="4.5"/><!-- OK -->
+          <circle class="map-dot gray" cx="525" cy="516" r="4.5"/><!-- TX -->
+          <circle class="map-dot gray" cx="625" cy="158" r="4.5"/><!-- MN -->
+          <circle class="map-dot gray" cx="625" cy="248" r="4.5"/><!-- IA -->
+          <circle class="map-dot gray" cx="638" cy="342" r="4.5"/><!-- MO -->
+          <circle class="map-dot gray" cx="648" cy="426" r="4.5"/><!-- AR -->
+          <circle class="map-dot gray" cx="648" cy="490" r="4.5"/><!-- LA -->
+          <circle class="map-dot gray" cx="648" cy="170" r="4.5"/><!-- WI -->
+          <circle class="map-dot gray" cx="672" cy="284" r="4.5"/><!-- IL -->
+          <circle class="map-dot gray" cx="698" cy="172" r="4.5"/><!-- MI -->
+          <circle class="map-dot gray" cx="726" cy="278" r="4.5"/><!-- IN -->
+          <circle class="map-dot gray" cx="780" cy="262" r="4.5"/><!-- OH -->
+          <circle class="map-dot gray" cx="728" cy="366" r="4.5"/><!-- KY -->
+          <circle class="map-dot gray" cx="730" cy="408" r="4.5"/><!-- TN -->
+          <circle class="map-dot gray" cx="675" cy="478" r="4.5"/><!-- MS -->
+          <circle class="map-dot gray" cx="752" cy="468" r="4.5"/><!-- AL -->
+          <circle class="map-dot gray" cx="830" cy="458" r="4.5"/><!-- GA -->
+          <circle class="map-dot gray" cx="820" cy="540" r="4.5"/><!-- FL -->
+          <circle class="map-dot gray" cx="842" cy="408" r="4.5"/><!-- SC -->
+          <circle class="map-dot gray" cx="848" cy="348" r="4.5"/><!-- NC -->
+          <circle class="map-dot gray" cx="848" cy="282" r="4.5"/><!-- VA -->
+          <circle class="map-dot gray" cx="828" cy="288" r="4.5"/><!-- WV -->
+          <circle class="map-dot gray" cx="880" cy="270" r="4.5"/><!-- MD -->
+          <circle class="map-dot gray" cx="906" cy="264" r="4.5"/><!-- DE -->
+          <circle class="map-dot gray" cx="910" cy="250" r="4.5"/><!-- NJ -->
+          <circle class="map-dot gray" cx="850" cy="230" r="4.5"/><!-- PA -->
+          <circle class="map-dot gray" cx="858" cy="188" r="4.5"/><!-- NY -->
+          <circle class="map-dot gray" cx="912" cy="212" r="4.5"/><!-- CT -->
+          <circle class="map-dot gray" cx="938" cy="212" r="4.5"/><!-- RI -->
+          <circle class="map-dot gray" cx="920" cy="190" r="4.5"/><!-- MA -->
+          <circle class="map-dot gray" cx="906" cy="162" r="4.5"/><!-- NH -->
+          <circle class="map-dot gray" cx="880" cy="162" r="4.5"/><!-- VT -->
+          <circle class="map-dot gray" cx="928" cy="126" r="4.5"/><!-- ME -->
+          <circle class="map-dot gray" cx="145" cy="528" r="4.5"/><!-- AK -->
+          <circle class="map-dot gray" cx="328" cy="558" r="4.5"/><!-- HI -->
+        </g>
+      </svg>
     </div>
   </div>
   <div class="container">
@@ -481,6 +618,43 @@
       }, 2000);
     });
   }
+
+  (function () {
+    var dots = Array.from(document.querySelectorAll('.map-dot'));
+    var MAX_GREEN = 15, MIN_GREEN = 5;
+    var shuffled = dots.slice().sort(function () { return Math.random() - 0.5; });
+    var initGreen = MIN_GREEN + Math.floor(Math.random() * (MAX_GREEN - MIN_GREEN + 1));
+    shuffled.forEach(function (d, i) { d.classList.add(i < initGreen ? 'green' : 'gray'); });
+
+    function blink(dot) {
+      dot.classList.add('blinking');
+      setTimeout(function () { dot.classList.remove('blinking'); }, 600);
+    }
+
+    function tick() {
+      var green = dots.filter(function (d) { return d.classList.contains('green'); });
+      var gray  = dots.filter(function (d) { return d.classList.contains('gray'); });
+      var changes = 1 + Math.floor(Math.random() * 2);
+      for (var i = 0; i < changes; i++) {
+        var canAdd = green.length < MAX_GREEN && gray.length > 0;
+        var canRem = green.length > MIN_GREEN && green.length > 0;
+        if (!canAdd && !canRem) break;
+        var addGreen = canAdd && (!canRem || Math.random() > 0.45);
+        if (addGreen) {
+          var idx = Math.floor(Math.random() * gray.length);
+          var dot = gray.splice(idx, 1)[0];
+          dot.classList.remove('gray'); dot.classList.add('green');
+          green.push(dot); blink(dot);
+        } else {
+          var idx2 = Math.floor(Math.random() * green.length);
+          var dot2 = green.splice(idx2, 1)[0];
+          dot2.classList.remove('green'); dot2.classList.add('gray');
+          gray.push(dot2); blink(dot2);
+        }
+      }
+    }
+    setInterval(tick, 3000);
+  })();
 
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
