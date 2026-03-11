@@ -174,11 +174,9 @@
       display: flex; align-items: center; justify-content: flex-end;
     }
     .hero-map-svg { width: 100%; height: auto; max-height: 100%; }
-    .map-dot { transition: fill 0.5s ease; }
-    .map-dot.green { fill: #22C55E; filter: url(#dot-glow); }
-    .map-dot.gray { fill: #9E978D; filter: none; }
-    @keyframes dot-blink { 0%,100%{opacity:1} 45%{opacity:0.1} }
-    .map-dot.blinking { animation: dot-blink 0.55s ease-in-out; }
+    .map-dot { transition: fill 1.1s ease-in-out, opacity 1.1s ease-in-out; }
+    .map-dot.green { fill: #22C55E; filter: url(#dot-glow); opacity: 1; }
+    .map-dot.gray  { fill: #9E978D; filter: none; opacity: 0.65; }
     @media (max-width: 960px) {
       .hero-map { width: 100%; right: -5%; opacity: 0.28; }
     }
@@ -575,11 +573,6 @@
     var initGreen = MIN_GREEN + Math.floor(Math.random() * (MAX_GREEN - MIN_GREEN + 1));
     shuffled.forEach(function (d, i) { d.classList.add(i < initGreen ? 'green' : 'gray'); });
 
-    function blink(dot) {
-      dot.classList.add('blinking');
-      setTimeout(function () { dot.classList.remove('blinking'); }, 600);
-    }
-
     function tick() {
       var green = dots.filter(function (d) { return d.classList.contains('green'); });
       var gray  = dots.filter(function (d) { return d.classList.contains('gray'); });
@@ -593,12 +586,12 @@
           var idx = Math.floor(Math.random() * gray.length);
           var dot = gray.splice(idx, 1)[0];
           dot.classList.remove('gray'); dot.classList.add('green');
-          green.push(dot); blink(dot);
+          green.push(dot);
         } else {
           var idx2 = Math.floor(Math.random() * green.length);
           var dot2 = green.splice(idx2, 1)[0];
           dot2.classList.remove('green'); dot2.classList.add('gray');
-          gray.push(dot2); blink(dot2);
+          gray.push(dot2);
         }
       }
     }
