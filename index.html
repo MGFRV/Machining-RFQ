@@ -43,7 +43,7 @@
     .nav-cta:hover { background: #162840; border-color: #162840; }
     .nav-links .nav-cta { color: var(--white); }
     .nav-links .nav-cta:hover { color: var(--white); }
-    .nav-burger { display: none; flex-direction: column; justify-content: center; align-items: center; gap: 5px; background: none; border: 1px solid var(--c200); cursor: pointer; padding: 0; width: 40px; height: 40px; transition: border-color .15s; }
+    .nav-burger { display: none; flex-direction: column; justify-content: center; align-items: center; gap: 5px; background: none; border: 1px solid var(--c200); cursor: pointer; padding: 0; width: 40px; height: 40px; transition: border-color .15s; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
     .nav-burger:hover { border-color: var(--c600); }
     .nav-burger span { display: block; width: 18px; height: 2px; background: var(--c900); transition: transform .2s, opacity .2s; }
     .nav-burger.open { border-color: var(--accent); }
@@ -555,7 +555,9 @@
 <script>
   function toggleMenu(btn) {
     btn.classList.toggle('open');
-    document.querySelector('.nav-links').classList.toggle('open');
+    var menu = document.querySelector('.nav-links');
+    menu.classList.toggle('open');
+    menu.style.display = menu.classList.contains('open') ? 'flex' : '';
   }
 
   function copyEmail(btn) {
@@ -602,7 +604,8 @@
       if (t) {
         e.preventDefault();
         t.scrollIntoView({ behavior: 'smooth' });
-        document.querySelector('.nav-links').classList.remove('open');
+        var m = document.querySelector('.nav-links');
+        m.classList.remove('open'); m.style.display = '';
         document.querySelector('.nav-burger').classList.remove('open');
       }
     });
