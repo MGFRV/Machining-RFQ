@@ -35,7 +35,8 @@
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; background: rgba(245,244,240,.96); backdrop-filter: blur(10px); border-bottom: 1px solid var(--c200); height: 64px; }
     .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; height: 100%; display: flex; align-items: center; justify-content: space-between; }
     .logo { font-size: 0.82rem; font-weight: 600; color: var(--c900); text-decoration: none; letter-spacing: 0.16em; text-transform: uppercase; }
-    .nav-links { display: flex; align-items: center; gap: 36px; }
+    /* nav-links lives outside <nav> — overlays the bar via fixed positioning */
+    .nav-links { position: fixed; top: 0; left: 0; right: 0; height: 64px; max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: flex-end; padding: 0 48px; gap: 36px; z-index: 201; }
     .nav-links a { font-size: 0.68rem; font-weight: 500; color: var(--c600); text-decoration: none; text-transform: uppercase; letter-spacing: 0.14em; transition: color .15s; }
     .nav-links a:hover { color: var(--c900); }
     .nav-cta { font-size: 0.68rem; font-weight: 600; background: var(--accent); color: var(--white); padding: 10px 22px; text-decoration: none; text-transform: uppercase; letter-spacing: 0.12em; border: 1px solid var(--accent); transition: background .15s; display: flex; align-items: center; gap: 8px; }
@@ -189,14 +190,14 @@
     /* RESPONSIVE */
     @media (max-width: 960px) {
       .container { padding: 0 28px; }
-      .nav-inner { padding: 0 28px; min-height: 64px; height: auto; flex-wrap: wrap; }
+      .nav-inner { padding: 0 28px; }
       .nav-burger { display: flex; }
-      .nav-links { display: none; }
-      nav.open { height: auto; }
-      nav.open .nav-links { display: flex; flex-direction: column; flex-basis: 100%; order: 10; padding: 8px 0 20px; gap: 0; border-top: 1px solid var(--c200); }
-      nav.open .nav-links a { display: block; padding: 14px 0; border-bottom: 1px solid var(--c100); font-size: 0.78rem; color: var(--c600); letter-spacing: 0.10em; text-transform: uppercase; }
-      nav.open .nav-links a:last-child { border-bottom: none; margin-top: 12px; text-align: center; }
-      nav.open .nav-links .nav-cta { background: var(--accent); color: var(--white); border: 1px solid var(--accent); padding: 12px 24px; display: block; }
+      /* nav-links dropdown — direct child of body, no backdrop-filter parent */
+      .nav-links { display: none; position: fixed; top: 64px; left: 0; right: 0; height: auto; max-width: none; flex-direction: column; justify-content: flex-start; padding: 8px 28px 20px; gap: 0; background: rgba(245,244,240,.99); border-bottom: 1px solid var(--c200); z-index: 9999; }
+      .nav-links.open { display: flex; }
+      .nav-links a { display: block; padding: 14px 0; border-bottom: 1px solid var(--c100); font-size: 0.78rem; color: var(--c600); letter-spacing: 0.10em; text-transform: uppercase; }
+      .nav-links a:last-child { border-bottom: none; margin-top: 12px; text-align: center; }
+      .nav-links .nav-cta { background: var(--accent); color: var(--white); border: 1px solid var(--accent); padding: 12px 24px; display: block; }
       .hero-stats { grid-template-columns: 1fr 1fr; }
       .stat-cell:nth-child(2) { border-right: none; }
       .sec-head { grid-template-columns: 1fr; gap: 8px; }
@@ -229,18 +230,18 @@
 <nav>
   <div class="nav-inner">
     <a href="#" class="logo">RFQplus</a>
-    <div class="nav-links">
-      <a href="#process">Process</a>
-      <a href="#capabilities">Capabilities</a>
-      <a href="#why">Why Us</a>
-      <a href="/blog/">Blog</a>
-        <a href="#rfq" class="nav-cta">Contact Us →</a>
-    </div>
     <button class="nav-burger" onclick="toggleMenu(this)" aria-label="Toggle menu">
       <span></span><span></span><span></span>
     </button>
   </div>
 </nav>
+<div class="nav-links">
+  <a href="#process">Process</a>
+  <a href="#capabilities">Capabilities</a>
+  <a href="#why">Why Us</a>
+  <a href="/blog/">Blog</a>
+  <a href="#rfq" class="nav-cta">Contact Us →</a>
+</div>
 
 <section id="hero" class="grid-bg">
   <div class="hero-content-wrap">
@@ -554,7 +555,7 @@
 <script>
   function toggleMenu(btn) {
     btn.classList.toggle('open');
-    document.querySelector('nav').classList.toggle('open');
+    document.querySelector('.nav-links').classList.toggle('open');
   }
 
   function copyEmail(btn) {
@@ -601,7 +602,7 @@
       if (t) {
         e.preventDefault();
         t.scrollIntoView({ behavior: 'smooth' });
-        document.querySelector('nav').classList.remove('open');
+        document.querySelector('.nav-links').classList.remove('open');
         document.querySelector('.nav-burger').classList.remove('open');
       }
     });
