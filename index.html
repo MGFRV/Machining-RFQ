@@ -178,10 +178,10 @@
     .map-dot.green { fill: #22C55E; filter: url(#dot-glow); opacity: 1; }
     .map-dot.gray  { fill: #9E978D; filter: none; opacity: 0.65; }
     @media (max-width: 960px) {
-      .hero-map { width: 100%; right: -5%; opacity: 0.28; }
+      .hero-map { width: 100%; right: -5%; }
     }
     @media (max-width: 640px) {
-      .hero-map { width: 140%; right: -20%; opacity: 0.20; }
+      .hero-map { width: 140%; right: -20%; }
     }
 
     /* RESPONSIVE */
@@ -189,9 +189,10 @@
       .container { padding: 0 28px; }
       .nav-inner { padding: 0 28px; }
       .nav-burger { display: flex; }
-      .nav-links { display: none !important; }
-      .nav-links.open { display: flex !important; flex-direction: column; position: fixed; top: 64px; left: 0; right: 0; background: rgba(245,244,240,.99); backdrop-filter: blur(10px); border-bottom: 1px solid var(--c200); padding: 8px 28px 20px; gap: 0; z-index: 199; }
-      .nav-links.open a { display: flex !important; padding: 14px 0; border-bottom: 1px solid var(--c100); font-size: 0.78rem; color: var(--c600); letter-spacing: 0.10em; text-transform: uppercase; }
+      .nav-links { display: none; }
+      .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 64px; left: 0; right: 0; background: rgba(245,244,240,.99); backdrop-filter: blur(10px); border-bottom: 1px solid var(--c200); padding: 8px 28px 20px; gap: 0; z-index: 9999; }
+      .nav-links.open a { display: flex; }
+      .nav-links.open a { padding: 14px 0; border-bottom: 1px solid var(--c100); font-size: 0.78rem; color: var(--c600); letter-spacing: 0.10em; text-transform: uppercase; }
       .nav-links.open a:last-child { border-bottom: none; margin-top: 12px; justify-content: center; }
       .nav-links.open .nav-cta { background: var(--accent); color: var(--white) !important; border: 1px solid var(--accent); padding: 12px 24px; }
       .hero-stats { grid-template-columns: 1fr 1fr; }
@@ -313,7 +314,6 @@
           <circle class="map-dot gray" cx="914" cy="112" r="4.5"/><!-- VT -->
           <circle class="map-dot gray" cx="960" cy="79" r="4.5"/><!-- ME -->
           <circle class="map-dot gray" cx="198" cy="520" r="4.5"/><!-- AK -->
-          <circle class="map-dot gray" cx="280" cy="453" r="4.5"/><!-- HI -->
         </g>
       </svg>
     </div>
@@ -569,33 +569,28 @@
   (function () {
     var dots = Array.from(document.querySelectorAll('.map-dot'));
     var MAX_GREEN = 15, MIN_GREEN = 5;
+
+    // Random initial states
     var shuffled = dots.slice().sort(function () { return Math.random() - 0.5; });
     var initGreen = MIN_GREEN + Math.floor(Math.random() * (MAX_GREEN - MIN_GREEN + 1));
     shuffled.forEach(function (d, i) { d.classList.add(i < initGreen ? 'green' : 'gray'); });
 
-    function tick() {
-      var green = dots.filter(function (d) { return d.classList.contains('green'); });
-      var gray  = dots.filter(function (d) { return d.classList.contains('gray'); });
-      var changes = 8 + Math.floor(Math.random() * 5);
-      for (var i = 0; i < changes; i++) {
-        var canAdd = green.length < MAX_GREEN && gray.length > 0;
-        var canRem = green.length > MIN_GREEN && green.length > 0;
-        if (!canAdd && !canRem) break;
-        var addGreen = canAdd && (!canRem || Math.random() > 0.45);
-        if (addGreen) {
-          var idx = Math.floor(Math.random() * gray.length);
-          var dot = gray.splice(idx, 1)[0];
-          dot.classList.remove('gray'); dot.classList.add('green');
-          green.push(dot);
-        } else {
-          var idx2 = Math.floor(Math.random() * green.length);
-          var dot2 = green.splice(idx2, 1)[0];
-          dot2.classList.remove('green'); dot2.classList.add('gray');
-          gray.push(dot2);
-        }
+    // Each dot gets its own independent random timer
+    dots.forEach(function (dot) {
+      function schedule() {
+        setTimeout(function () {
+          var greenCount = dots.filter(function (d) { return d.classList.contains('green'); }).length;
+          var isGreen = dot.classList.contains('green');
+          if (isGreen && greenCount > MIN_GREEN) {
+            dot.classList.remove('green'); dot.classList.add('gray');
+          } else if (!isGreen && greenCount < MAX_GREEN) {
+            dot.classList.remove('gray'); dot.classList.add('green');
+          }
+          schedule();
+        }, 2000 + Math.random() * 6000);
       }
-    }
-    setInterval(tick, 3000);
+      setTimeout(schedule, Math.random() * 3000); // stagger start
+    });
   })();
 
   document.querySelectorAll('a[href^="#"]').forEach(a => {
