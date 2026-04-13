@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Understanding Tolerances in CNC Machining — RFQplus</title>
-  <meta name="description" content="Specifying tolerances too tight drives up cost. Too loose and parts don&#39;t fit. Here&#39;s how to find the right balance for your application." />
+  <title>{{TITLE}} — RFQplus</title>
+  <meta name="description" content="{{DESCRIPTION}}" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -94,73 +94,20 @@
 </nav>
 <div class="article-header grid-bg">
   <div class="container">
-    <div class="breadcrumb"><a href="/">Home</a><span>/</span><a href="/blog/">Blog</a><span>/</span><span>Tolerances Guide</span></div>
+    <div class="breadcrumb"><a href="/">Home</a><span>/</span><a href="/blog/">Blog</a><span>/</span><span>{{BREADCRUMB}}</span></div>
     <div class="article-meta-row">
-      <span class="section-label">// category: Quality</span>
-      <span class="article-date">Feb 20, 2025</span>
+      <span class="section-label">// category: {{CATEGORY}}</span>
+      <span class="article-date">{{DATE_LABEL}}</span>
     </div>
-    <h1 class="article-h1"><strong>Understanding Tolerances in CNC Machining</strong></h1>
-    <p class="article-lead">Specifying tolerances too tight drives up cost. Too loose and parts don&#39;t fit. Here&#39;s how to find the right balance for your application.</p>
+    <h1 class="article-h1"><strong>{{H1}}</strong></h1>
+    <p class="article-lead">{{PREVIEW}}</p>
   </div>
 </div>
 <div class="container">
   <div class="article-wrap">
     <article class="article-content">
       <a href="/blog/" class="back-link">← Back to Blog</a>
-
-
-      <h2>Why Tolerances Matter</h2>
-      <p>Tolerance is the permissible variation in a dimension. A shaft specified as <strong>1.000" ± 0.001"</strong> may measure anywhere from 0.999" to 1.001" and still pass inspection. Every additional zero you add to a tolerance specification — going from ±0.005" to ±0.0005" — can double or triple machining cost.</p>
-      <p>The key principle: <strong>specify tolerances as loose as your design allows</strong>. Reserve tight tolerances only for surfaces that actually mate, seal, or bear load.</p>
-
-      <h2>Standard Tolerance Tiers</h2>
-      <p>Most CNC shops work within three practical tiers:</p>
-      <table class="tol-table">
-        <thead>
-          <tr><th>Tier</th><th>Tolerance</th><th>Typical Use</th><th>Relative Cost</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>General</td><td>±0.005" (±0.13 mm)</td><td>Non-critical dimensions, clearance holes</td><td>1×</td></tr>
-          <tr><td>Precision</td><td>±0.001" (±0.025 mm)</td><td>Fits, bearing seats, threaded bosses</td><td>2–3×</td></tr>
-          <tr><td>High-Precision</td><td>±0.0005" (±0.013 mm)</td><td>Press fits, sealing bores, gauge surfaces</td><td>4–6×</td></tr>
-        </tbody>
-      </table>
-      <p>Tolerances tighter than ±0.0002" typically require grinding or lapping after machining and should be flagged explicitly in your drawing.</p>
-
-      <h2>Title Block vs. Explicit Callouts</h2>
-      <p>Most engineering drawings include a title block tolerance such as <em>"Unless otherwise specified: ±0.005""</em>. This covers the majority of dimensions. But for anything critical — mating diameters, press fits, thread engagement lengths — always call out the tolerance explicitly on the dimension.</p>
-      <p>Never rely on a title block for a critical feature. If it matters, put the number on the part.</p>
-
-      <h2>GD&T: Beyond Plus/Minus</h2>
-      <p>Geometric Dimensioning and Tolerancing (GD&T) communicates form, orientation, and position — things a simple ±0.005" can't express. Common callouts:</p>
-      <ul>
-        <li><strong>Flatness (⏥)</strong> — controls surface variation, not location. Use for sealing faces and mating flanges.</li>
-        <li><strong>Cylindricity (⌀)</strong> — controls roundness and straightness of a bore simultaneously.</li>
-        <li><strong>True Position (⊕)</strong> — controls hole location relative to a datum. More useful than coordinate tolerances for bolt patterns.</li>
-        <li><strong>Runout (↗)</strong> — controls total surface variation as a part rotates. Critical for rotating shafts and bearing fits.</li>
-      </ul>
-      <p>Over-specifying GD&T adds inspection cost. Apply it only where the geometric relationship genuinely affects function.</p>
-
-      <h2>Surface Finish</h2>
-      <p>Surface finish is often overlooked but impacts sealing, fatigue life, and mating behavior. Common specifications:</p>
-      <ul>
-        <li><strong>Ra 3.2 µm (125 µin)</strong> — Standard machined finish. Adequate for most non-critical surfaces.</li>
-        <li><strong>Ra 1.6 µm (63 µin)</strong> — Typical turned or milled finish. Good for general mating surfaces.</li>
-        <li><strong>Ra 0.8 µm (32 µin)</strong> — Requires a finishing pass or fine toolpath. Use for O-ring grooves and sliding fits.</li>
-        <li><strong>Ra 0.4 µm (16 µin)</strong> — Ground or honed. Bearing bores, precision sealing surfaces.</li>
-      </ul>
-
-      <h2>Practical Checklist</h2>
-      <ol>
-        <li>Identify every surface that mates, seals, or bears load — these get explicit tolerances.</li>
-        <li>Everything else falls to the title block default (typically ±0.005").</li>
-        <li>Use GD&T for location and form requirements that ± alone can't describe.</li>
-        <li>Call out surface finish only where it matters functionally.</li>
-        <li>Review your drawing against this list before sending to a shop — tight tolerances you don't need are money left on the table.</li>
-      </ol>
-    
-
-
+{{BODY}}
     </article>
     <aside class="article-sidebar">
       <div class="sidebar-block">

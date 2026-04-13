@@ -34,7 +34,7 @@
     .article-header .breadcrumb a { color: var(--c400); text-decoration: none; transition: color .15s; }
     .article-header .breadcrumb a:hover { color: var(--accent); }
     .article-header .breadcrumb span { color: var(--c200); }
-    .article-meta-row { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+    .article-meta-row { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; flex-wrap: wrap; }
     .article-date { font-size: 0.65rem; color: var(--c400); text-transform: uppercase; letter-spacing: 0.12em; }
     .article-h1 { font-size: clamp(1.6rem, 3.5vw, 2.8rem); font-weight: 300; line-height: 1.15; letter-spacing: -0.02em; max-width: 800px; margin-bottom: 20px; }
     .article-h1 strong { font-weight: 500; }
@@ -42,14 +42,15 @@
     .article-wrap { padding: 56px 0 80px; display: grid; grid-template-columns: 1fr 280px; gap: 80px; align-items: start; }
     .article-content h2 { font-size: 1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; margin: 40px 0 14px; padding-top: 40px; border-top: 1px solid var(--c200); }
     .article-content h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+    .article-content h3 { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; margin: 28px 0 10px; }
     .article-content p { font-size: 0.85rem; color: var(--c600); line-height: 1.8; margin-bottom: 16px; }
     .article-content ul, .article-content ol { padding-left: 20px; margin-bottom: 16px; }
     .article-content li { font-size: 0.85rem; color: var(--c600); line-height: 1.8; margin-bottom: 6px; }
     .article-content strong { color: var(--c900); font-weight: 500; }
-    .mat-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; }
-    .mat-table th { font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--c500); text-align: left; padding: 10px 16px; background: var(--c100); border: 1px solid var(--c200); }
-    .mat-table td { font-size: 0.8rem; color: var(--c600); padding: 10px 16px; border: 1px solid var(--c200); line-height: 1.5; }
-    .mat-table tr:nth-child(even) td { background: var(--c50); }
+    .article-content table { width: 100%; border-collapse: collapse; margin-bottom: 16px; }
+    .article-content th { font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--c500); text-align: left; padding: 10px 16px; background: var(--c100); border: 1px solid var(--c200); }
+    .article-content td { font-size: 0.8rem; color: var(--c600); padding: 10px 16px; border: 1px solid var(--c200); line-height: 1.5; }
+    .article-content tr:nth-child(even) td { background: var(--c50); }
     .article-sidebar { position: sticky; top: 88px; }
     .sidebar-block { border: 1px solid var(--c200); padding: 24px; margin-bottom: 24px; }
     .sidebar-block-head { font-size: 0.65rem; font-weight: 600; color: var(--c500); text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 16px; }
@@ -79,7 +80,6 @@
   </style>
 </head>
 <body>
-
 <nav>
   <div class="nav-inner">
     <a href="/" class="logo">RFQplus</a>
@@ -92,30 +92,22 @@
     </div>
   </div>
 </nav>
-
 <div class="article-header grid-bg">
   <div class="container">
-    <div class="breadcrumb">
-      <a href="/">Home</a>
-      <span>/</span>
-      <a href="/blog/">Blog</a>
-      <span>/</span>
-      <span>Material Selection</span>
-    </div>
+    <div class="breadcrumb"><a href="/">Home</a><span>/</span><a href="/blog/">Blog</a><span>/</span><span>Material Selection</span></div>
     <div class="article-meta-row">
-      <span class="section-label">// materials</span>
+      <span class="section-label">// category: Materials</span>
       <span class="article-date">Feb 10, 2025</span>
     </div>
-    <h1 class="article-h1">Material Selection for CNC Parts:<br /><strong>Aluminum vs Steel vs Titanium</strong></h1>
+    <h1 class="article-h1"><strong>Material Selection for CNC Parts:Aluminum vs Steel vs Titanium</strong></h1>
     <p class="article-lead">The material you choose affects machinability, lead time, and cost dramatically. A practical breakdown for engineers sourcing precision parts.</p>
   </div>
 </div>
-
 <div class="container">
   <div class="article-wrap">
-
     <article class="article-content">
       <a href="/blog/" class="back-link">← Back to Blog</a>
+
 
       <h2>How Material Choice Drives Cost</h2>
       <p>Material selection is one of the highest-leverage decisions in part design. The same geometry in aluminum versus titanium can differ by <strong>5–10× in machining cost</strong> — not just material price, but cycle time, tooling wear, and scrap rate. Choose the right material for the application, not the most impressive one on the spec sheet.</p>
@@ -165,60 +157,33 @@
         <li>Consider post-processing — anodize, plating, heat treat — and whether the chosen alloy supports it.</li>
         <li>If multiple materials meet requirements, choose the one with the highest machinability rating to minimize shop cost.</li>
       </ol>
-    </article>
+    
 
+
+    </article>
     <aside class="article-sidebar">
       <div class="sidebar-block">
         <div class="sidebar-block-head">Need a Quote?</div>
-        <p class="sidebar-p">Not sure which material to specify? Include your application requirements in the RFQ — we'll advise before quoting.</p>
+        <p class="sidebar-p">Submit your RFQ and get quotes from vetted US manufacturers within 24 hours.</p>
         <a href="/#rfq" class="sidebar-cta">Submit RFQ →</a>
       </div>
       <div class="sidebar-block">
         <div class="sidebar-block-head">Related</div>
-        <a href="/blog/cnc-turning-basics/" style="font-size:0.75rem;color:var(--c500);display:block;text-decoration:none;padding:6px 0;border-bottom:1px solid var(--c100);transition:color .15s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--c500)'">CNC Turning Basics</a>
-        <a href="/blog/tolerances-guide/" style="font-size:0.75rem;color:var(--c500);display:block;text-decoration:none;padding:6px 0;border-bottom:1px solid var(--c100);transition:color .15s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--c500)'">Understanding Tolerances</a>
         <a href="/blog/" style="font-size:0.75rem;color:var(--c500);display:block;text-decoration:none;padding:6px 0;transition:color .15s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--c500)'">← All Articles</a>
       </div>
     </aside>
-
   </div>
 </div>
-
 <footer>
   <div class="container">
     <div class="footer-top">
-      <div class="footer-col">
-        <span class="footer-logo">RFQplus</span>
-        <p class="footer-tagline">US machined &amp; turned parts sourcing. RFQ to delivery, handled.</p>
-      </div>
-      <div class="footer-col">
-        <div class="footer-col-head">Processes</div>
-        <a href="/#capabilities">CNC Milling</a>
-        <a href="/#capabilities">CNC Turning</a>
-        <a href="/#capabilities">Mill-Turn</a>
-        <a href="/#capabilities">Swiss Screw Machining</a>
-      </div>
-      <div class="footer-col">
-        <div class="footer-col-head">Industries</div>
-        <a href="/#capabilities">Aerospace</a>
-        <a href="/#capabilities">Defense / ITAR</a>
-        <a href="/#capabilities">Medical Devices</a>
-        <a href="/#capabilities">Robotics &amp; Automation</a>
-      </div>
-      <div class="footer-col">
-        <div class="footer-col-head">Contact</div>
-        <a href="mailto:rfq@precisionmachining.co">rfq@precisionmachining.co</a>
-        <p>+1 302 248 3229</p>
-        <p>Wilmington, DE</p>
-        <p>United States</p>
-      </div>
+      <div class="footer-col"><span class="footer-logo">RFQplus</span><p class="footer-tagline">US machined &amp; turned parts sourcing. RFQ to delivery, handled.</p></div>
+      <div class="footer-col"><div class="footer-col-head">Processes</div><a href="/#capabilities">CNC Milling</a><a href="/#capabilities">CNC Turning</a><a href="/#capabilities">Mill-Turn</a><a href="/#capabilities">Swiss Screw Machining</a></div>
+      <div class="footer-col"><div class="footer-col-head">Industries</div><a href="/#capabilities">Aerospace</a><a href="/#capabilities">Defense / ITAR</a><a href="/#capabilities">Medical Devices</a><a href="/#capabilities">Robotics &amp; Automation</a></div>
+      <div class="footer-col"><div class="footer-col-head">Contact</div><a href="mailto:rfq@precisionmachining.co">rfq@precisionmachining.co</a><p>+1 302 248 3229</p><p>Wilmington, DE</p><p>United States</p></div>
     </div>
-    <div class="footer-bottom">
-      <span>© 2025 Advanced Tech Solutions LLC. All rights reserved.</span>
-      <span>Privacy Policy · Terms of Service</span>
-    </div>
+    <div class="footer-bottom"><span>© 2025 Advanced Tech Solutions LLC. All rights reserved.</span><span>Privacy Policy · Terms of Service</span></div>
   </div>
 </footer>
-
 </body>
 </html>
