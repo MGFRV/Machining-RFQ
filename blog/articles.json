@@ -4,125 +4,143 @@
     "title": "Swiss Screw Machining: High-Volume Small-Diameter Parts",
     "date": "2025-03-06",
     "preview": "Swiss screw machines produce small-diameter precision parts at high volume with unmatched repeatability. Learn when to specify Swiss and what tolerances to expect.",
-    "icon": "gear"
+    "icon": "gear",
+    "category": "Processes"
   },
   {
     "slug": "cnc-turning-basics",
     "title": "CNC Turning Basics: What Every Engineer Should Know",
     "date": "2025-03-01",
     "preview": "CNC turning is one of the most efficient ways to produce cylindrical parts. This guide breaks down tolerances, materials, and when turning beats milling.",
-    "icon": "lathe"
+    "icon": "lathe",
+    "category": "Processes"
   },
   {
     "slug": "tolerances-guide",
     "title": "Understanding Tolerances in CNC Machining",
     "date": "2025-02-20",
     "preview": "Specifying tolerances too tight drives up cost. Too loose and parts don't fit. Here's how to find the right balance for your application.",
-    "icon": "gauge"
+    "icon": "gauge",
+    "category": "Quality"
   },
   {
     "slug": "material-selection",
     "title": "Material Selection for CNC Parts: Aluminum vs Steel vs Titanium",
     "date": "2025-02-10",
     "preview": "The material you choose affects machinability, lead time, and cost dramatically. A practical breakdown for engineers sourcing precision parts.",
-    "icon": "cube"
+    "icon": "cube",
+    "category": "Materials"
   },
   {
     "slug": "cnc-milling-guide",
     "title": "CNC Milling: 3-Axis, 4-Axis, and 5-Axis Explained",
     "date": "2025-02-05",
     "preview": "More axes means more capability — but also more cost. A practical breakdown of when to use 3-axis vs 4-axis vs full 5-axis simultaneous machining.",
-    "icon": "default"
+    "icon": "default",
+    "category": "Processes"
   },
   {
     "slug": "surface-finish-guide",
     "title": "Surface Finish in CNC Machining: Ra, Rz, and Callout Best Practices",
     "date": "2025-01-28",
     "preview": "Ra 125, Ra 32, ground finish — surface finish callouts affect cost and lead time significantly. Here's how to specify only what your design actually needs.",
-    "icon": "gauge"
+    "icon": "gauge",
+    "category": "Design"
   },
   {
     "slug": "anodizing-types",
     "title": "Anodizing Aluminum: Type I, II, and III Compared",
     "date": "2025-01-20",
     "preview": "Hard anodize, standard anodize, clear or color — choosing the right anodize type for your aluminum parts affects corrosion resistance, wear, and dimensional tolerance.",
-    "icon": "cube"
+    "icon": "cube",
+    "category": "Materials"
   },
   {
     "slug": "itar-compliance",
     "title": "ITAR Compliance in CNC Machining: What Procurement Needs to Know",
     "date": "2025-01-15",
     "preview": "Defense and aerospace parts often require ITAR-registered manufacturers. Here's what ITAR registration means, what it doesn't cover, and how to source compliantly.",
-    "icon": "default"
+    "icon": "default",
+    "category": "Sourcing"
   },
   {
     "slug": "thread-standards",
     "title": "Thread Standards for Machined Parts: UNC, UNF, Metric, and NPT",
     "date": "2025-01-10",
     "preview": "Mixing thread standards causes costly rework. A concise reference on the most common thread callouts, tolerances, and how to specify them correctly on your drawings.",
-    "icon": "lathe"
+    "icon": "lathe",
+    "category": "Design"
   },
   {
     "slug": "first-article-inspection",
     "title": "First Article Inspection: What to Require and What to Skip",
     "date": "2025-01-05",
     "preview": "FAI reports add cost and lead time. For prototype quantities they're often overkill. Here's when to require full AS9102 FAI, and when a dimensional report is enough.",
-    "icon": "gauge"
+    "icon": "gauge",
+    "category": "Quality"
   },
   {
     "slug": "heat-treatment-basics",
     "title": "Heat Treatment for Machined Parts: Hardening, Tempering, and Annealing",
     "date": "2024-12-28",
     "preview": "Heat treatment changes mechanical properties but also affects dimensions. When to specify heat treat before vs after machining, and what distortion to expect.",
-    "icon": "cube"
+    "icon": "cube",
+    "category": "Materials"
   },
   {
     "slug": "stainless-steel-grades",
     "title": "Stainless Steel Grades: 303 vs 304 vs 316 vs 17-4 PH",
     "date": "2024-12-20",
     "preview": "Not all stainless is equal. A machinist's comparison of the four most common grades — machinability, corrosion resistance, cost, and when each is the right call.",
-    "icon": "cube"
+    "icon": "cube",
+    "category": "Materials"
   },
   {
     "slug": "prototype-to-production",
     "title": "Prototype to Production: How Part Design Changes When You Scale",
     "date": "2024-12-15",
     "preview": "A part designed for 5 pieces often needs redesign at 5,000. Features that are fine to EDM at prototype quantities become bottlenecks at volume. What to watch for.",
-    "icon": "gear"
+    "icon": "gear",
+    "category": "Design"
   },
   {
     "slug": "cmm-inspection",
     "title": "CMM Inspection Reports: What to Ask For and How to Read Them",
     "date": "2024-12-10",
     "preview": "Coordinate measuring machine reports are the gold standard for dimensional verification. What a complete CMM report contains, what to flag, and when to require it.",
-    "icon": "gauge"
+    "icon": "gauge",
+    "category": "Quality"
   },
   {
     "slug": "drawing-best-practices",
     "title": "Engineering Drawing Best Practices for CNC Sourcing",
     "date": "2024-12-05",
     "preview": "A poor drawing slows quoting, causes misquotes, and leads to rework. The ten most common drawing mistakes and how to fix them before sending your RFQ.",
-    "icon": "default"
+    "icon": "default",
+    "category": "Design"
   },
   {
     "slug": "lead-time-factors",
     "title": "What Actually Drives Lead Time on CNC Parts",
     "date": "2024-11-28",
     "preview": "Shops quote 3–4 weeks but sometimes deliver in 5 days. Lead time is driven by material availability, machine load, and finishing ops — not just complexity.",
-    "icon": "lathe"
+    "icon": "lathe",
+    "category": "Sourcing"
   },
   {
     "slug": "as9100-vs-iso9001",
     "title": "AS9100 vs ISO 9001: Which Certification Do You Actually Need?",
     "date": "2024-11-20",
     "preview": "Both certifications signal quality systems, but AS9100 adds aerospace-specific requirements. When to require AS9100 vs ISO 9001 — and when neither is necessary.",
-    "icon": "default"
+    "icon": "default",
+    "category": "Sourcing"
   },
   {
     "slug": "rfq-checklist",
     "title": "The Complete RFQ Checklist for CNC Machined Parts",
     "date": "2024-11-15",
     "preview": "Missing information in an RFQ delays quotes and causes back-and-forth. A complete checklist of what to include when requesting quotes for precision machined parts.",
-    "icon": "gear"
+    "icon": "gear",
+    "category": "Sourcing"
   }
 ]

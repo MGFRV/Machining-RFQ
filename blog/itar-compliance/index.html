@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ITAR Compliance in CNC Machining: What Procurement Needs to Know — RFQplus</title>
-  <meta name="description" content="Defense and aerospace parts often require ITAR-registered manufacturers. Here's what ITAR registration means, what it doesn't cover, and how to source compliantly." />
+  <meta name="description" content="Defense and aerospace parts often require ITAR-registered manufacturers. Here&#39;s what ITAR registration means, what it doesn&#39;t cover, and how to source compliantly." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -30,28 +30,35 @@
     .nav-cta { font-size: 0.68rem; font-weight: 600; background: var(--accent); color: var(--white); padding: 10px 22px; text-decoration: none; text-transform: uppercase; letter-spacing: 0.12em; border: 1px solid var(--accent); transition: background .15s; display: flex; align-items: center; gap: 8px; }
     .nav-cta:hover { background: #162840; border-color: #162840; }
     .article-header { padding: 112px 0 56px; border-bottom: 1px solid var(--c200); }
-    .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 0.65rem; color: var(--c400); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 24px; }
-    .breadcrumb a { color: var(--c400); text-decoration: none; transition: color .15s; }
-    .breadcrumb a:hover { color: var(--accent); }
-    .breadcrumb span { color: var(--c200); }
-    .article-meta-row { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+    .article-header .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 0.65rem; color: var(--c400); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 24px; }
+    .article-header .breadcrumb a { color: var(--c400); text-decoration: none; transition: color .15s; }
+    .article-header .breadcrumb a:hover { color: var(--accent); }
+    .article-header .breadcrumb span { color: var(--c200); }
+    .article-meta-row { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; flex-wrap: wrap; }
     .article-date { font-size: 0.65rem; color: var(--c400); text-transform: uppercase; letter-spacing: 0.12em; }
     .article-h1 { font-size: clamp(1.6rem, 3.5vw, 2.8rem); font-weight: 300; line-height: 1.15; letter-spacing: -0.02em; max-width: 800px; margin-bottom: 20px; }
     .article-h1 strong { font-weight: 500; }
     .article-lead { font-size: 0.9rem; color: var(--c500); max-width: 640px; line-height: 1.7; }
     .article-wrap { padding: 56px 0 80px; display: grid; grid-template-columns: 1fr 280px; gap: 80px; align-items: start; }
+    .article-content h2 { font-size: 1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; margin: 40px 0 14px; padding-top: 40px; border-top: 1px solid var(--c200); }
+    .article-content h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+    .article-content h3 { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; margin: 28px 0 10px; }
     .article-content p { font-size: 0.85rem; color: var(--c600); line-height: 1.8; margin-bottom: 16px; }
-    .coming-soon { border: 1px solid var(--c200); padding: 48px 36px; text-align: center; }
-    .coming-soon-label { font-size: 0.65rem; font-weight: 600; color: var(--c400); text-transform: uppercase; letter-spacing: 0.16em; margin-bottom: 12px; }
-    .coming-soon-title { font-size: 1rem; font-weight: 300; color: var(--c600); }
-    .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 0.68rem; font-weight: 500; color: var(--c500); text-decoration: none; text-transform: uppercase; letter-spacing: 0.12em; transition: color .15s; margin-bottom: 40px; }
-    .back-link:hover { color: var(--accent); }
+    .article-content ul, .article-content ol { padding-left: 20px; margin-bottom: 16px; }
+    .article-content li { font-size: 0.85rem; color: var(--c600); line-height: 1.8; margin-bottom: 6px; }
+    .article-content strong { color: var(--c900); font-weight: 500; }
+    .article-content table { width: 100%; border-collapse: collapse; margin-bottom: 16px; }
+    .article-content th { font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--c500); text-align: left; padding: 10px 16px; background: var(--c100); border: 1px solid var(--c200); }
+    .article-content td { font-size: 0.8rem; color: var(--c600); padding: 10px 16px; border: 1px solid var(--c200); line-height: 1.5; }
+    .article-content tr:nth-child(even) td { background: var(--c50); }
     .article-sidebar { position: sticky; top: 88px; }
     .sidebar-block { border: 1px solid var(--c200); padding: 24px; margin-bottom: 24px; }
     .sidebar-block-head { font-size: 0.65rem; font-weight: 600; color: var(--c500); text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 16px; }
     .sidebar-cta { display: inline-flex; align-items: center; gap: 8px; font-size: 0.68rem; font-weight: 600; background: var(--accent); color: var(--white); padding: 12px 20px; text-decoration: none; text-transform: uppercase; letter-spacing: 0.12em; border: 1px solid var(--accent); transition: background .15s; width: 100%; justify-content: center; }
     .sidebar-cta:hover { background: #162840; }
     .sidebar-p { font-size: 0.75rem; color: var(--c500); line-height: 1.65; margin-bottom: 16px; }
+    .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 0.68rem; font-weight: 500; color: var(--c500); text-decoration: none; text-transform: uppercase; letter-spacing: 0.12em; transition: color .15s; margin-bottom: 40px; }
+    .back-link:hover { color: var(--accent); }
     footer { background: var(--c900); padding: 56px 0 32px; }
     .footer-top { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 0; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,.08); margin-bottom: 28px; }
     .footer-col { padding-right: 40px; }
@@ -87,27 +94,28 @@
 </nav>
 <div class="article-header grid-bg">
   <div class="container">
-    <div class="breadcrumb">
-      <a href="/">Home</a><span>/</span>
-      <a href="/blog/">Blog</a><span>/</span>
-      <span>Itar Compliance</span>
-    </div>
+    <div class="breadcrumb"><a href="/">Home</a><span>/</span><a href="/blog/">Blog</a><span>/</span><span>Itar Compliance</span></div>
     <div class="article-meta-row">
-      <span class="section-label">// machining</span>
+      <span class="section-label">// category: Sourcing</span>
       <span class="article-date">Jan 15, 2025</span>
     </div>
     <h1 class="article-h1"><strong>ITAR Compliance in CNC Machining: What Procurement Needs to Know</strong></h1>
-    <p class="article-lead">Defense and aerospace parts often require ITAR-registered manufacturers. Here's what ITAR registration means, what it doesn't cover, and how to source compliantly.</p>
+    <p class="article-lead">Defense and aerospace parts often require ITAR-registered manufacturers. Here&#39;s what ITAR registration means, what it doesn&#39;t cover, and how to source compliantly.</p>
   </div>
 </div>
 <div class="container">
   <div class="article-wrap">
     <article class="article-content">
       <a href="/blog/" class="back-link">← Back to Blog</a>
+
+
       <div class="coming-soon">
         <div class="coming-soon-label">// coming soon</div>
         <div class="coming-soon-title">Full article in progress.</div>
       </div>
+    
+
+
     </article>
     <aside class="article-sidebar">
       <div class="sidebar-block">
@@ -125,36 +133,12 @@
 <footer>
   <div class="container">
     <div class="footer-top">
-      <div class="footer-col">
-        <span class="footer-logo">RFQplus</span>
-        <p class="footer-tagline">US machined &amp; turned parts sourcing. RFQ to delivery, handled.</p>
-      </div>
-      <div class="footer-col">
-        <div class="footer-col-head">Processes</div>
-        <a href="/#capabilities">CNC Milling</a>
-        <a href="/#capabilities">CNC Turning</a>
-        <a href="/#capabilities">Mill-Turn</a>
-        <a href="/#capabilities">Swiss Screw Machining</a>
-      </div>
-      <div class="footer-col">
-        <div class="footer-col-head">Industries</div>
-        <a href="/#capabilities">Aerospace</a>
-        <a href="/#capabilities">Defense / ITAR</a>
-        <a href="/#capabilities">Medical Devices</a>
-        <a href="/#capabilities">Robotics &amp; Automation</a>
-      </div>
-      <div class="footer-col">
-        <div class="footer-col-head">Contact</div>
-        <a href="mailto:rfq@precisionmachining.co">rfq@precisionmachining.co</a>
-        <p>+1 302 248 3229</p>
-        <p>Wilmington, DE</p>
-        <p>United States</p>
-      </div>
+      <div class="footer-col"><span class="footer-logo">RFQplus</span><p class="footer-tagline">US machined &amp; turned parts sourcing. RFQ to delivery, handled.</p></div>
+      <div class="footer-col"><div class="footer-col-head">Processes</div><a href="/#capabilities">CNC Milling</a><a href="/#capabilities">CNC Turning</a><a href="/#capabilities">Mill-Turn</a><a href="/#capabilities">Swiss Screw Machining</a></div>
+      <div class="footer-col"><div class="footer-col-head">Industries</div><a href="/#capabilities">Aerospace</a><a href="/#capabilities">Defense / ITAR</a><a href="/#capabilities">Medical Devices</a><a href="/#capabilities">Robotics &amp; Automation</a></div>
+      <div class="footer-col"><div class="footer-col-head">Contact</div><a href="mailto:rfq@precisionmachining.co">rfq@precisionmachining.co</a><p>+1 302 248 3229</p><p>Wilmington, DE</p><p>United States</p></div>
     </div>
-    <div class="footer-bottom">
-      <span>© 2025 Advanced Tech Solutions LLC. All rights reserved.</span>
-      <span>Privacy Policy · Terms of Service</span>
-    </div>
+    <div class="footer-bottom"><span>© 2025 Advanced Tech Solutions LLC. All rights reserved.</span><span>Privacy Policy · Terms of Service</span></div>
   </div>
 </footer>
 </body>
