@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | Precision Machining Co. — US CNC Parts Sourcing</title>
+  <meta name="description" content="Precision Machining Co. is a US-based CNC parts sourcing network founded by the team behind MDCplus. We connect engineering and procurement teams with vetted domestic machine shops." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --c50:#F5F4F0; --c100:#ECEAE6; --c200:#D5D1CB; --c400:#9E978D; --c500:#857F77; --c600:#665F57; --c900:#1C1917; --white:#FFFFFF; --accent:#0A1930; --mono:'IBM Plex Mono', monospace; }
+    body { font-family: var(--mono); background: var(--c50); color: var(--c900); line-height: 1.7; }
+    .container { max-width: 860px; margin: 0 auto; padding: 0 48px; }
+    nav { position: fixed; inset: 0 0 auto 0; height: 64px; z-index: 10; background: rgba(245,244,240,.96); border-bottom: 1px solid var(--c200); }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; height: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-size: .82rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--c900); text-decoration: none; }
+    .nav-back { font-size: .68rem; text-transform: uppercase; letter-spacing: .14em; color: var(--c600); text-decoration: none; }
+    .page { padding: 112px 0 88px; }
+    .label { font-size: .68rem; text-transform: uppercase; letter-spacing: .18em; color: var(--accent); border-bottom: 1px solid var(--accent); display: inline-flex; margin-bottom: 24px; }
+    h1 { font-size: clamp(1.9rem,3.6vw,3rem); font-weight: 300; margin-bottom: 28px; line-height: 1.2; }
+    .section { border-top: 1px solid var(--c200); padding: 36px 0; }
+    .section:first-of-type { margin-top: 16px; }
+    .kicker { color: var(--c500); text-transform: uppercase; letter-spacing: .14em; font-size: .65rem; margin-bottom: 10px; }
+    h2 { font-size: 1rem; margin-bottom: 14px; }
+    p { font-size: .84rem; color: var(--c600); margin-bottom: 12px; }
+    p:last-child { margin-bottom: 0; }
+    a.inline { color: var(--accent); text-decoration: none; }
+    footer { background: var(--c900); padding: 32px 0; }
+    .footer-bottom { max-width: 1200px; margin: 0 auto; padding: 0 48px; display: flex; justify-content: space-between; color: var(--c600); font-size: .65rem; letter-spacing: .06em; flex-wrap: wrap; gap: 8px; }
+    .footer-bottom a { color: var(--c600); text-decoration: none; }
+    @media (max-width: 960px) { .container,.nav-inner,.footer-bottom { padding: 0 28px; } }
+  </style>
+</head>
+<body>
+<nav><div class="nav-inner"><a href="/" class="logo">Precision Machining Co.</a><a class="nav-back" href="/">← Back to Home</a></div></nav>
+<div class="page"><div class="container">
+  <div class="label">About</div>
+  <h1>We built this because we could see the data.</h1>
+
+  <section class="section"><p>The team behind Precision Machining Co. spent years building MDCplus — software that connects directly to CNC machines on shop floors to track utilization, cycle times, and quality in real time. In doing that work, we got an unusually clear view of which shops ran tight, who hit tolerances consistently, and where delivery promises actually held.</p><p>What we also saw was the friction on the buying side. Engineers spending days chasing RFQ responses. Procurement teams managing five different shops with five different invoices. Parts arriving out of spec with no paper trail. Qualified shops sitting underutilized while buyers defaulted to whoever responded fastest.</p><p>Precision Machining Co. is our answer to that gap.</p></section>
+
+  <section class="section"><div class="kicker">// What we do</div><p>We act as a single point of contact between your engineering team and a curated network of US machine shops. You submit your requirements once. We match them to the best-fit shop, return a competitive quote within 24 hours, and manage the relationship through to delivery.</p><p>One contact. One invoice. One point of accountability.</p></section>
+
+  <section class="section"><div class="kicker">// Our network</div><p>Every shop in our network has passed a capability, quality, and on-time delivery audit before we source a single job through them. We carry ITAR-compliant sourcing options and can provide AS9100- and ISO 9001-certified capacity for regulated industries.</p><p>We do not upload your drawings to third-party platforms. Files go directly to the selected manufacturer, and NDAs are available on request.</p></section>
+
+  <section class="section"><div class="kicker">// The MDCplus connection</div><p><a href="https://mdcplus.fi" class="inline">MDCplus</a> is our sister product — machine monitoring and OEE software used by manufacturers across aerospace, automotive, and precision machining. The two businesses are separate: MDCplus serves machine shops, Precision Machining Co. serves the teams who buy from them.</p><p>What they share is the same founding team and the same belief: that better data leads to better manufacturing outcomes. We do not route jobs based on software usage. Our network selection is based on performance, certifications, and capability alone.</p></section>
+
+  <section class="section"><div class="kicker">// Contact</div><p>Ready to source? Send your RFQ to <a class="inline" href="mailto:rfq@precisionmachining.co">rfq@precisionmachining.co</a> or call +1 312-579-0808. We respond within 24 hours.</p><p>Wilmington, DE · United States</p></section>
+</div></div>
+<footer><div class="footer-bottom"><span>© <span class="copyright-year"></span> Advanced Tech Solutions LLC. All rights reserved.</span><span><a href="/privacy/">Privacy Policy</a> · <a href="/terms/">Terms of Service</a></span></div></footer>
+<script>document.querySelectorAll('.copyright-year').forEach(el => { el.textContent = new Date().getFullYear(); });</script>
+</body>
+</html>

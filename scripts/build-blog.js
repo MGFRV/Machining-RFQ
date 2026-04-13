@@ -26,13 +26,15 @@ try {
   marked = { parse: (md) => md };
 }
 
-// Category mapping for migrated legacy articles:
-// swiss-screw-machining, cnc-turning-basics, cnc-milling-guide => Processes
-// material-selection, anodizing-types, heat-treatment-basics, stainless-steel-grades => Materials
-// tolerances-guide, first-article-inspection, cmm-inspection => Quality
-// rfq-checklist, lead-time-factors, itar-compliance, as9100-vs-iso9001 => Sourcing
-// drawing-best-practices, thread-standards, surface-finish-guide, prototype-to-production => Design
-const CATEGORIES = ['Processes', 'Materials', 'Quality', 'Sourcing', 'Design'];
+const CATEGORY_LABELS = {
+  process: 'CNC Processes',
+  materials: 'Materials',
+  design: 'Design & Tolerances',
+  sourcing: 'Sourcing & Procurement',
+  industry: 'Industries',
+  quality: 'Quality & Inspection'
+};
+const CATEGORIES = Object.keys(CATEGORY_LABELS);
 const REQUIRED_FIELDS = ['title', 'slug', 'date', 'preview', 'category', 'icon'];
 const ROOT = path.resolve(__dirname, '..');
 const CONTENT_DIR = path.join(ROOT, 'content', 'articles');
@@ -67,7 +69,7 @@ function renderArticlePage(article) {
     '{{TITLE}}': escapeHtml(article.title),
     '{{DESCRIPTION}}': escapeHtml(article.description || article.preview),
     '{{DATE_LABEL}}': escapeHtml(formatDate(article.date)),
-    '{{CATEGORY}}': escapeHtml(article.category),
+    '{{CATEGORY}}': escapeHtml(CATEGORY_LABELS[article.category] || article.category),
     '{{H1}}': escapeHtml(article.h1 || article.title),
     '{{PREVIEW}}': escapeHtml(article.preview),
     '{{BREADCRUMB}}': escapeHtml(titleCase(article.slug)),
@@ -79,11 +81,11 @@ function renderArticlePage(article) {
 }
 
 function renderBlogIndex(articles) {
-  const categoryButtons = ['All', ...CATEGORIES].map((c) => `<button class="filter-btn${c === 'All' ? ' active' : ''}" data-category="${c}">${c}</button>`).join('');
+  const categoryButtons = ['All', ...CATEGORIES].map((c) => `<button class="filter-btn${c === 'All' ? ' active' : ''}" data-category="${c}">${c === 'All' ? 'All' : CATEGORY_LABELS[c]}</button>`).join('');
   const cards = articles.map((a) => `<a class="article-card" data-category="${a.category}" href="/blog/${a.slug}/">
       <div class="article-icon">${iconSvg(a.icon)}</div>
       <div class="article-body">
-        <div class="article-meta">${formatDate(a.date)} · ${a.category}</div>
+        <div class="article-meta">${formatDate(a.date)} · ${CATEGORY_LABELS[a.category] || a.category}</div>
         <div class="article-title">${escapeHtml(a.title)}</div>
         <div class="article-preview">${escapeHtml(a.preview)}</div>
       </div>
@@ -95,7 +97,7 @@ function renderBlogIndex(articles) {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blog — RFQplus</title>
+  <title>Blog — Precision Machining Co.</title>
   <meta name="description" content="Insights on CNC machining, tolerances, materials, and precision manufacturing sourcing." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -144,11 +146,15 @@ function renderBlogIndex(articles) {
   </style>
 </head>
 <body>
-<nav><div class="nav-inner"><a href="/" class="logo">RFQplus</a><div class="nav-links"><a href="/#process">Process</a><a href="/#capabilities">Capabilities</a><a href="/#why">Why Us</a><a href="/blog/">Blog</a><a href="/#rfq" class="nav-cta">Contact Us →</a></div></div></nav>
+<nav><div class="nav-inner"><a href="/" class="logo">Precision Machining Co.</a><div class="nav-links"><a href="/#process">Process</a><a href="/#capabilities">Capabilities</a><a href="/#why">Why Us</a><a href="/blog/">Blog</a>
+  <a href="/about/">About</a><a href="/#rfq" class="nav-cta">Contact Us →</a></div></div></nav>
 <div class="page-header grid-bg"><div class="container"><span class="section-label">// knowledge base</span><h1><strong>Machining</strong> Insights</h1><p>Practical guides on CNC processes, tolerances, materials, and sourcing for engineers.</p></div></div>
 <section class="articles-section"><div class="container"><div class="filters" id="filters">${categoryButtons}</div><div id="article-list">${cards}</div></div></section>
-<footer><div class="container"><div class="footer-top"><div class="footer-col"><span class="footer-logo">RFQplus</span><p class="footer-tagline">US machined &amp; turned parts sourcing. RFQ to delivery, handled.</p></div><div class="footer-col"><div class="footer-col-head">Processes</div><a href="/#capabilities">CNC Milling</a><a href="/#capabilities">CNC Turning</a><a href="/#capabilities">Mill-Turn</a><a href="/#capabilities">Swiss Screw Machining</a></div><div class="footer-col"><div class="footer-col-head">Industries</div><a href="/#capabilities">Aerospace</a><a href="/#capabilities">Defense / ITAR</a><a href="/#capabilities">Medical Devices</a><a href="/#capabilities">Robotics &amp; Automation</a></div><div class="footer-col"><div class="footer-col-head">Contact</div><a href="mailto:rfq@precisionmachining.co">rfq@precisionmachining.co</a><p>+1 302 248 3229</p><p>Wilmington, DE</p><p>United States</p></div></div><div class="footer-bottom"><span>© 2025 Advanced Tech Solutions LLC. All rights reserved.</span><span>Privacy Policy · Terms of Service</span></div></div></footer>
+<footer><div class="container"><div class="footer-top"><div class="footer-col"><span class="footer-logo">Precision Machining Co.</span><p class="footer-tagline">US machined &amp; turned parts sourcing. RFQ to delivery, handled.</p></div><div class="footer-col"><div class="footer-col-head">Processes</div><a href="/#capabilities">CNC Milling</a><a href="/#capabilities">CNC Turning</a><a href="/#capabilities">Mill-Turn</a><a href="/#capabilities">Swiss Machining</a></div><div class="footer-col"><div class="footer-col-head">Industries</div><a href="/#capabilities">Aerospace</a><a href="/#capabilities">Defense / ITAR</a><a href="/#capabilities">Medical Devices</a><a href="/#capabilities">Robotics</a></div><div class="footer-col"><div class="footer-col-head">Contact</div><a href="mailto:rfq@precisionmachining.co">rfq@precisionmachining.co</a><p>+1 312-579-0808</p><p>Wilmington, DE</p><p>United States</p></div></div><div class="footer-bottom"><span>© <span class="copyright-year"></span> Advanced Tech Solutions LLC. All rights reserved.</span><span>Privacy Policy · Terms of Service</span></div></div></footer>
 <script>
+  document.querySelectorAll('.copyright-year').forEach(el => {
+    el.textContent = new Date().getFullYear();
+  });
   const buttons = document.querySelectorAll('.filter-btn');
   const cards = document.querySelectorAll('.article-card');
   buttons.forEach((btn) => btn.addEventListener('click', () => {
