@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RFQplus: Your CNC Machined & Turned Parts</title>
+  <title>Precision Machining Co. — US CNC Parts Sourcing</title>
   <meta name="description" content="Request quotes on CNC machined and turned parts. We connect you with vetted US manufacturers." />
+  <meta property="og:title" content="Precision Machining Co. — US CNC Parts Sourcing" />
+  <meta property="og:description" content="Request quotes on CNC machined and turned parts. We connect you with vetted US manufacturers." />
+  <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -58,7 +61,9 @@
     @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
     .hero-h1 { font-size: clamp(2.8rem, 5.5vw, 5.2rem); font-weight: 300; line-height: 1.08; letter-spacing: -0.02em; color: var(--c900); max-width: 880px; margin-bottom: 28px; }
     .hero-h1 strong { font-weight: 500; }
-    .hero-sub { font-size: 1rem; color: var(--c600); max-width: 560px; line-height: 1.8; letter-spacing: 0.02em; margin-bottom: 44px; }
+    .hero-sub { font-size: 1rem; color: var(--c600); max-width: 560px; line-height: 1.8; letter-spacing: 0.02em; margin-bottom: 10px; }
+    .hero-caption { font-size: 0.8rem; color: var(--c500); max-width: 640px; line-height: 1.7; letter-spacing: 0.01em; margin-bottom: 44px; }
+    .hero-caption a { color: inherit; }
     .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 72px; }
     .btn-primary { font-family: var(--mono); font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; background: var(--accent); color: var(--white); padding: 14px 32px; text-decoration: none; border: 1px solid var(--accent); transition: background .15s; display: inline-flex; align-items: center; gap: 10px; }
     .btn-primary:hover { background: #162840; }
@@ -229,7 +234,7 @@
 
 <nav>
   <div class="nav-inner">
-    <a href="#" class="logo">RFQplus</a>
+    <a href="#" class="logo">Precision Machining Co.</a>
     <button class="nav-burger" onclick="toggleMenu(this)" aria-label="Toggle menu">
       <span></span><span></span><span></span>
     </button>
@@ -240,6 +245,7 @@
   <a href="#capabilities">Capabilities</a>
   <a href="#why">Why Us</a>
   <a href="/blog/">Blog</a>
+  <a href="/about/">About</a>
   <a href="#rfq" class="nav-cta">Contact Us →</a>
 </div>
 
@@ -253,6 +259,7 @@
       <h1 class="hero-h1">Custom parts <br /><strong>quoted and confirmed </strong><br />within 24 hours.</h1>
       <p class="hero-sub">We source and qualify machined parts across a vetted network of US shops.</p>
       <p class="hero-sub">Submit your requirements — we handle all the rest.</p>
+      <p class="hero-caption"><em>Built by the team behind <a href="https://mdcplus.fi" target="_blank" rel="noopener noreferrer">MDCplus</a> — with firsthand data on how the best machine shops actually perform.</em></p>
       <div class="hero-actions">
         <a href="#rfq" class="btn-primary">Get a Quote →</a>
         <a href="#process" class="btn-ghost">How It Works</a>
@@ -354,7 +361,7 @@
         <div class="step-icon-wrap"><span></span><div class="step-num-inner">03</div></div>
         <div class="step-n">Step 03</div>
         <div class="step-title">Production &amp; Delivery</div>
-        <div class="step-body">You get a single invoice and introduction the shop - no "incognito" communication</div>
+        <div class="step-body">You receive a single invoice and a direct introduction to your shop — full transparency, no hidden intermediaries.</div>
       </div>
     </div>
   </div>
@@ -395,7 +402,7 @@
       <div class="cap-card" style="border-bottom:none; border-right:none;">
         <div class="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
         <div class="cap-title">Industries Served</div>
-        <div class="cap-body">Aerospace · Defense / ITAR · Medical Devices · Robotics &amp; Automation · Semiconductor · Industrial Equipment</div>
+        <div class="cap-body">Aerospace · Defense / ITAR · Medical Devices · Robotics · Semiconductor · Industrial Equipment</div>
       </div>
     </div>
     <div class="spec-block">
@@ -520,7 +527,7 @@
   <div class="container">
     <div class="footer-top">
       <div class="footer-col">
-        <span class="footer-logo">RFQplus</span>
+        <span class="footer-logo">Precision Machining Co.</span>
         <p class="footer-tagline">US machined &amp; turned parts sourcing. RFQ to delivery, handled.</p>
       </div>
       <div class="footer-col">
@@ -528,25 +535,25 @@
         <a href="#">CNC Milling</a>
         <a href="#">CNC Turning</a>
         <a href="#">Mill-Turn</a>
-        <a href="#">Swiss Screw Machining</a>
+        <a href="#">Swiss Machining</a>
       </div>
       <div class="footer-col">
         <div class="footer-col-head">Industries</div>
         <a href="#">Aerospace</a>
         <a href="#">Defense / ITAR</a>
         <a href="#">Medical Devices</a>
-        <a href="#">Robotics &amp; Automation</a>
+        <a href="#">Robotics</a>
       </div>
       <div class="footer-col">
         <div class="footer-col-head">Contact</div>
         <a href="mailto:rfq@precisionmachining.co">rfq@precisionmachining.co</a>
-        <p>+1 302 248 3229</p>
+        <p>+1 312-579-0808</p>
         <p>Wilmington, DE</p>
         <p>United States</p>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2025 Advanced Tech Solutions LLC. All rights reserved.</span>
+      <span>© <span class="copyright-year"></span> Advanced Tech Solutions LLC. All rights reserved.</span>
       <span><a href="/privacy/" style="color:var(--c600);text-decoration:none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--c600)'">Privacy Policy</a> · <a href="/terms/" style="color:var(--c600);text-decoration:none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--c600)'">Terms of Service</a></span>
     </div>
   </div>
@@ -609,6 +616,9 @@
         document.querySelector('.nav-burger').classList.remove('open');
       }
     });
+  });
+  document.querySelectorAll('.copyright-year').forEach(el => {
+    el.textContent = new Date().getFullYear();
   });
 </script>
 </body>

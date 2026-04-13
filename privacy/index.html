@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privacy Policy — RFQplus</title>
-  <meta name="description" content="Privacy Policy for RFQplus — how we collect, use, and protect your information." />
+  <title>Privacy Policy — Precision Machining Co.</title>
+  <meta name="description" content="Privacy Policy for Precision Machining Co. — how we collect, use, and protect your information." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -70,7 +70,7 @@
 
 <nav>
   <div class="nav-inner">
-    <a href="/" class="logo">RFQplus</a>
+    <a href="/" class="logo">Precision Machining Co.</a>
     <a href="/" class="nav-back">← Back to Home</a>
   </div>
 </nav>
@@ -86,7 +86,7 @@
       <div class="doc-section">
         <div class="doc-section-num">// 01</div>
         <h2>Overview</h2>
-        <p>Advanced Tech Solutions LLC ("RFQplus", "we", "our", or "us") operates the website rfqplus.co. This Privacy Policy explains how we collect, use, and protect information you provide when using our services.</p>
+        <p>Advanced Tech Solutions LLC ("Precision Machining Co.", "we", "our", or "us") operates the website precisionmachining.co. This Privacy Policy explains how we collect, use, and protect information you provide when using our services.</p>
         <p>By using our website or contacting us, you agree to the practices described in this policy.</p>
       </div>
 
@@ -177,10 +177,15 @@
 
 <footer>
   <div class="footer-bottom">
-    <span>© 2025 Advanced Tech Solutions LLC. All rights reserved.</span>
+    <span>© <span class="copyright-year"></span> Advanced Tech Solutions LLC. All rights reserved.</span>
     <span><a href="/privacy/">Privacy Policy</a> · <a href="/terms/">Terms of Service</a></span>
   </div>
 </footer>
 
+<script>
+  document.querySelectorAll('.copyright-year').forEach(el => {
+    el.textContent = new Date().getFullYear();
+  });
+</script>
 </body>
 </html>
