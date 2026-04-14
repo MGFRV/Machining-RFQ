@@ -35,7 +35,7 @@ const CATEGORY_LABELS = {
   quality: 'Quality & Inspection'
 };
 const CATEGORIES = Object.keys(CATEGORY_LABELS);
-const REQUIRED_FIELDS = ['title', 'slug', 'date', 'preview', 'category', 'icon'];
+const REQUIRED_FIELDS = ['title', 'date', 'preview', 'category', 'slug'];
 const ROOT = path.resolve(__dirname, '..');
 const CONTENT_DIR = path.join(ROOT, 'content', 'articles');
 const BLOG_DIR = path.join(ROOT, 'blog');
@@ -55,9 +55,51 @@ function getMdxFiles() {
   return fs.readdirSync(CONTENT_DIR).filter((f) => f.endsWith('.mdx')).map((f) => path.join(CONTENT_DIR, f));
 }
 
+function deriveSlug(filePath) {
+  return path.basename(filePath, '.mdx')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '');
+}
+
+function cleanText(input) {
+  return String(input || '')
+    .replace(/`([^`]+)`/g, '$1')
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+    .replace(/[*_~>#-]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function derivePreview(content) {
+  const lines = String(content || '').split('\n');
+  for (const line of lines) {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith('---') || trimmed.startsWith('|')) continue;
+    const plain = cleanText(trimmed);
+    if (plain.length < 24) continue;
+    return plain.length > 220 ? `${plain.slice(0, 217)}...` : plain;
+  }
+  return 'Read the full article.';
+}
+
+function normalizeArticle(data, content, filePath) {
+  const normalized = { ...data };
+  normalized.slug = normalized.slug || deriveSlug(filePath);
+  normalized.date = normalized.date || normalized.publishedAt;
+  normalized.preview = normalized.preview || normalized.description || derivePreview(content);
+  normalized.description = normalized.description || normalized.preview;
+  normalized.h1 = normalized.h1 || normalized.title;
+  normalized.icon = normalized.icon || 'default';
+  return normalized;
+}
+
 function validateArticle(data, filePath, seenSlugs) {
   for (const field of REQUIRED_FIELDS) {
     if (!data[field]) throw new Error(`Missing required frontmatter field "${field}" in ${path.relative(ROOT, filePath)}`);
+  }
+  if (Number.isNaN(new Date(data.date).getTime())) {
+    throw new Error(`Invalid date "${data.date}" in ${path.relative(ROOT, filePath)}. Use YYYY-MM-DD.`);
   }
   if (!CATEGORIES.includes(data.category)) throw new Error(`Unknown category "${data.category}" in ${path.relative(ROOT, filePath)}. Valid: ${CATEGORIES.join(', ')}`);
   if (seenSlugs.has(data.slug)) throw new Error(`Duplicate slug "${data.slug}" detected.`);
@@ -197,9 +239,10 @@ function main() {
   const categoryCount = Object.fromEntries(CATEGORIES.map((c) => [c, 0]));
   const articles = files.map((filePath) => {
     const { data, content } = matter(fs.readFileSync(filePath, 'utf8'));
-    validateArticle(data, filePath, seenSlugs);
-    categoryCount[data.category] += 1;
-    return { ...data, bodyHtml: marked.parse(content) };
+    const normalized = normalizeArticle(data, content, filePath);
+    validateArticle(normalized, filePath, seenSlugs);
+    categoryCount[normalized.category] += 1;
+    return { ...normalized, bodyHtml: marked.parse(content) };
   }).sort((a, b) => new Date(b.date) - new Date(a.date));
 
   cleanupStaleArticleDirs(articles.map((a) => a.slug));
