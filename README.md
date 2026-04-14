@@ -4,30 +4,29 @@ This repository uses a build-time MDX pipeline for the blog while keeping the si
 
 ## Add a new article
 1. Create `content/articles/<slug>.mdx`.
-2. Use this frontmatter schema:
+2. Use this frontmatter schema (minimal required fields: `title`, `category`, and either `date` or `publishedAt`):
 
 ```yaml
 ---
 title: "CNC Milling: 3-Axis, 4-Axis, and 5-Axis Explained"
-slug: "cnc-milling-guide"
-date: "2025-02-05"
-preview: "More axes means more capability — but also more cost..."
-description: "Meta description text"
-h1: "CNC Milling: 3-Axis, 4-Axis, and 5-Axis Explained"
-category: "Processes"
-icon: "default"
+slug: "cnc-milling-guide"           # optional (defaults to file name)
+date: "2025-02-05"                  # or use publishedAt
+publishedAt: "2026-04-13"           # optional alias for date
+preview: "More axes means more capability — but also more cost..."   # optional (auto-generated from content)
+description: "Meta description text"                                 # optional
+h1: "CNC Milling: 3-Axis, 4-Axis, and 5-Axis Explained"             # optional
+category: "process"
+icon: "default"                       # optional (defaults to "default")
 ---
 ```
 
 3. Add your markdown/MDX body below frontmatter.
 4. Commit and push. Vercel runs `npm run build` and regenerates blog pages.
 
-## Valid categories
-- `Processes`
-- `Materials`
-- `Quality`
-- `Sourcing`
-- `Design`
+## Categories
+- `category` берётся автоматически из frontmatter каждой `.mdx` статьи.
+- Фильтры на `/blog` строятся динамически по фактическим категориям из контента.
+- Для красивого отображения есть встроенные алиасы (`process`, `materials`, `design`, `sourcing`, `industry`, `quality`), для остальных значений используется auto-title-case.
 
 ## Local build
 ```bash
