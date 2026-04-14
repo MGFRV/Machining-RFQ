@@ -34,8 +34,7 @@ const CATEGORY_LABELS = {
   industry: 'Industries',
   quality: 'Quality & Inspection'
 };
-const CATEGORIES = Object.keys(CATEGORY_LABELS);
-const REQUIRED_FIELDS = ['title', 'slug', 'date', 'preview', 'category', 'icon'];
+const REQUIRED_FIELDS = ['title', 'date', 'preview', 'category', 'slug'];
 const ROOT = path.resolve(__dirname, '..');
 const CONTENT_DIR = path.join(ROOT, 'content', 'articles');
 const BLOG_DIR = path.join(ROOT, 'blog');
@@ -49,17 +48,66 @@ const escapeHtml = (v) => String(v)
 
 const titleCase = (slug) => slug.split('-').map((s) => s[0].toUpperCase() + s.slice(1)).join(' ');
 const formatDate = (iso) => new Date(`${iso}T00:00:00Z`).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+const normalizeCategory = (value) => String(value || '')
+  .trim()
+  .toLowerCase()
+  .replace(/&/g, ' and ')
+  .replace(/[^a-z0-9]+/g, '-')
+  .replace(/(^-|-$)/g, '');
+const categoryLabel = (value) => CATEGORY_LABELS[value] || titleCase(value);
 
 function getMdxFiles() {
   if (!fs.existsSync(CONTENT_DIR)) return [];
   return fs.readdirSync(CONTENT_DIR).filter((f) => f.endsWith('.mdx')).map((f) => path.join(CONTENT_DIR, f));
 }
 
+function deriveSlug(filePath) {
+  return path.basename(filePath, '.mdx')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '');
+}
+
+function cleanText(input) {
+  return String(input || '')
+    .replace(/`([^`]+)`/g, '$1')
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+    .replace(/[*_~>#-]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function derivePreview(content) {
+  const lines = String(content || '').split('\n');
+  for (const line of lines) {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith('---') || trimmed.startsWith('|')) continue;
+    const plain = cleanText(trimmed);
+    if (plain.length < 24) continue;
+    return plain.length > 220 ? `${plain.slice(0, 217)}...` : plain;
+  }
+  return 'Read the full article.';
+}
+
+function normalizeArticle(data, content, filePath) {
+  const normalized = { ...data };
+  normalized.slug = normalized.slug || deriveSlug(filePath);
+  normalized.date = normalized.date || normalized.publishedAt;
+  normalized.category = normalizeCategory(normalized.category);
+  normalized.preview = normalized.preview || normalized.description || derivePreview(content);
+  normalized.description = normalized.description || normalized.preview;
+  normalized.h1 = normalized.h1 || normalized.title;
+  normalized.icon = normalized.icon || 'default';
+  return normalized;
+}
+
 function validateArticle(data, filePath, seenSlugs) {
   for (const field of REQUIRED_FIELDS) {
     if (!data[field]) throw new Error(`Missing required frontmatter field "${field}" in ${path.relative(ROOT, filePath)}`);
   }
-  if (!CATEGORIES.includes(data.category)) throw new Error(`Unknown category "${data.category}" in ${path.relative(ROOT, filePath)}. Valid: ${CATEGORIES.join(', ')}`);
+  if (Number.isNaN(new Date(data.date).getTime())) {
+    throw new Error(`Invalid date "${data.date}" in ${path.relative(ROOT, filePath)}. Use YYYY-MM-DD.`);
+  }
   if (seenSlugs.has(data.slug)) throw new Error(`Duplicate slug "${data.slug}" detected.`);
   seenSlugs.add(data.slug);
 }
@@ -69,7 +117,7 @@ function renderArticlePage(article) {
     '{{TITLE}}': escapeHtml(article.title),
     '{{DESCRIPTION}}': escapeHtml(article.description || article.preview),
     '{{DATE_LABEL}}': escapeHtml(formatDate(article.date)),
-    '{{CATEGORY}}': escapeHtml(CATEGORY_LABELS[article.category] || article.category),
+    '{{CATEGORY}}': escapeHtml(categoryLabel(article.category)),
     '{{H1}}': escapeHtml(article.h1 || article.title),
     '{{PREVIEW}}': escapeHtml(article.preview),
     '{{BREADCRUMB}}': escapeHtml(titleCase(article.slug)),
@@ -80,12 +128,12 @@ function renderArticlePage(article) {
   return html;
 }
 
-function renderBlogIndex(articles) {
-  const categoryButtons = ['All', ...CATEGORIES].map((c) => `<button class="filter-btn${c === 'All' ? ' active' : ''}" data-category="${c}">${c === 'All' ? 'All' : CATEGORY_LABELS[c]}</button>`).join('');
+function renderBlogIndex(articles, categories) {
+  const categoryButtons = ['All', ...categories].map((c) => `<button class="filter-btn${c === 'All' ? ' active' : ''}" data-category="${c}">${c === 'All' ? 'All' : categoryLabel(c)}</button>`).join('');
   const cards = articles.map((a) => `<a class="article-card" data-category="${a.category}" href="/blog/${a.slug}/">
       <div class="article-icon">${iconSvg(a.icon)}</div>
       <div class="article-body">
-        <div class="article-meta">${formatDate(a.date)} · ${CATEGORY_LABELS[a.category] || a.category}</div>
+        <div class="article-meta">${formatDate(a.date)} · ${categoryLabel(a.category)}</div>
         <div class="article-title">${escapeHtml(a.title)}</div>
         <div class="article-preview">${escapeHtml(a.preview)}</div>
       </div>
@@ -114,8 +162,8 @@ function renderBlogIndex(articles) {
     .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; height: 100%; display: flex; align-items: center; justify-content: space-between; }
     .logo { font-size: 0.82rem; font-weight: 600; color: var(--c900); text-decoration: none; letter-spacing: 0.16em; text-transform: uppercase; }
     .nav-links { display: flex; align-items: center; gap: 36px; }
-    .nav-links a { font-size: 0.68rem; font-weight: 500; color: var(--c600); text-decoration: none; text-transform: uppercase; letter-spacing: 0.14em; transition: color .15s; }
-    .nav-links a:hover { color: var(--c900); }
+    .nav-links a:not(.nav-cta) { font-size: 0.68rem; font-weight: 500; color: var(--c600); text-decoration: none; text-transform: uppercase; letter-spacing: 0.14em; transition: color .15s; }
+    .nav-links a:not(.nav-cta):hover { color: var(--c900); }
     .nav-cta { font-size: 0.68rem; font-weight: 600; background: var(--accent); color: var(--white); padding: 10px 22px; text-decoration: none; text-transform: uppercase; letter-spacing: 0.12em; border: 1px solid var(--accent); transition: background .15s; display: flex; align-items: center; gap: 8px; }
     .page-header { padding: 112px 0 56px; border-bottom: 1px solid var(--c200); }
     .page-header h1 { font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 300; letter-spacing: -0.02em; margin-top: 24px; margin-bottom: 12px; }
@@ -194,13 +242,15 @@ function cleanupStaleArticleDirs(slugs) {
 function main() {
   const files = getMdxFiles();
   const seenSlugs = new Set();
-  const categoryCount = Object.fromEntries(CATEGORIES.map((c) => [c, 0]));
+  const categoryCount = {};
   const articles = files.map((filePath) => {
     const { data, content } = matter(fs.readFileSync(filePath, 'utf8'));
-    validateArticle(data, filePath, seenSlugs);
-    categoryCount[data.category] += 1;
-    return { ...data, bodyHtml: marked.parse(content) };
+    const normalized = normalizeArticle(data, content, filePath);
+    validateArticle(normalized, filePath, seenSlugs);
+    categoryCount[normalized.category] = (categoryCount[normalized.category] || 0) + 1;
+    return { ...normalized, bodyHtml: marked.parse(content) };
   }).sort((a, b) => new Date(b.date) - new Date(a.date));
+  const categories = Object.keys(categoryCount).sort();
 
   cleanupStaleArticleDirs(articles.map((a) => a.slug));
   for (const article of articles) {
@@ -211,10 +261,10 @@ function main() {
 
   const listing = articles.map(({ slug, title, date, preview, icon, category }) => ({ slug, title, date, preview, icon, category }));
   fs.writeFileSync(path.join(BLOG_DIR, 'articles.json'), `${JSON.stringify(listing, null, 2)}\n`);
-  fs.writeFileSync(path.join(BLOG_DIR, 'index.html'), renderBlogIndex(listing));
+  fs.writeFileSync(path.join(BLOG_DIR, 'index.html'), renderBlogIndex(listing, categories));
 
   console.log(`Built ${articles.length} articles.`);
-  for (const c of CATEGORIES) console.log(` - ${c}: ${categoryCount[c]}`);
+  for (const c of categories) console.log(` - ${c}: ${categoryCount[c]}`);
 }
 
 try { main(); } catch (error) { console.error(`Build failed: ${error.message}`); process.exit(1); }

@@ -25,8 +25,8 @@
     .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; height: 100%; display: flex; align-items: center; justify-content: space-between; }
     .logo { font-size: 0.82rem; font-weight: 600; color: var(--c900); text-decoration: none; letter-spacing: 0.16em; text-transform: uppercase; }
     .nav-links { display: flex; align-items: center; gap: 36px; }
-    .nav-links a { font-size: 0.68rem; font-weight: 500; color: var(--c600); text-decoration: none; text-transform: uppercase; letter-spacing: 0.14em; transition: color .15s; }
-    .nav-links a:hover { color: var(--c900); }
+    .nav-links a:not(.nav-cta) { font-size: 0.68rem; font-weight: 500; color: var(--c600); text-decoration: none; text-transform: uppercase; letter-spacing: 0.14em; transition: color .15s; }
+    .nav-links a:not(.nav-cta):hover { color: var(--c900); }
     .nav-cta { font-size: 0.68rem; font-weight: 600; background: var(--accent); color: var(--white); padding: 10px 22px; text-decoration: none; text-transform: uppercase; letter-spacing: 0.12em; border: 1px solid var(--accent); transition: background .15s; display: flex; align-items: center; gap: 8px; }
     .nav-cta:hover { background: #162840; border-color: #162840; }
     .article-header { padding: 112px 0 56px; border-bottom: 1px solid var(--c200); }
@@ -110,57 +110,56 @@
     <article class="article-content">
       <a href="/blog/" class="back-link">← Back to Blog</a>
 
+<pre><code>  &lt;h2&gt;Why Tolerances Matter&lt;/h2&gt;
+  &lt;p&gt;Tolerance is the permissible variation in a dimension. A shaft specified as &lt;strong&gt;1.000&quot; ± 0.001&quot;&lt;/strong&gt; may measure anywhere from 0.999&quot; to 1.001&quot; and still pass inspection. Every additional zero you add to a tolerance specification — going from ±0.005&quot; to ±0.0005&quot; — can double or triple machining cost.&lt;/p&gt;
+  &lt;p&gt;The key principle: &lt;strong&gt;specify tolerances as loose as your design allows&lt;/strong&gt;. Reserve tight tolerances only for surfaces that actually mate, seal, or bear load.&lt;/p&gt;
 
-      <h2>Why Tolerances Matter</h2>
-      <p>Tolerance is the permissible variation in a dimension. A shaft specified as <strong>1.000" ± 0.001"</strong> may measure anywhere from 0.999" to 1.001" and still pass inspection. Every additional zero you add to a tolerance specification — going from ±0.005" to ±0.0005" — can double or triple machining cost.</p>
-      <p>The key principle: <strong>specify tolerances as loose as your design allows</strong>. Reserve tight tolerances only for surfaces that actually mate, seal, or bear load.</p>
+  &lt;h2&gt;Standard Tolerance Tiers&lt;/h2&gt;
+  &lt;p&gt;Most CNC shops work within three practical tiers:&lt;/p&gt;
+  &lt;table class=&quot;tol-table&quot;&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;&lt;th&gt;Tier&lt;/th&gt;&lt;th&gt;Tolerance&lt;/th&gt;&lt;th&gt;Typical Use&lt;/th&gt;&lt;th&gt;Relative Cost&lt;/th&gt;&lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;&lt;td&gt;General&lt;/td&gt;&lt;td&gt;±0.005&quot; (±0.13 mm)&lt;/td&gt;&lt;td&gt;Non-critical dimensions, clearance holes&lt;/td&gt;&lt;td&gt;1×&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td&gt;Precision&lt;/td&gt;&lt;td&gt;±0.001&quot; (±0.025 mm)&lt;/td&gt;&lt;td&gt;Fits, bearing seats, threaded bosses&lt;/td&gt;&lt;td&gt;2–3×&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td&gt;High-Precision&lt;/td&gt;&lt;td&gt;±0.0005&quot; (±0.013 mm)&lt;/td&gt;&lt;td&gt;Press fits, sealing bores, gauge surfaces&lt;/td&gt;&lt;td&gt;4–6×&lt;/td&gt;&lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+  &lt;p&gt;Tolerances tighter than ±0.0002&quot; typically require grinding or lapping after machining and should be flagged explicitly in your drawing.&lt;/p&gt;
 
-      <h2>Standard Tolerance Tiers</h2>
-      <p>Most CNC shops work within three practical tiers:</p>
-      <table class="tol-table">
-        <thead>
-          <tr><th>Tier</th><th>Tolerance</th><th>Typical Use</th><th>Relative Cost</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>General</td><td>±0.005" (±0.13 mm)</td><td>Non-critical dimensions, clearance holes</td><td>1×</td></tr>
-          <tr><td>Precision</td><td>±0.001" (±0.025 mm)</td><td>Fits, bearing seats, threaded bosses</td><td>2–3×</td></tr>
-          <tr><td>High-Precision</td><td>±0.0005" (±0.013 mm)</td><td>Press fits, sealing bores, gauge surfaces</td><td>4–6×</td></tr>
-        </tbody>
-      </table>
-      <p>Tolerances tighter than ±0.0002" typically require grinding or lapping after machining and should be flagged explicitly in your drawing.</p>
+  &lt;h2&gt;Title Block vs. Explicit Callouts&lt;/h2&gt;
+  &lt;p&gt;Most engineering drawings include a title block tolerance such as &lt;em&gt;&quot;Unless otherwise specified: ±0.005&quot;&quot;&lt;/em&gt;. This covers the majority of dimensions. But for anything critical — mating diameters, press fits, thread engagement lengths — always call out the tolerance explicitly on the dimension.&lt;/p&gt;
+  &lt;p&gt;Never rely on a title block for a critical feature. If it matters, put the number on the part.&lt;/p&gt;
 
-      <h2>Title Block vs. Explicit Callouts</h2>
-      <p>Most engineering drawings include a title block tolerance such as <em>"Unless otherwise specified: ±0.005""</em>. This covers the majority of dimensions. But for anything critical — mating diameters, press fits, thread engagement lengths — always call out the tolerance explicitly on the dimension.</p>
-      <p>Never rely on a title block for a critical feature. If it matters, put the number on the part.</p>
+  &lt;h2&gt;GD&amp;T: Beyond Plus/Minus&lt;/h2&gt;
+  &lt;p&gt;Geometric Dimensioning and Tolerancing (GD&amp;T) communicates form, orientation, and position — things a simple ±0.005&quot; can&#39;t express. Common callouts:&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;Flatness (⏥)&lt;/strong&gt; — controls surface variation, not location. Use for sealing faces and mating flanges.&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;Cylindricity (⌀)&lt;/strong&gt; — controls roundness and straightness of a bore simultaneously.&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;True Position (⊕)&lt;/strong&gt; — controls hole location relative to a datum. More useful than coordinate tolerances for bolt patterns.&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;Runout (↗)&lt;/strong&gt; — controls total surface variation as a part rotates. Critical for rotating shafts and bearing fits.&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;p&gt;Over-specifying GD&amp;T adds inspection cost. Apply it only where the geometric relationship genuinely affects function.&lt;/p&gt;
 
-      <h2>GD&T: Beyond Plus/Minus</h2>
-      <p>Geometric Dimensioning and Tolerancing (GD&T) communicates form, orientation, and position — things a simple ±0.005" can't express. Common callouts:</p>
-      <ul>
-        <li><strong>Flatness (⏥)</strong> — controls surface variation, not location. Use for sealing faces and mating flanges.</li>
-        <li><strong>Cylindricity (⌀)</strong> — controls roundness and straightness of a bore simultaneously.</li>
-        <li><strong>True Position (⊕)</strong> — controls hole location relative to a datum. More useful than coordinate tolerances for bolt patterns.</li>
-        <li><strong>Runout (↗)</strong> — controls total surface variation as a part rotates. Critical for rotating shafts and bearing fits.</li>
-      </ul>
-      <p>Over-specifying GD&T adds inspection cost. Apply it only where the geometric relationship genuinely affects function.</p>
+  &lt;h2&gt;Surface Finish&lt;/h2&gt;
+  &lt;p&gt;Surface finish is often overlooked but impacts sealing, fatigue life, and mating behavior. Common specifications:&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;Ra 3.2 µm (125 µin)&lt;/strong&gt; — Standard machined finish. Adequate for most non-critical surfaces.&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;Ra 1.6 µm (63 µin)&lt;/strong&gt; — Typical turned or milled finish. Good for general mating surfaces.&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;Ra 0.8 µm (32 µin)&lt;/strong&gt; — Requires a finishing pass or fine toolpath. Use for O-ring grooves and sliding fits.&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;Ra 0.4 µm (16 µin)&lt;/strong&gt; — Ground or honed. Bearing bores, precision sealing surfaces.&lt;/li&gt;
+  &lt;/ul&gt;
 
-      <h2>Surface Finish</h2>
-      <p>Surface finish is often overlooked but impacts sealing, fatigue life, and mating behavior. Common specifications:</p>
-      <ul>
-        <li><strong>Ra 3.2 µm (125 µin)</strong> — Standard machined finish. Adequate for most non-critical surfaces.</li>
-        <li><strong>Ra 1.6 µm (63 µin)</strong> — Typical turned or milled finish. Good for general mating surfaces.</li>
-        <li><strong>Ra 0.8 µm (32 µin)</strong> — Requires a finishing pass or fine toolpath. Use for O-ring grooves and sliding fits.</li>
-        <li><strong>Ra 0.4 µm (16 µin)</strong> — Ground or honed. Bearing bores, precision sealing surfaces.</li>
-      </ul>
-
-      <h2>Practical Checklist</h2>
-      <ol>
-        <li>Identify every surface that mates, seals, or bears load — these get explicit tolerances.</li>
-        <li>Everything else falls to the title block default (typically ±0.005").</li>
-        <li>Use GD&T for location and form requirements that ± alone can't describe.</li>
-        <li>Call out surface finish only where it matters functionally.</li>
-        <li>Review your drawing against this list before sending to a shop — tight tolerances you don't need are money left on the table.</li>
-      </ol>
-    
+  &lt;h2&gt;Practical Checklist&lt;/h2&gt;
+  &lt;ol&gt;
+    &lt;li&gt;Identify every surface that mates, seals, or bears load — these get explicit tolerances.&lt;/li&gt;
+    &lt;li&gt;Everything else falls to the title block default (typically ±0.005&quot;).&lt;/li&gt;
+    &lt;li&gt;Use GD&amp;T for location and form requirements that ± alone can&#39;t describe.&lt;/li&gt;
+    &lt;li&gt;Call out surface finish only where it matters functionally.&lt;/li&gt;
+    &lt;li&gt;Review your drawing against this list before sending to a shop — tight tolerances you don&#39;t need are money left on the table.&lt;/li&gt;
+  &lt;/ol&gt;
+</code></pre>
 
 
     </article>

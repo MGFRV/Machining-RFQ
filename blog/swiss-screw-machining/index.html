@@ -25,8 +25,8 @@
     .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; height: 100%; display: flex; align-items: center; justify-content: space-between; }
     .logo { font-size: 0.82rem; font-weight: 600; color: var(--c900); text-decoration: none; letter-spacing: 0.16em; text-transform: uppercase; }
     .nav-links { display: flex; align-items: center; gap: 36px; }
-    .nav-links a { font-size: 0.68rem; font-weight: 500; color: var(--c600); text-decoration: none; text-transform: uppercase; letter-spacing: 0.14em; transition: color .15s; }
-    .nav-links a:hover { color: var(--c900); }
+    .nav-links a:not(.nav-cta) { font-size: 0.68rem; font-weight: 500; color: var(--c600); text-decoration: none; text-transform: uppercase; letter-spacing: 0.14em; transition: color .15s; }
+    .nav-links a:not(.nav-cta):hover { color: var(--c900); }
     .nav-cta { font-size: 0.68rem; font-weight: 600; background: var(--accent); color: var(--white); padding: 10px 22px; text-decoration: none; text-transform: uppercase; letter-spacing: 0.12em; border: 1px solid var(--accent); transition: background .15s; display: flex; align-items: center; gap: 8px; }
     .nav-cta:hover { background: #162840; border-color: #162840; }
     .article-header { padding: 112px 0 56px; border-bottom: 1px solid var(--c200); }
@@ -110,60 +110,59 @@
     <article class="article-content">
       <a href="/blog/" class="back-link">← Back to Blog</a>
 
+<pre><code>  &lt;h2&gt;What is Swiss Screw Machining?&lt;/h2&gt;
+  &lt;p&gt;Swiss screw machining (also called Swiss-type turning or Swiss automatic) is a precision turning process optimized for small-diameter, high-length-to-diameter ratio parts. Unlike conventional CNC lathes where the workpiece is held in a chuck, Swiss machines feed bar stock through a precision guide bushing. The cutting tools work immediately adjacent to the bushing, which supports the part right at the cutting zone — eliminating deflection and enabling extremely tight tolerances on long, slender parts.&lt;/p&gt;
+  &lt;p&gt;The result: &lt;strong&gt;diameters from 0.020&quot; to 1.25&quot;&lt;/strong&gt;, tolerances of ±0.0002&quot;, and cycle times measured in seconds per part at production volumes.&lt;/p&gt;
 
-      <h2>What is Swiss Screw Machining?</h2>
-      <p>Swiss screw machining (also called Swiss-type turning or Swiss automatic) is a precision turning process optimized for small-diameter, high-length-to-diameter ratio parts. Unlike conventional CNC lathes where the workpiece is held in a chuck, Swiss machines feed bar stock through a precision guide bushing. The cutting tools work immediately adjacent to the bushing, which supports the part right at the cutting zone — eliminating deflection and enabling extremely tight tolerances on long, slender parts.</p>
-      <p>The result: <strong>diameters from 0.020" to 1.25"</strong>, tolerances of ±0.0002", and cycle times measured in seconds per part at production volumes.</p>
+  &lt;h2&gt;Swiss vs. Conventional Turning&lt;/h2&gt;
+  &lt;p&gt;The guide bushing is the key differentiator. On a conventional lathe, a 6&quot; long shaft with a 0.25&quot; diameter (L/D ratio of 24:1) will deflect under cutting forces, making tight tolerances impossible without multiple passes and supports. A Swiss machine holds the same part rigid at the cut, allowing a single-pass finish cut to ±0.0002&quot; diameter.&lt;/p&gt;
+  &lt;p&gt;Use Swiss turning when:&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Part diameter is under 1.25&quot; (32 mm)&lt;/li&gt;
+    &lt;li&gt;Length-to-diameter ratio exceeds 3:1&lt;/li&gt;
+    &lt;li&gt;Tight diameter tolerances are required (±0.0005&quot; or better)&lt;/li&gt;
+    &lt;li&gt;Production volume is 500+ pieces (setup costs are higher)&lt;/li&gt;
+    &lt;li&gt;Part requires multiple operations — OD turning, drilling, threading, milling — in a single setup&lt;/li&gt;
+  &lt;/ul&gt;
 
-      <h2>Swiss vs. Conventional Turning</h2>
-      <p>The guide bushing is the key differentiator. On a conventional lathe, a 6" long shaft with a 0.25" diameter (L/D ratio of 24:1) will deflect under cutting forces, making tight tolerances impossible without multiple passes and supports. A Swiss machine holds the same part rigid at the cut, allowing a single-pass finish cut to ±0.0002" diameter.</p>
-      <p>Use Swiss turning when:</p>
-      <ul>
-        <li>Part diameter is under 1.25" (32 mm)</li>
-        <li>Length-to-diameter ratio exceeds 3:1</li>
-        <li>Tight diameter tolerances are required (±0.0005" or better)</li>
-        <li>Production volume is 500+ pieces (setup costs are higher)</li>
-        <li>Part requires multiple operations — OD turning, drilling, threading, milling — in a single setup</li>
-      </ul>
+  &lt;h2&gt;Typical Capabilities&lt;/h2&gt;
+  &lt;div class=&quot;spec-block&quot;&gt;
+    &lt;div class=&quot;spec-head&quot;&gt;Swiss Machining Reference&lt;/div&gt;
+    &lt;div class=&quot;spec-row&quot;&gt;&lt;div class=&quot;spec-key&quot;&gt;Bar diameter range&lt;/div&gt;&lt;div class=&quot;spec-val&quot;&gt;0.020&quot; – 1.25&quot; (0.5 mm – 32 mm)&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;spec-row&quot;&gt;&lt;div class=&quot;spec-key&quot;&gt;Diameter tolerance&lt;/div&gt;&lt;div class=&quot;spec-val&quot;&gt;±0.0002&quot; (±0.005 mm) achievable&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;spec-row&quot;&gt;&lt;div class=&quot;spec-key&quot;&gt;Surface finish&lt;/div&gt;&lt;div class=&quot;spec-val&quot;&gt;Ra 0.8 µm (32 µin) standard; Ra 0.4 µm with finishing pass&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;spec-row&quot;&gt;&lt;div class=&quot;spec-key&quot;&gt;Typical volume&lt;/div&gt;&lt;div class=&quot;spec-val&quot;&gt;500 – 500,000+ pieces per run&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;spec-row&quot;&gt;&lt;div class=&quot;spec-key&quot;&gt;Live tooling&lt;/div&gt;&lt;div class=&quot;spec-val&quot;&gt;Milling, cross-drilling, hex features in same setup&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;spec-row&quot;&gt;&lt;div class=&quot;spec-key&quot;&gt;Materials&lt;/div&gt;&lt;div class=&quot;spec-val&quot;&gt;Brass, 303 SS, Al 6061, 4140 steel, Ti-6Al-4V, Delrin, PEEK&lt;/div&gt;&lt;/div&gt;
+  &lt;/div&gt;
 
-      <h2>Typical Capabilities</h2>
-      <div class="spec-block">
-        <div class="spec-head">Swiss Machining Reference</div>
-        <div class="spec-row"><div class="spec-key">Bar diameter range</div><div class="spec-val">0.020" – 1.25" (0.5 mm – 32 mm)</div></div>
-        <div class="spec-row"><div class="spec-key">Diameter tolerance</div><div class="spec-val">±0.0002" (±0.005 mm) achievable</div></div>
-        <div class="spec-row"><div class="spec-key">Surface finish</div><div class="spec-val">Ra 0.8 µm (32 µin) standard; Ra 0.4 µm with finishing pass</div></div>
-        <div class="spec-row"><div class="spec-key">Typical volume</div><div class="spec-val">500 – 500,000+ pieces per run</div></div>
-        <div class="spec-row"><div class="spec-key">Live tooling</div><div class="spec-val">Milling, cross-drilling, hex features in same setup</div></div>
-        <div class="spec-row"><div class="spec-key">Materials</div><div class="spec-val">Brass, 303 SS, Al 6061, 4140 steel, Ti-6Al-4V, Delrin, PEEK</div></div>
-      </div>
+  &lt;h2&gt;Common Swiss-Turned Parts&lt;/h2&gt;
+  &lt;p&gt;Swiss machining dominates in industries that need high volumes of small, precise components:&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;Medical:&lt;/strong&gt; Bone screws, cannulas, catheter components, implant shafts&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;Aerospace / Defense:&lt;/strong&gt; Connector pins, fasteners, valve stems, actuator shafts&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;Electronics:&lt;/strong&gt; Connector contacts, standoffs, precision spacers&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;Hydraulics / Pneumatics:&lt;/strong&gt; Valve bodies, fittings, orifice inserts&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;Semiconductor:&lt;/strong&gt; Nozzles, probe pins, alignment features&lt;/li&gt;
+  &lt;/ul&gt;
 
-      <h2>Common Swiss-Turned Parts</h2>
-      <p>Swiss machining dominates in industries that need high volumes of small, precise components:</p>
-      <ul>
-        <li><strong>Medical:</strong> Bone screws, cannulas, catheter components, implant shafts</li>
-        <li><strong>Aerospace / Defense:</strong> Connector pins, fasteners, valve stems, actuator shafts</li>
-        <li><strong>Electronics:</strong> Connector contacts, standoffs, precision spacers</li>
-        <li><strong>Hydraulics / Pneumatics:</strong> Valve bodies, fittings, orifice inserts</li>
-        <li><strong>Semiconductor:</strong> Nozzles, probe pins, alignment features</li>
-      </ul>
+  &lt;h2&gt;Material Recommendations for Swiss&lt;/h2&gt;
+  &lt;p&gt;&lt;strong&gt;Brass C360&lt;/strong&gt; is the ideal Swiss material — free-machining, produces tight chips, and holds excellent tolerances. Default choice for connectors and fittings where conductivity or corrosion resistance is needed.&lt;/p&gt;
+  &lt;p&gt;&lt;strong&gt;303 stainless&lt;/strong&gt; is the best stainless choice for Swiss — the free-machining sulfur additions prevent the stringy chips that plague 304 and 316 in high-speed Swiss operations.&lt;/p&gt;
+  &lt;p&gt;&lt;strong&gt;6061 aluminum&lt;/strong&gt; runs fast and cheaply. Good for lightweight structural pins, spacers, and housings where corrosion isn&#39;t a concern.&lt;/p&gt;
+  &lt;p&gt;Avoid gummy, work-hardening alloys (304 SS, pure titanium, Inconel) on Swiss unless required — they cause built-up edge and reduce tool life significantly.&lt;/p&gt;
 
-      <h2>Material Recommendations for Swiss</h2>
-      <p><strong>Brass C360</strong> is the ideal Swiss material — free-machining, produces tight chips, and holds excellent tolerances. Default choice for connectors and fittings where conductivity or corrosion resistance is needed.</p>
-      <p><strong>303 stainless</strong> is the best stainless choice for Swiss — the free-machining sulfur additions prevent the stringy chips that plague 304 and 316 in high-speed Swiss operations.</p>
-      <p><strong>6061 aluminum</strong> runs fast and cheaply. Good for lightweight structural pins, spacers, and housings where corrosion isn't a concern.</p>
-      <p>Avoid gummy, work-hardening alloys (304 SS, pure titanium, Inconel) on Swiss unless required — they cause built-up edge and reduce tool life significantly.</p>
-
-      <h2>RFQ Checklist for Swiss Parts</h2>
-      <ol>
-        <li>Specify bar stock diameter range — Swiss setup is bar-size specific</li>
-        <li>Call out critical diameters and their tolerances explicitly</li>
-        <li>Note any live tooling features (cross-holes, flats, threads perpendicular to axis)</li>
-        <li>Specify finish requirements on sealing surfaces and bearing fits</li>
-        <li>Include production quantity and any annual volume estimates</li>
-        <li>Note certifications required: material certs, ITAR, ISO 9001, AS9100, FDA</li>
-      </ol>
-      <p>Swiss setup costs are front-loaded — the economics improve significantly at volumes above 1,000 pieces. Include your annual usage estimate so we can structure pricing accordingly.</p>
-    
+  &lt;h2&gt;RFQ Checklist for Swiss Parts&lt;/h2&gt;
+  &lt;ol&gt;
+    &lt;li&gt;Specify bar stock diameter range — Swiss setup is bar-size specific&lt;/li&gt;
+    &lt;li&gt;Call out critical diameters and their tolerances explicitly&lt;/li&gt;
+    &lt;li&gt;Note any live tooling features (cross-holes, flats, threads perpendicular to axis)&lt;/li&gt;
+    &lt;li&gt;Specify finish requirements on sealing surfaces and bearing fits&lt;/li&gt;
+    &lt;li&gt;Include production quantity and any annual volume estimates&lt;/li&gt;
+    &lt;li&gt;Note certifications required: material certs, ITAR, ISO 9001, AS9100, FDA&lt;/li&gt;
+  &lt;/ol&gt;
+  &lt;p&gt;Swiss setup costs are front-loaded — the economics improve significantly at volumes above 1,000 pieces. Include your annual usage estimate so we can structure pricing accordingly.&lt;/p&gt;
+</code></pre>
 
 
     </article>

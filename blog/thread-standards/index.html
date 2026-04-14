@@ -25,8 +25,8 @@
     .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; height: 100%; display: flex; align-items: center; justify-content: space-between; }
     .logo { font-size: 0.82rem; font-weight: 600; color: var(--c900); text-decoration: none; letter-spacing: 0.16em; text-transform: uppercase; }
     .nav-links { display: flex; align-items: center; gap: 36px; }
-    .nav-links a { font-size: 0.68rem; font-weight: 500; color: var(--c600); text-decoration: none; text-transform: uppercase; letter-spacing: 0.14em; transition: color .15s; }
-    .nav-links a:hover { color: var(--c900); }
+    .nav-links a:not(.nav-cta) { font-size: 0.68rem; font-weight: 500; color: var(--c600); text-decoration: none; text-transform: uppercase; letter-spacing: 0.14em; transition: color .15s; }
+    .nav-links a:not(.nav-cta):hover { color: var(--c900); }
     .nav-cta { font-size: 0.68rem; font-weight: 600; background: var(--accent); color: var(--white); padding: 10px 22px; text-decoration: none; text-transform: uppercase; letter-spacing: 0.12em; border: 1px solid var(--accent); transition: background .15s; display: flex; align-items: center; gap: 8px; }
     .nav-cta:hover { background: #162840; border-color: #162840; }
     .article-header { padding: 112px 0 56px; border-bottom: 1px solid var(--c200); }
@@ -110,12 +110,11 @@
     <article class="article-content">
       <a href="/blog/" class="back-link">← Back to Blog</a>
 
-
-      <div class="coming-soon">
-        <div class="coming-soon-label">// coming soon</div>
-        <div class="coming-soon-title">Full article in progress.</div>
-      </div>
-    
+<pre><code>  &lt;div class=&quot;coming-soon&quot;&gt;
+    &lt;div class=&quot;coming-soon-label&quot;&gt;// coming soon&lt;/div&gt;
+    &lt;div class=&quot;coming-soon-title&quot;&gt;Full article in progress.&lt;/div&gt;
+  &lt;/div&gt;
+</code></pre>
 
 
     </article>
