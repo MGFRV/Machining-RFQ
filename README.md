@@ -23,12 +23,10 @@ icon: "default"                       # optional (defaults to "default")
 3. Add your markdown/MDX body below frontmatter.
 4. Commit and push. Vercel runs `npm run build` and regenerates blog pages.
 
-## Valid categories
-- `Processes`
-- `Materials`
-- `Quality`
-- `Sourcing`
-- `Design`
+## Categories
+- `category` берётся автоматически из frontmatter каждой `.mdx` статьи.
+- Фильтры на `/blog` строятся динамически по фактическим категориям из контента.
+- Для красивого отображения есть встроенные алиасы (`process`, `materials`, `design`, `sourcing`, `industry`, `quality`), для остальных значений используется auto-title-case.
 
 ## Local build
 ```bash
