@@ -162,8 +162,8 @@ function renderBlogIndex(articles, categories) {
     .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; height: 100%; display: flex; align-items: center; justify-content: space-between; }
     .logo { font-size: 0.82rem; font-weight: 600; color: var(--c900); text-decoration: none; letter-spacing: 0.16em; text-transform: uppercase; }
     .nav-links { display: flex; align-items: center; gap: 36px; }
-    .nav-links a { font-size: 0.68rem; font-weight: 500; color: var(--c600); text-decoration: none; text-transform: uppercase; letter-spacing: 0.14em; transition: color .15s; }
-    .nav-links a:hover { color: var(--c900); }
+    .nav-links a:not(.nav-cta) { font-size: 0.68rem; font-weight: 500; color: var(--c600); text-decoration: none; text-transform: uppercase; letter-spacing: 0.14em; transition: color .15s; }
+    .nav-links a:not(.nav-cta):hover { color: var(--c900); }
     .nav-cta { font-size: 0.68rem; font-weight: 600; background: var(--accent); color: var(--white); padding: 10px 22px; text-decoration: none; text-transform: uppercase; letter-spacing: 0.12em; border: 1px solid var(--accent); transition: background .15s; display: flex; align-items: center; gap: 8px; }
     .page-header { padding: 112px 0 56px; border-bottom: 1px solid var(--c200); }
     .page-header h1 { font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 300; letter-spacing: -0.02em; margin-top: 24px; margin-bottom: 12px; }
