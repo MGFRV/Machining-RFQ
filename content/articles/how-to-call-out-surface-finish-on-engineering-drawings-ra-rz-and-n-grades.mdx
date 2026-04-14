@@ -1,0 +1,65 @@
+---
+title: "How to call out surface finish on engineering drawings: Ra, Rz, and N-grades"
+description: "Call out surface finish with the right metric, on the right surfaces, for the right reason."
+publishedAt: "2026-04-13"
+category: "design"
+keywords: ["surface finish Ra Rz engineering drawing", "surface finish drawing", "Ra Rz N grades"]
+author: "PMC Editorial"
+readingTime: "3 min read"
+---
+
+## The short answer
+
+Surface finish callouts should describe function, not superstition. Use Ra most often, use Rz only when the customer or standard truly needs it, and avoid calling out fine finishes on surfaces that do not matter.
+
+## Ra, Rz, and N grades
+
+Ra is the arithmetic average roughness and the most common callout on machined drawings. Rz captures peak-to-valley style information and is not interchangeable with Ra. N grades are a shorthand mapping used in many engineering contexts, but the actual measured requirement still needs a clear standard and method.
+
+If you mix roughness terms without a standard, you are asking for measurement disputes.
+
+## What typical processes produce
+
+General milling and turning may land around the mid-single-digit micrometer Ra range unless finishing is added. Fine turning, grinding, honing, or lapping can push much lower. The main point is that every step toward a finer finish usually costs either cycle time or a new process.
+
+Asking for a fine Ra on every hidden face is just a quiet way to increase price.
+
+## When finish is functional
+
+Bearing journals, sealing faces, optical interfaces, and sliding contacts often need real finish control. Structural hidden faces usually do not. Cosmetic appearance is different again and may require a note separate from the roughness value.
+
+Finish should be tied to friction, sealing, coating, fatigue, cleanliness, or appearance. Pick one. Do not spray numbers at the drawing.
+
+## How to write the callout cleanly
+
+Call out the target surface only, the unit system, and whether the finish is before or after coating or grinding. If lay direction matters, say it. If sampling length or standard matters because the value is tight, include that too.
+
+Good finish notes prevent overprocessing and metrology debates.
+
+## What an experienced buyer does next
+
+Related reading: [Wall thickness minimums for CNC milled and turned parts](/blog/wall-thickness-minimums-for-cnc-milled-and-turned-parts) and [Hole tolerances and fits: H7/g6, clearance, transition, and interference explained](/blog/hole-tolerances-and-fits-h7-g6-clearance-transition-and-interference-explained).
+
+The right move is usually to define the real functional requirement, remove the decorative requirements, and let the supplier build a route around what actually matters.
+
+## Comparison table where relevant
+
+| Reference grade | Approx. Ra µm | Typical implication |
+| -- | -- | -- |
+| N6 | 0.8 | Fine machined / ground |
+| N7 | 1.6 | Good machined finish |
+| N8 | 3.2 | Common machined finish |
+| N9 | 6.3 | Coarser commercial finish |
+| Rz callout | Not equal to Ra | Needs clear method |
+
+
+## How to specify this in your RFQ
+
+Identify exactly which surfaces need finish control and give the unit, usually µm Ra or µin Ra. If coating follows machining, say whether the finish requirement applies before or after coating. Otherwise the supplier and inspector may measure two different realities.
+
+A clean RFQ does not just list requirements. It separates must-haves from preferences so the supplier can optimize where it is safe.
+
+---
+
+*Have a part that needs quoting? Email your drawings to rfq@precisionmachining.co  -  
+we return a competitive quote within 24 hours. Phone: +1 312-579-0808.*

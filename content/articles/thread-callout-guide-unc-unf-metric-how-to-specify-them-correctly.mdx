@@ -1,0 +1,64 @@
+---
+title: "Thread callout guide: UNC, UNF, metric  -  how to specify them correctly"
+description: "A thread callout should leave no room for guessing. Diameter alone is not a thread specification."
+publishedAt: "2026-04-13"
+category: "design"
+keywords: ["thread callout drawing CNC machining", "thread callout guide", "UNC UNF metric threads"]
+author: "PMC Editorial"
+readingTime: "3 min read"
+---
+
+## The short answer
+
+A correct thread callout tells the shop diameter, pitch or TPI, thread series, class, handedness if needed, and depth or engagement. Anything less invites mistakes.
+
+## What belongs in the callout
+
+For inch threads, use the nominal size, TPI, series such as UNC or UNF, and class such as 2B or 3B for internal threads or 2A or 3A for external threads. For metric threads, use the M size, pitch when non-coarse or when clarity is needed, tolerance class, and thread depth or engagement.
+
+Also state LH for left-hand threads. Shops should not have to infer that from context.
+
+## Common errors
+
+The usual problems are missing class, unclear depth, mixing thread note styles, and forgetting whether the full thread depth is functional or just preferred. Another failure is specifying a bottoming thread in a blind hole without leaving room for drill point and runout.
+
+Those mistakes create either scrap or arguments.
+
+## UNC, UNF, and metric in practice
+
+UNC is common for general assembly and faster installation in many applications. UNF gives finer pitch and more threads per length, which can help with adjustment or limited engagement length. Metric is the default in global product platforms and should be specified cleanly with its tolerance class.
+
+Use the thread system the mating ecosystem expects. Do not make the shop translate a design after release.
+
+## Inspection and fit
+
+If thread gaging method matters, say it. Class 2 is common commercial practice. Class 3 is tighter and usually costs more to produce and verify. Very fine threads, deep blind threads, or hard materials may favor thread milling over tapping.
+
+Thread notes look small on a print and can still wreck a schedule.
+
+## What an experienced buyer does next
+
+Related reading: [Undercuts in CNC machining: design alternatives that save time and money](/blog/undercuts-in-cnc-machining-design-alternatives-that-save-time-and-money) and [How to write a complete RFQ for machined parts (with template)](/blog/how-to-write-a-complete-rfq-for-machined-parts-with-template).
+
+The right move is usually to define the real functional requirement, remove the decorative requirements, and let the supplier build a route around what actually matters.
+
+## Comparison table where relevant
+
+| Thread system | Example | Watchout |
+| -- | -- | -- |
+| UNC | 1/4-20 UNC-2B | Good default for many inch designs |
+| UNF | 1/4-28 UNF-2B | Finer pitch, higher sensitivity to depth |
+| Metric coarse | M8 x 1.25 - 6H | Global default in many products |
+| Metric fine | M10 x 1.0 - 6H | Specify pitch clearly |
+
+
+## How to specify this in your RFQ
+
+Write the full thread note, state thread depth or engagement, and say whether full thread is required to the bottom of a blind hole. If the mating part is known, reference the mating standard. If not, at least specify class and gaging expectation.
+
+A clean RFQ does not just list requirements. It separates must-haves from preferences so the supplier can optimize where it is safe.
+
+---
+
+*Have a part that needs quoting? Email your drawings to rfq@precisionmachining.co  -  
+we return a competitive quote within 24 hours. Phone: +1 312-579-0808.*

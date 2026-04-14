@@ -1,0 +1,64 @@
+---
+title: "Wall thickness minimums for CNC milled and turned parts"
+description: "Minimum wall thickness in CNC machining is a stiffness problem first and a tolerance problem second."
+publishedAt: "2026-04-13"
+category: "design"
+keywords: ["CNC machining wall thickness minimum", "minimum wall thickness CNC", "thin wall machining"]
+author: "PMC Editorial"
+readingTime: "3 min read"
+---
+
+## The short answer
+
+Thin walls are possible. Thin walls at low cost are not. The rule is simple: the less stiffness you leave in the part, the more time and risk the supplier has to absorb.
+
+## Why walls fail in machining
+
+Thin walls deflect under tool pressure, heat up faster, and spring when material is removed. That affects size, finish, and chatter. The issue is not only final thickness. It is how the wall behaves while the part is half-finished.
+
+A pocketed aluminum part with tall unsupported ribs is a classic quote trap because roughing looks easy in CAD and unstable in the machine.
+
+## Typical practical ranges
+
+For many milled aluminum parts, keeping walls around 0.040 in or thicker is far easier than pushing toward 0.020 in. In plastics, thicker is usually safer because heat and flexibility complicate the cut. Turned parts can go thin too, but long unsupported sleeves create their own stability problem.
+
+These are practical guidelines, not universal limits. Geometry, height, and material decide the real limit.
+
+## What helps
+
+Shorter wall height, generous corner radii, temporary support features, stress relief, and machining strategy all help. So does asking whether a sheet process, EDM, or formed design would make more sense than heroic milling.
+
+If the wall only exists to save a few grams on a non-weight-critical part, that is usually bad DFM.
+
+## How to specify realistic parts
+
+Design the wall around function first, then machining reality. If the wall must be thin, tell the supplier which surfaces matter and where minor witness or blend is acceptable. That lets the process focus on the real risks.
+
+Without that clarity, the shop will quote defensively, and it will be right to do so.
+
+## What an experienced buyer does next
+
+Related reading: [Tolerancing 101: general, precision, and high-precision  -  what each costs](/blog/tolerancing-101-general-precision-and-high-precision-what-each-costs) and [How to call out surface finish on engineering drawings: Ra, Rz, and N-grades](/blog/how-to-call-out-surface-finish-on-engineering-drawings-ra-rz-and-n-grades).
+
+The right move is usually to define the real functional requirement, remove the decorative requirements, and let the supplier build a route around what actually matters.
+
+## Comparison table where relevant
+
+| Feature | More machinable | Higher risk |
+| -- | -- | -- |
+| Milled wall thickness | ~0.040 in and up | ~0.020 in and below |
+| Wall height | Lower aspect ratio | Tall unsupported walls |
+| Material | Aluminum easier than gummy plastics or hard alloys | Flexible or hard materials |
+| Buyer move | Mark critical thin sections | Leave supplier guessing |
+
+
+## How to specify this in your RFQ
+
+Call out minimum wall thickness, critical surfaces, and whether cosmetic witness is acceptable. If the wall is post-anodize or post-heat-treat critical, say so. Also note any weight target so the supplier can suggest smarter geometry if the current design is over-optimized.
+
+A clean RFQ does not just list requirements. It separates must-haves from preferences so the supplier can optimize where it is safe.
+
+---
+
+*Have a part that needs quoting? Email your drawings to rfq@precisionmachining.co  -  
+we return a competitive quote within 24 hours. Phone: +1 312-579-0808.*
