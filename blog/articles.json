@@ -8,147 +8,619 @@
     "category": "materials"
   },
   {
-    "slug": "swiss-screw-machining",
-    "title": "Swiss Screw Machining: High-Volume Small-Diameter Parts",
-    "date": "2025-03-06",
-    "preview": "Swiss screw machines produce small-diameter precision parts at high volume with unmatched repeatability. Learn when to specify Swiss and what tolerances to expect.",
-    "icon": "gear",
+    "slug": "303-vs-316-stainless-steel-for-cnc-turning-machinability-and-corrosion-guide",
+    "title": "303 vs 316 stainless steel for CNC turning: machinability and corrosion guide",
+    "date": "2026-04-13",
+    "preview": "303 is the machining grade. 316 is the corrosion grade. Pick the problem you are actually solving.",
+    "icon": "default",
+    "category": "materials"
+  },
+  {
+    "slug": "4140-vs-4340-steel-which-is-better-for-high-stress-machined-components",
+    "title": "4140 vs 4340 steel: which is better for high-stress machined components?",
+    "date": "2026-04-13",
+    "preview": "4140 is the practical default. 4340 is the upgrade when toughness and strength really matter.",
+    "icon": "default",
+    "category": "materials"
+  },
+  {
+    "slug": "5-axis-cnc-milling-explained-when-you-need-it-and-when-you-dont",
+    "title": "5-axis CNC milling explained: when you need it and when you don't",
+    "date": "2026-04-13",
+    "preview": "5-axis CNC milling makes sense when it cuts setups or reaches geometry 3-axis cannot.",
+    "icon": "default",
+    "category": "process"
+  },
+  {
+    "slug": "aluminum-6061-vs-7075-which-alloy-is-right-for-your-machined-part",
+    "title": "Aluminum 6061 vs 7075: which alloy is right for your machined part?",
+    "date": "2026-04-13",
+    "preview": "6061 vs 7075 comes down to balanced performance versus higher strength. Most non-structural parts do not need 7075.",
+    "icon": "default",
+    "category": "materials"
+  },
+  {
+    "slug": "anodizing-aluminum-type-ii-vs-type-iii-and-what-to-call-out-on-your-drawing",
+    "title": "Anodizing aluminum: type II vs type III and what to call out on your drawing",
+    "date": "2026-04-13",
+    "preview": "Type II anodizing is the default finish. Type III is for harder wear surfaces and needs tighter dimensional planning.",
+    "icon": "default",
+    "category": "materials"
+  },
+  {
+    "slug": "anodizing-types",
+    "title": "Anodizing types for machined aluminum parts: Type II vs Type III",
+    "date": "2026-04-13",
+    "preview": "Anodizing types for machined aluminum parts - when to use Type II vs Type III and what to call out on the drawing.",
+    "icon": "default",
+    "category": "materials"
+  },
+  {
+    "slug": "as9100-vs-iso9001",
+    "title": "AS9100 vs ISO 9001: which certification matters for machined parts?",
+    "date": "2026-04-13",
+    "preview": "AS9100 vs ISO 9001 for machined parts - what each standard covers and when buyers should require one over the other.",
+    "icon": "default",
+    "category": "quality"
+  },
+  {
+    "slug": "brass-360-machinability-why-its-the-benchmark-and-when-to-use-it",
+    "title": "Brass 360 machinability: why it's the benchmark and when to use it",
+    "date": "2026-04-13",
+    "preview": "Brass 360 is the machinability benchmark. Use it when fast, clean machining matters and compliance allows it.",
+    "icon": "default",
+    "category": "materials"
+  },
+  {
+    "slug": "cmm-inspection-explained-what-procurement-teams-need-to-know",
+    "title": "CMM inspection explained: what procurement teams need to know",
+    "date": "2026-04-13",
+    "preview": "CMM inspection is best for datum-based geometry and documented first articles, not every simple feature.",
+    "icon": "default",
+    "category": "quality"
+  },
+  {
+    "slug": "cmm-inspection",
+    "title": "CMM inspection explained: what procurement teams need to know",
+    "date": "2026-04-13",
+    "preview": "CMM inspection explained for buyers of machined parts - when it helps, what it costs, and when you do not need it.",
+    "icon": "default",
+    "category": "quality"
+  },
+  {
+    "slug": "cnc-machining-for-aerospace-materials-tolerances-and-as9100-explained",
+    "title": "CNC machining for aerospace: materials, tolerances, and AS9100 explained",
+    "date": "2026-04-13",
+    "preview": "Aerospace machining depends on traceability, process control, and AS9100-style discipline as much as cutting capability.",
+    "icon": "default",
+    "category": "industry"
+  },
+  {
+    "slug": "cnc-machining-for-robotics-and-automation-common-part-types-and-tolerances",
+    "title": "CNC machining for robotics and automation: common part types and tolerances",
+    "date": "2026-04-13",
+    "preview": "Robotics machining is about aligned interfaces, repeatability, and fast iteration - not fancy geometry for its own sake.",
+    "icon": "default",
+    "category": "industry"
+  },
+  {
+    "slug": "cnc-milling-feeds-and-speeds-what-procurement-teams-need-to-know",
+    "title": "CNC milling feeds and speeds: what procurement teams need to know",
+    "date": "2026-04-13",
+    "preview": "Feeds and speeds drive machining cost and risk. Buyers should know the implications even if they never touch the CAM file.",
+    "icon": "default",
+    "category": "process"
+  },
+  {
+    "slug": "cnc-milling-guide",
+    "title": "CNC milling guide: how the process works and when to use it",
+    "date": "2026-04-13",
+    "preview": "CNC milling guide for machined parts - what milling does best, what drives cost, and how buyers should specify milled geometry.",
+    "icon": "default",
+    "category": "process"
+  },
+  {
+    "slug": "cnc-milling-vs-cnc-turning-which-process-fits-your-part",
+    "title": "CNC milling vs CNC turning: which process fits your part?",
+    "date": "2026-04-13",
+    "preview": "CNC milling vs turning: pick the process by geometry, tolerance, and cost, not by habit.",
+    "icon": "default",
     "category": "process"
   },
   {
     "slug": "cnc-turning-basics",
-    "title": "CNC Turning Basics: What Every Engineer Should Know",
-    "date": "2025-03-01",
-    "preview": "CNC turning is one of the most efficient ways to produce cylindrical parts. This guide breaks down tolerances, materials, and when turning beats milling.",
-    "icon": "lathe",
+    "title": "CNC turning basics: what it does best and where cost comes from",
+    "date": "2026-04-13",
+    "preview": "CNC turning basics for buyers of machined parts - where turning fits, what tolerances are realistic, and what drives cost.",
+    "icon": "default",
     "category": "process"
   },
   {
-    "slug": "tolerances-guide",
-    "title": "Understanding Tolerances in CNC Machining",
-    "date": "2025-02-20",
-    "preview": "Specifying tolerances too tight drives up cost. Too loose and parts don't fit. Here's how to find the right balance for your application.",
-    "icon": "gauge",
+    "slug": "cnc-turning-tolerances-whats-achievable-and-what-drives-cost",
+    "title": "CNC turning tolerances: what's achievable and what drives cost",
+    "date": "2026-04-13",
+    "preview": "CNC turning tolerances depend on rigidity, material, finish, and inspection. Tight numbers are possible. They just are not cheap.",
+    "icon": "default",
+    "category": "process"
+  },
+  {
+    "slug": "common-dfm-mistakes-that-increase-your-machining-quote-by-30",
+    "title": "Common DFM mistakes that increase your machining quote by 30%+",
+    "date": "2026-04-13",
+    "preview": "These DFM mistakes quietly inflate machining quotes. Most of them are avoidable.",
+    "icon": "default",
+    "category": "design"
+  },
+  {
+    "slug": "defense-and-itar-machining-compliance-requirements-for-procurement-teams",
+    "title": "Defense and ITAR machining: compliance requirements for procurement teams",
+    "date": "2026-04-13",
+    "preview": "Defense machining is a control problem as much as a manufacturing one. ITAR and flowdowns shape the buy.",
+    "icon": "default",
+    "category": "industry"
+  },
+  {
+    "slug": "design-for-manufacturability-dfm-checklist-for-cnc-milled-parts",
+    "title": "Design for manufacturability (DFM) checklist for CNC milled parts",
+    "date": "2026-04-13",
+    "preview": "This DFM checklist for CNC milled parts focuses on setups, tool access, wall stiffness, and realistic tolerances.",
+    "icon": "default",
+    "category": "design"
+  },
+  {
+    "slug": "domestic-vs-offshore-machining-total-cost-of-ownership-comparison",
+    "title": "Domestic vs offshore machining: total cost of ownership comparison",
+    "date": "2026-04-13",
+    "preview": "Domestic vs offshore machining should be compared on total cost of ownership, not just quoted piece price.",
+    "icon": "default",
+    "category": "sourcing"
+  },
+  {
+    "slug": "drawing-best-practices",
+    "title": "Engineering drawing best practices for machined parts",
+    "date": "2026-04-13",
+    "preview": "Engineering drawing best practices for machined parts - what to include, what to stop doing, and how to get cleaner quotes.",
+    "icon": "default",
+    "category": "design"
+  },
+  {
+    "slug": "first-article-inspection-fai-what-it-is-what-it-covers-and-when-to-require-it",
+    "title": "First article inspection (FAI): what it is, what it covers, and when to require it",
+    "date": "2026-04-13",
+    "preview": "First article inspection verifies that the first run, the drawing, and the documentation all match before production proceeds.",
+    "icon": "default",
+    "category": "quality"
+  },
+  {
+    "slug": "first-article-inspection",
+    "title": "First article inspection: what it is, what it covers, and when to require it",
+    "date": "2026-04-13",
+    "preview": "First article inspection for machined parts - what it covers, when to require it, and how to ask for it cleanly.",
+    "icon": "default",
+    "category": "quality"
+  },
+  {
+    "slug": "gdandt-basics-for-procurement-engineers-the-10-most-common-callouts",
+    "title": "GD&T basics for procurement engineers: the 10 most common callouts",
+    "date": "2026-04-13",
+    "preview": "GD&T affects machining strategy and inspection cost. Buyers should know the common callouts that move a quote.",
+    "icon": "default",
+    "category": "design"
+  },
+  {
+    "slug": "heat-treatment-basics",
+    "title": "Heat treatment basics for machined parts: what buyers need to know",
+    "date": "2026-04-13",
+    "preview": "Heat treatment basics for machined parts - what changes after heat treat, why it affects cost, and how to specify it cleanly.",
+    "icon": "default",
+    "category": "materials"
+  },
+  {
+    "slug": "hole-tolerances-and-fits-h7-g6-clearance-transition-and-interference-explained",
+    "title": "Hole tolerances and fits: H7/g6, clearance, transition, and interference explained",
+    "date": "2026-04-13",
+    "preview": "H7/g6, H7/h6, and H7/p6 are function choices. Use the fit class, not a vague plus-minus note.",
+    "icon": "default",
+    "category": "design"
+  },
+  {
+    "slug": "how-material-hardness-affects-cnc-machining-cost-and-lead-time",
+    "title": "How material hardness affects CNC machining cost and lead time",
+    "date": "2026-04-13",
+    "preview": "Material hardness is a direct machining cost driver because it narrows the process window and increases tool wear.",
+    "icon": "default",
+    "category": "materials"
+  },
+  {
+    "slug": "how-to-call-out-surface-finish-on-engineering-drawings-ra-rz-and-n-grades",
+    "title": "How to call out surface finish on engineering drawings: Ra, Rz, and N-grades",
+    "date": "2026-04-13",
+    "preview": "Call out surface finish with the right metric, on the right surfaces, for the right reason.",
+    "icon": "default",
+    "category": "design"
+  },
+  {
+    "slug": "how-to-choose-between-3-axis-and-5-axis-milling-for-your-part",
+    "title": "How to choose between 3-axis and 5-axis milling for your part",
+    "date": "2026-04-13",
+    "preview": "Choose between 3-axis and 5-axis milling by tool access, setup count, and tolerance stack-up.",
+    "icon": "default",
+    "category": "process"
+  },
+  {
+    "slug": "how-to-evaluate-a-cnc-machining-supplier-the-10-point-checklist",
+    "title": "How to evaluate a CNC machining supplier: the 10-point checklist",
+    "date": "2026-04-13",
+    "preview": "Use this 10-point checklist to evaluate a CNC machining supplier before you award production work.",
+    "icon": "default",
+    "category": "sourcing"
+  },
+  {
+    "slug": "how-to-protect-your-ip-when-sending-drawings-to-machining-shops",
+    "title": "How to protect your IP when sending drawings to machining shops",
+    "date": "2026-04-13",
+    "preview": "Protect machining IP by controlling who gets what data, in which format, and under which sourcing rules.",
+    "icon": "default",
+    "category": "sourcing"
+  },
+  {
+    "slug": "how-to-read-a-machining-quote-line-items-markups-and-red-flags",
+    "title": "How to read a machining quote: line items, markups, and red flags",
+    "date": "2026-04-13",
+    "preview": "Read a machining quote for assumptions, exclusions, and scope clarity - not just the piece price.",
+    "icon": "default",
+    "category": "sourcing"
+  },
+  {
+    "slug": "how-to-set-up-a-vendor-quality-agreement-with-a-machining-supplier",
+    "title": "How to set up a vendor quality agreement with a machining supplier",
+    "date": "2026-04-13",
+    "preview": "A vendor quality agreement with a machining supplier should define recurring rules for change control, NCRs, traceability, and records.",
+    "icon": "default",
+    "category": "quality"
+  },
+  {
+    "slug": "how-to-write-a-complete-rfq-for-machined-parts-with-template",
+    "title": "How to write a complete RFQ for machined parts (with template)",
+    "date": "2026-04-13",
+    "preview": "Use this RFQ template for machined parts to get cleaner quotes and fewer clarifying emails.",
+    "icon": "default",
+    "category": "design"
+  },
+  {
+    "slug": "how-to-write-an-inspection-plan-for-machined-parts",
+    "title": "How to write an inspection plan for machined parts",
+    "date": "2026-04-13",
+    "preview": "A useful inspection plan for machined parts defines critical features, methods, frequency, and records.",
+    "icon": "default",
+    "category": "quality"
+  },
+  {
+    "slug": "how-volume-affects-machining-price-the-real-cost-curve-from-1-to-10000-pieces",
+    "title": "How volume affects machining price: the real cost curve from 1 to 10,000 pieces",
+    "date": "2026-04-13",
+    "preview": "Machining volume pricing drops fast at first, then levels out unless the process route changes.",
+    "icon": "default",
+    "category": "sourcing"
+  },
+  {
+    "slug": "industrial-equipment-machining-what-oem-procurement-teams-look-for-in-a-shop",
+    "title": "Industrial equipment machining: what OEM procurement teams look for in a shop",
+    "date": "2026-04-13",
+    "preview": "Industrial equipment machining is won on repeat delivery, revision control, and practical quality.",
+    "icon": "default",
+    "category": "industry"
+  },
+  {
+    "slug": "iso-9001-vs-as9100-vs-nadcap-which-certification-matters-for-your-parts",
+    "title": "ISO 9001 vs AS9100 vs NADCAP: which certification matters for your parts?",
+    "date": "2026-04-13",
+    "preview": "ISO 9001, AS9100, and NADCAP solve different quality problems. Buyers should not treat them as interchangeable.",
+    "icon": "default",
+    "category": "quality"
+  },
+  {
+    "slug": "itar-compliance",
+    "title": "ITAR compliance for machined parts: what procurement teams need to know",
+    "date": "2026-04-13",
+    "preview": "ITAR compliance for machined parts - how export-controlled technical data changes supplier selection and RFQ handling.",
+    "icon": "default",
+    "category": "sourcing"
+  },
+  {
+    "slug": "itar-machining-what-procurement-teams-need-to-know-before-sending-an-rfq",
+    "title": "ITAR machining: what procurement teams need to know before sending an RFQ",
+    "date": "2026-04-13",
+    "preview": "ITAR machining starts with controlled RFQ handling, not with the first cut on the machine.",
+    "icon": "default",
+    "category": "sourcing"
+  },
+  {
+    "slug": "lead-time-factors",
+    "title": "Machining lead time factors: what actually sets delivery dates",
+    "date": "2026-04-13",
+    "preview": "Machining lead time factors explained - material, queue, outside processing, inspection, and what buyers should ask.",
+    "icon": "default",
+    "category": "sourcing"
+  },
+  {
+    "slug": "lead-time-reality-check-what-2-week-delivery-actually-means-at-a-machine-shop",
+    "title": "Lead time reality check: what \"2-week delivery\" actually means at a machine shop",
+    "date": "2026-04-13",
+    "preview": "A machine shop lead time is a chain of events, not a single date pulled from the air.",
+    "icon": "default",
+    "category": "sourcing"
+  },
+  {
+    "slug": "machined-parts-for-ev-and-electrification-aluminum-copper-and-thermal-management",
+    "title": "Machined parts for EV and electrification: aluminum, copper, and thermal management",
+    "date": "2026-04-13",
+    "preview": "EV machining often centers on aluminum, copper, and thermal-management features that raise process risk.",
+    "icon": "default",
+    "category": "industry"
+  },
+  {
+    "slug": "machining-titanium-ti-6al-4v-what-makes-it-difficult-and-how-to-spec-it",
+    "title": "Machining titanium Ti-6Al-4V: what makes it difficult and how to spec it",
+    "date": "2026-04-13",
+    "preview": "Ti-6Al-4V is hard to machine because it keeps heat in the cut and punishes weak process control.",
+    "icon": "default",
+    "category": "materials"
+  },
+  {
+    "slug": "material-certifications-demystified-certs-of-conformance-mtrs-and-chemical-analysis",
+    "title": "Material certifications demystified: certs of conformance, MTRs, and chemical analysis",
+    "date": "2026-04-13",
+    "preview": "Material certifications range from supplier statements to mill-linked data and full traceability. Specify the exact level.",
+    "icon": "default",
     "category": "quality"
   },
   {
     "slug": "material-selection",
-    "title": "Material Selection for CNC Parts: Aluminum vs Steel vs Titanium",
-    "date": "2025-02-10",
-    "preview": "The material you choose affects machinability, lead time, and cost dramatically. A practical breakdown for engineers sourcing precision parts.",
-    "icon": "cube",
+    "title": "Material selection for machined parts: how to choose the right alloy or plastic",
+    "date": "2026-04-13",
+    "preview": "Material selection for machined parts - how engineers and buyers should choose metals and plastics without overpaying for unnecessary performance.",
+    "icon": "default",
     "category": "materials"
   },
   {
-    "slug": "cnc-milling-guide",
-    "title": "CNC Milling: 3-Axis, 4-Axis, and 5-Axis Explained",
-    "date": "2025-02-05",
-    "preview": "More axes means more capability — but also more cost. A practical breakdown of when to use 3-axis vs 4-axis vs full 5-axis simultaneous machining.",
+    "slug": "medical-device-machining-iso-13485-materials-and-cleanroom-requirements",
+    "title": "Medical device machining: ISO 13485, materials, and cleanroom requirements",
+    "date": "2026-04-13",
+    "preview": "Medical device machining demands ISO 13485-style discipline, traceability, and controlled cleanliness.",
+    "icon": "default",
+    "category": "industry"
+  },
+  {
+    "slug": "mill-turn-machining-combining-milling-and-turning-in-one-setup",
+    "title": "Mill-turn machining: combining milling and turning in one setup",
+    "date": "2026-04-13",
+    "preview": "Mill-turn machining reduces handling when a part needs both turning and milling in one datum structure.",
     "icon": "default",
     "category": "process"
   },
   {
-    "slug": "surface-finish-guide",
-    "title": "Surface Finish in CNC Machining: Ra, Rz, and Callout Best Practices",
-    "date": "2025-01-28",
-    "preview": "Ra 125, Ra 32, ground finish — surface finish callouts affect cost and lead time significantly. Here's how to specify only what your design actually needs.",
-    "icon": "gauge",
-    "category": "design"
-  },
-  {
-    "slug": "anodizing-types",
-    "title": "Anodizing Aluminum: Type I, II, and III Compared",
-    "date": "2025-01-20",
-    "preview": "Hard anodize, standard anodize, clear or color — choosing the right anodize type for your aluminum parts affects corrosion resistance, wear, and dimensional tolerance.",
-    "icon": "cube",
-    "category": "materials"
-  },
-  {
-    "slug": "itar-compliance",
-    "title": "ITAR Compliance in CNC Machining: What Procurement Needs to Know",
-    "date": "2025-01-15",
-    "preview": "Defense and aerospace parts often require ITAR-registered manufacturers. Here's what ITAR registration means, what it doesn't cover, and how to source compliantly.",
+    "slug": "non-destructive-testing-ndt-for-machined-parts-pt-mt-ut-and-when-to-specify",
+    "title": "Non-destructive testing (NDT) for machined parts: PT, MT, UT, and when to specify",
+    "date": "2026-04-13",
+    "preview": "Specify PT, MT, or UT only when the material, defect mode, and acceptance standard justify the method.",
     "icon": "default",
-    "category": "sourcing"
-  },
-  {
-    "slug": "thread-standards",
-    "title": "Thread Standards for Machined Parts: UNC, UNF, Metric, and NPT",
-    "date": "2025-01-10",
-    "preview": "Mixing thread standards causes costly rework. A concise reference on the most common thread callouts, tolerances, and how to specify them correctly on your drawings.",
-    "icon": "lathe",
-    "category": "design"
-  },
-  {
-    "slug": "first-article-inspection",
-    "title": "First Article Inspection: What to Require and What to Skip",
-    "date": "2025-01-05",
-    "preview": "FAI reports add cost and lead time. For prototype quantities they're often overkill. Here's when to require full AS9102 FAI, and when a dimensional report is enough.",
-    "icon": "gauge",
     "category": "quality"
   },
   {
-    "slug": "heat-treatment-basics",
-    "title": "Heat Treatment for Machined Parts: Hardening, Tempering, and Annealing",
-    "date": "2024-12-28",
-    "preview": "Heat treatment changes mechanical properties but also affects dimensions. When to specify heat treat before vs after machining, and what distortion to expect.",
-    "icon": "cube",
+    "slug": "peek-vs-delrin-for-machined-plastic-parts-a-side-by-side-breakdown",
+    "title": "PEEK vs Delrin for machined plastic parts: a side-by-side breakdown",
+    "date": "2026-04-13",
+    "preview": "PEEK is for demanding environments. Delrin is for efficient machined plastic parts.",
+    "icon": "default",
     "category": "materials"
   },
   {
-    "slug": "stainless-steel-grades",
-    "title": "Stainless Steel Grades: 303 vs 304 vs 316 vs 17-4 PH",
-    "date": "2024-12-20",
-    "preview": "Not all stainless is equal. A machinist's comparison of the four most common grades — machinability, corrosion resistance, cost, and when each is the right call.",
-    "icon": "cube",
-    "category": "materials"
+    "slug": "precision-machining-for-optics-mounts-flatness-material-stability-and-finishing",
+    "title": "Precision machining for optics mounts: flatness, material stability, and finishing",
+    "date": "2026-04-13",
+    "preview": "Precision machining for optics mounts is about alignment, flatness, and material stability under real conditions.",
+    "icon": "default",
+    "category": "industry"
   },
   {
     "slug": "prototype-to-production",
-    "title": "Prototype to Production: How Part Design Changes When You Scale",
-    "date": "2024-12-15",
-    "preview": "A part designed for 5 pieces often needs redesign at 5,000. Features that are fine to EDM at prototype quantities become bottlenecks at volume. What to watch for.",
-    "icon": "gear",
-    "category": "design"
-  },
-  {
-    "slug": "cmm-inspection",
-    "title": "CMM Inspection Reports: What to Ask For and How to Read Them",
-    "date": "2024-12-10",
-    "preview": "Coordinate measuring machine reports are the gold standard for dimensional verification. What a complete CMM report contains, what to flag, and when to require it.",
-    "icon": "gauge",
-    "category": "quality"
-  },
-  {
-    "slug": "drawing-best-practices",
-    "title": "Engineering Drawing Best Practices for CNC Sourcing",
-    "date": "2024-12-05",
-    "preview": "A poor drawing slows quoting, causes misquotes, and leads to rework. The ten most common drawing mistakes and how to fix them before sending your RFQ.",
+    "title": "Prototype to production machining: how sourcing priorities change",
+    "date": "2026-04-13",
+    "preview": "Prototype to production machining - what changes in supplier selection, process route, and commercial logic.",
     "icon": "default",
-    "category": "design"
-  },
-  {
-    "slug": "lead-time-factors",
-    "title": "What Actually Drives Lead Time on CNC Parts",
-    "date": "2024-11-28",
-    "preview": "Shops quote 3–4 weeks but sometimes deliver in 5 days. Lead time is driven by material availability, machine load, and finishing ops — not just complexity.",
-    "icon": "lathe",
     "category": "sourcing"
   },
   {
-    "slug": "as9100-vs-iso9001",
-    "title": "AS9100 vs ISO 9001: Which Certification Do You Actually Need?",
-    "date": "2024-11-20",
-    "preview": "Both certifications signal quality systems, but AS9100 adds aerospace-specific requirements. When to require AS9100 vs ISO 9001 — and when neither is necessary.",
+    "slug": "prototype-vs-production-machining-sourcing-strategies-for-each-phase",
+    "title": "Prototype vs production machining: sourcing strategies for each phase",
+    "date": "2026-04-13",
+    "preview": "Prototype sourcing is about speed and learning. Production sourcing is about repeatability and scale.",
     "icon": "default",
     "category": "sourcing"
   },
   {
     "slug": "rfq-checklist",
-    "title": "The Complete RFQ Checklist for CNC Machined Parts",
-    "date": "2024-11-15",
-    "preview": "Missing information in an RFQ delays quotes and causes back-and-forth. A complete checklist of what to include when requesting quotes for precision machined parts.",
-    "icon": "gear",
+    "title": "RFQ checklist for machined parts: what to send before you ask for quote",
+    "date": "2026-04-13",
+    "preview": "RFQ checklist for machined parts - the exact information suppliers need to quote fast and accurately.",
+    "icon": "default",
+    "category": "design"
+  },
+  {
+    "slug": "rush-machining-orders-whats-realistic-and-what-it-actually-costs",
+    "title": "Rush machining orders: what's realistic and what it actually costs",
+    "date": "2026-04-13",
+    "preview": "Rush machining costs more because you are buying priority capacity and compressed schedule risk.",
+    "icon": "default",
+    "category": "sourcing"
+  },
+  {
+    "slug": "semiconductor-equipment-machining-flatness-cleanliness-and-materials",
+    "title": "Semiconductor equipment machining: flatness, cleanliness, and materials",
+    "date": "2026-04-13",
+    "preview": "Semiconductor equipment machining is driven by flatness, cleanliness, and stable material behavior.",
+    "icon": "default",
+    "category": "industry"
+  },
+  {
+    "slug": "single-source-vs-multi-source-for-machined-parts-pros-cons-and-risk",
+    "title": "Single-source vs multi-source for machined parts: pros, cons, and risk",
+    "date": "2026-04-13",
+    "preview": "Single-source gives simplicity and learning depth. Multi-source gives resilience. Good sourcing uses both where they fit.",
+    "icon": "default",
+    "category": "sourcing"
+  },
+  {
+    "slug": "specifying-material-certifications-what-mtrs-certs-and-traceability-mean",
+    "title": "Specifying material certifications: what MTRs, certs, and traceability mean",
+    "date": "2026-04-13",
+    "preview": "MTRs, certs, and traceability are different levels of evidence. Specify the one you actually need.",
+    "icon": "default",
+    "category": "materials"
+  },
+  {
+    "slug": "stainless-steel-grades",
+    "title": "Stainless steel grades for machined parts: 303, 304, 316, and 17-4 PH",
+    "date": "2026-04-13",
+    "preview": "Stainless steel grades for machined parts - how to choose between 303, 304, 316, and 17-4 PH based on corrosion, strength, and machinability.",
+    "icon": "default",
+    "category": "materials"
+  },
+  {
+    "slug": "statistical-process-control-spc-in-cnc-machining-a-buyers-primer",
+    "title": "Statistical process control (SPC) in CNC machining: a buyer's primer",
+    "date": "2026-04-13",
+    "preview": "SPC in CNC machining is for controlling variation over time on repeat critical features, not for every one-off job.",
+    "icon": "default",
+    "category": "quality"
+  },
+  {
+    "slug": "surface-finish-guide",
+    "title": "Surface finish guide for machined parts: Ra, Rz, and what to call out",
+    "date": "2026-04-13",
+    "preview": "Surface finish guide for machined parts - how to use Ra, Rz, and practical finish notes without overpaying for unnecessary polish.",
+    "icon": "default",
+    "category": "design"
+  },
+  {
+    "slug": "surface-grinding-vs-cylindrical-grinding-a-quick-reference",
+    "title": "Surface grinding vs cylindrical grinding: a quick reference",
+    "date": "2026-04-13",
+    "preview": "Surface grinding is for flat precision. Cylindrical grinding is for round precision. Mixing them up costs money.",
+    "icon": "default",
+    "category": "process"
+  },
+  {
+    "slug": "surface-treatment-quality-how-to-inspect-anodizing-plating-and-heat-treat",
+    "title": "Surface treatment quality: how to inspect anodizing, plating, and heat treat",
+    "date": "2026-04-13",
+    "preview": "Inspect anodizing, plating, and heat treat against functional requirements, not just visible appearance.",
+    "icon": "default",
+    "category": "quality"
+  },
+  {
+    "slug": "swiss-screw-machining-the-complete-guide-for-small-diameter-parts",
+    "title": "Swiss screw machining: the complete guide for small-diameter parts",
+    "date": "2026-04-13",
+    "preview": "Swiss screw machining is the go-to process for small, slender, tight-tolerance turned parts.",
+    "icon": "default",
+    "category": "process"
+  },
+  {
+    "slug": "swiss-screw-machining",
+    "title": "Swiss screw machining: the complete guide for small-diameter parts",
+    "date": "2026-04-13",
+    "preview": "Swiss screw machining guide for small-diameter parts - when it fits, where it saves money, and what to specify.",
+    "icon": "default",
+    "category": "process"
+  },
+  {
+    "slug": "thread-callout-guide-unc-unf-metric-how-to-specify-them-correctly",
+    "title": "Thread callout guide: UNC, UNF, metric  -  how to specify them correctly",
+    "date": "2026-04-13",
+    "preview": "A thread callout should leave no room for guessing. Diameter alone is not a thread specification.",
+    "icon": "default",
+    "category": "design"
+  },
+  {
+    "slug": "thread-milling-vs-tapping-tolerances-cost-and-application-guide",
+    "title": "Thread milling vs tapping: tolerances, cost, and application guide",
+    "date": "2026-04-13",
+    "preview": "Tapping is faster. Thread milling is safer and more flexible on difficult threads.",
+    "icon": "default",
+    "category": "process"
+  },
+  {
+    "slug": "thread-standards",
+    "title": "Thread standards for machined parts: UNC, UNF, and metric",
+    "date": "2026-04-13",
+    "preview": "Thread standards for machined parts - how to specify UNC, UNF, and metric threads correctly on drawings and RFQs.",
+    "icon": "default",
+    "category": "design"
+  },
+  {
+    "slug": "tolerances-guide",
+    "title": "Machining tolerances guide: general, precision, and high-precision",
+    "date": "2026-04-13",
+    "preview": "Machining tolerances guide for machined parts - what general, precision, and high-precision really cost and when each level makes sense.",
+    "icon": "default",
+    "category": "design"
+  },
+  {
+    "slug": "tolerancing-101-general-precision-and-high-precision-what-each-costs",
+    "title": "Tolerancing 101: general, precision, and high-precision  -  what each costs",
+    "date": "2026-04-13",
+    "preview": "General, precision, and high-precision tolerances do not cost the same. The jump gets steep fast.",
+    "icon": "default",
+    "category": "design"
+  },
+  {
+    "slug": "undercuts-in-cnc-machining-design-alternatives-that-save-time-and-money",
+    "title": "Undercuts in CNC machining: design alternatives that save time and money",
+    "date": "2026-04-13",
+    "preview": "Undercuts save function in some parts and waste money in others. Design them on purpose.",
+    "icon": "default",
+    "category": "design"
+  },
+  {
+    "slug": "wall-thickness-minimums-for-cnc-milled-and-turned-parts",
+    "title": "Wall thickness minimums for CNC milled and turned parts",
+    "date": "2026-04-13",
+    "preview": "Minimum wall thickness in CNC machining is a stiffness problem first and a tolerance problem second.",
+    "icon": "default",
+    "category": "design"
+  },
+  {
+    "slug": "what-is-a-machining-network-broker-and-why-use-one",
+    "title": "What is a machining network broker  -  and why use one?",
+    "date": "2026-04-13",
+    "preview": "A machining network broker is useful when it adds supplier fit, speed, and control - not just markup.",
+    "icon": "default",
+    "category": "sourcing"
+  },
+  {
+    "slug": "what-is-edm-machining-and-when-should-you-specify-it",
+    "title": "What is EDM machining and when should you specify it?",
+    "date": "2026-04-13",
+    "preview": "EDM machining is the right call for hard materials and delicate geometry when cutters are the wrong tool.",
+    "icon": "default",
+    "category": "process"
+  },
+  {
+    "slug": "what-to-do-when-machined-parts-arrive-out-of-spec-a-buyers-guide",
+    "title": "What to do when machined parts arrive out of spec: a buyer's guide",
+    "date": "2026-04-13",
+    "preview": "When machined parts are out of spec, contain the lot, confirm the facts, then choose disposition with engineering input.",
+    "icon": "default",
+    "category": "quality"
+  },
+  {
+    "slug": "why-your-machining-rfqs-arent-getting-responses-and-how-to-fix-them",
+    "title": "Why your machining RFQs aren't getting responses (and how to fix them)",
+    "date": "2026-04-13",
+    "preview": "Machining RFQs usually go unanswered because the package is weak or the supplier fit is wrong.",
+    "icon": "default",
     "category": "sourcing"
   }
 ]
