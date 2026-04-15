@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <title>Hole tolerances and fits: H7/g6, clearance, transition, and interference explained — Precision Machining Co.</title>
+  <meta name="description" content="H7/g6, H7/h6, and H7/p6 are function choices. Use the fit class, not a vague plus-minus note." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    :root {
+      --c50: #F5F4F0; --c100: #ECEAE6; --c200: #D5D1CB;
+      --c400: #9E978D; --c500: #857F77; --c600: #665F57;
+      --c900: #1C1917; --white: #FFFFFF; --accent: #0A1930;
+      --mono: 'IBM Plex Mono', monospace;
+    }
+    body { font-family: var(--mono); background: var(--c50); color: var(--c900); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    .grid-bg { background-image: linear-gradient(rgba(28,25,23,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(28,25,23,.04) 1px, transparent 1px); background-size: 44px 44px; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+    .section-label { display: inline-flex; align-items: center; gap: 8px; font-size: 0.68rem; font-weight: 500; color: var(--accent); text-transform: uppercase; letter-spacing: 0.18em; border-bottom: 1px solid var(--accent); padding-bottom: 2px; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; background: rgba(245,244,240,.96); backdrop-filter: blur(10px); border-bottom: 1px solid var(--c200); height: 64px; }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; height: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-size: 0.82rem; font-weight: 600; color: var(--c900); text-decoration: none; letter-spacing: 0.16em; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 36px; }
+    .nav-links a:not(.nav-cta) { font-size: 0.68rem; font-weight: 500; color: var(--c600); text-decoration: none; text-transform: uppercase; letter-spacing: 0.14em; transition: color .15s; }
+    .nav-links a:not(.nav-cta):hover { color: var(--c900); }
+    .nav-cta { font-size: 0.68rem; font-weight: 600; background: var(--accent); color: var(--white); padding: 10px 22px; text-decoration: none; text-transform: uppercase; letter-spacing: 0.12em; border: 1px solid var(--accent); transition: background .15s; display: flex; align-items: center; gap: 8px; }
+    .nav-cta:hover { background: #162840; border-color: #162840; }
+    .article-header { padding: 112px 0 56px; border-bottom: 1px solid var(--c200); }
+    .article-header .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 0.65rem; color: var(--c400); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 24px; }
+    .article-header .breadcrumb a { color: var(--c400); text-decoration: none; transition: color .15s; }
+    .article-header .breadcrumb a:hover { color: var(--accent); }
+    .article-header .breadcrumb span { color: var(--c200); }
+    .article-meta-row { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; flex-wrap: wrap; }
+    .article-date { font-size: 0.65rem; color: var(--c400); text-transform: uppercase; letter-spacing: 0.12em; }
+    .article-h1 { font-size: clamp(1.6rem, 3.5vw, 2.8rem); font-weight: 300; line-height: 1.15; letter-spacing: -0.02em; max-width: 800px; margin-bottom: 20px; }
+    .article-h1 strong { font-weight: 500; }
+    .article-lead { font-size: 0.9rem; color: var(--c500); max-width: 640px; line-height: 1.7; }
+    .article-wrap { padding: 56px 0 80px; display: grid; grid-template-columns: 1fr 280px; gap: 80px; align-items: start; }
+    .article-content h2 { font-size: 1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; margin: 40px 0 14px; padding-top: 40px; border-top: 1px solid var(--c200); }
+    .article-content h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+    .article-content h3 { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; margin: 28px 0 10px; }
+    .article-content p { font-size: 0.85rem; color: var(--c600); line-height: 1.8; margin-bottom: 16px; }
+    .article-content ul, .article-content ol { padding-left: 20px; margin-bottom: 16px; }
+    .article-content li { font-size: 0.85rem; color: var(--c600); line-height: 1.8; margin-bottom: 6px; }
+    .article-content strong { color: var(--c900); font-weight: 500; }
+    .article-content table { width: 100%; border-collapse: collapse; margin-bottom: 16px; }
+    .article-content th { font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--c500); text-align: left; padding: 10px 16px; background: var(--c100); border: 1px solid var(--c200); }
+    .article-content td { font-size: 0.8rem; color: var(--c600); padding: 10px 16px; border: 1px solid var(--c200); line-height: 1.5; }
+    .article-content tr:nth-child(even) td { background: var(--c50); }
+    .article-sidebar { position: sticky; top: 88px; }
+    .sidebar-block { border: 1px solid var(--c200); padding: 24px; margin-bottom: 24px; }
+    .sidebar-block-head { font-size: 0.65rem; font-weight: 600; color: var(--c500); text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 16px; }
+    .sidebar-cta { display: inline-flex; align-items: center; gap: 8px; font-size: 0.68rem; font-weight: 600; background: var(--accent); color: var(--white); padding: 12px 20px; text-decoration: none; text-transform: uppercase; letter-spacing: 0.12em; border: 1px solid var(--accent); transition: background .15s; width: 100%; justify-content: center; }
+    .sidebar-cta:hover { background: #162840; }
+    .sidebar-p { font-size: 0.75rem; color: var(--c500); line-height: 1.65; margin-bottom: 16px; }
+    .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 0.68rem; font-weight: 500; color: var(--c500); text-decoration: none; text-transform: uppercase; letter-spacing: 0.12em; transition: color .15s; margin-bottom: 40px; }
+    .back-link:hover { color: var(--accent); }
+    footer { background: var(--c900); padding: 56px 0 32px; }
+    .footer-top { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 0; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,.08); margin-bottom: 28px; }
+    .footer-col { padding-right: 40px; }
+    .footer-col:last-child { padding-right: 0; }
+    .footer-logo { font-size: 0.82rem; font-weight: 600; color: var(--white); letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 10px; display: block; }
+    .footer-tagline { font-size: 0.75rem; color: var(--c500); line-height: 1.65; max-width: 220px; }
+    .footer-col-head { font-size: 0.65rem; font-weight: 600; color: var(--c500); text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 14px; }
+    .footer-col a, .footer-col p { font-size: 0.75rem; color: var(--c400); display: block; text-decoration: none; margin-bottom: 7px; line-height: 1.5; }
+    .footer-col a:hover { color: var(--white); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; font-size: 0.65rem; color: var(--c600); flex-wrap: wrap; gap: 8px; letter-spacing: 0.06em; }
+    @media (max-width: 960px) {
+      .container { padding: 0 28px; } .nav-inner { padding: 0 28px; }
+      .nav-links a { display: none; }
+      .article-wrap { grid-template-columns: 1fr; gap: 48px; }
+      .article-sidebar { position: static; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+    @media (max-width: 640px) { .footer-top { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Precision Machining Co.</a>
+    <div class="nav-links">
+      <a href="/#process">Process</a>
+      <a href="/#capabilities">Capabilities</a>
+      <a href="/#why">Why Us</a>
+      <a href="/blog/">Blog</a>
+  <a href="/about/">About</a>
+      <a href="/#rfq" class="nav-cta">Contact Us →</a>
+    </div>
+  </div>
+</nav>
+<div class="article-header grid-bg">
+  <div class="container">
+    <div class="breadcrumb"><a href="/">Home</a><span>/</span><a href="/blog/">Blog</a>
+  <a href="/about/">About</a><span>/</span><span>Hole Tolerances And Fits H7 G6 Clearance Transition And Interference Explained</span></div>
+    <div class="article-meta-row">
+      <span class="section-label">// category: Design &amp; Tolerances</span>
+      <span class="article-date">Apr 13, 2026</span>
+    </div>
+    <h1 class="article-h1"><strong>Hole tolerances and fits: H7/g6, clearance, transition, and interference explained</strong></h1>
+    <p class="article-lead">H7/g6, H7/h6, and H7/p6 are function choices. Use the fit class, not a vague plus-minus note.</p>
+  </div>
+</div>
+<div class="container">
+  <div class="article-wrap">
+    <article class="article-content">
+      <a href="/blog/" class="back-link">← Back to Blog</a>
+
+<h2>The short answer</h2>
+<p>Hole and shaft fits are a function callout disguised as letters and numbers. Once you know what motion or retention you need, the fit class becomes much easier to choose.</p>
+<h2>What the symbols mean</h2>
+<p>In the ISO system, the letter identifies the fundamental deviation and the number identifies the tolerance grade. H7 on the hole side is common because the lower deviation is zero in the basic hole system. Pairing it with different shaft classes creates clearance, transition, or interference fits.</p>
+<p>That matters because the same nominal size can behave very differently in assembly depending on the fit pair.</p>
+<h2>How to think about common fit families</h2>
+<p>Clearance fits are for sliding or easy assembly. Transition fits are for accurate location with slight clearance or slight interference depending on actual limits. Interference fits are for press or shrink assembly where relative movement is not allowed.</p>
+<p>H7/g6 is commonly treated as a sliding clearance fit. H7/h6 is a locational clearance fit. H7/p6 moves into press-fit territory. The exact limit values depend on basic size range, so the class matters more than a single memorized number.</p>
+<h2>What drives cost</h2>
+<p>The tighter the fit class, the more the process may shift toward reaming, grinding, honing, selective assembly, temperature-controlled fitting, or more inspection. That is normal. Precision mating parts should cost more than a loose bolt hole.</p>
+<p>The cheapest mistake in design is often picking the loosest fit that still works.</p>
+<h2>How to avoid RFQ confusion</h2>
+<p>A nominal diameter and a plus-minus tolerance is not the same thing as a fit designation. If the part mates with another shaft or bore, say the intended fit class or the functional intent. That saves a lot of back-and-forth.</p>
+<p>Also specify whether the supplier is responsible for both members of the fit or only one.</p>
+<h2>What an experienced buyer does next</h2>
+<p>Related reading: <a href="/blog/how-to-call-out-surface-finish-on-engineering-drawings-ra-rz-and-n-grades">How to call out surface finish on engineering drawings: Ra, Rz, and N-grades</a> and <a href="/blog/common-dfm-mistakes-that-increase-your-machining-quote-by-30">Common DFM mistakes that increase your machining quote by 30%+</a>.</p>
+<p>The right move is usually to define the real functional requirement, remove the decorative requirements, and let the supplier build a route around what actually matters.</p>
+<h2>Comparison table where relevant</h2>
+<table>
+<thead>
+<tr>
+<th>Fit example</th>
+<th>General intent</th>
+<th>Typical use</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>H7/g6</td>
+<td>Sliding clearance</td>
+<td>Guided movement</td>
+</tr>
+<tr>
+<td>H7/h6</td>
+<td>Locational clearance</td>
+<td>Accurate location with assembly ease</td>
+</tr>
+<tr>
+<td>H7/k6 or n6</td>
+<td>Transition</td>
+<td>Accurate location with tighter feel</td>
+</tr>
+<tr>
+<td>H7/p6</td>
+<td>Interference / press</td>
+<td>Permanent or high-retention assembly</td>
+</tr>
+</tbody></table>
+<h2>How to specify this in your RFQ</h2>
+<p>Use fit designations on the drawing when function depends on mating behavior. State whether assembly is by hand, light press, or thermal method. If the mating part is supplied by someone else, include its nominal class or measured limits in the RFQ.</p>
+<p>A clean RFQ does not just list requirements. It separates must-haves from preferences so the supplier can optimize where it is safe.</p>
+<hr>
+<p><em>Have a part that needs quoting? Email your drawings to <a href="mailto:rfq@precisionmachining.co">rfq@precisionmachining.co</a>  -<br>we return a competitive quote within 24 hours. Phone: +1 312-579-0808.</em></p>
+
+
+    </article>
+    <aside class="article-sidebar">
+      <div class="sidebar-block">
+        <div class="sidebar-block-head">Need a Quote?</div>
+        <p class="sidebar-p">Submit your RFQ and get quotes from vetted US manufacturers within 24 hours.</p>
+        <a href="/#rfq" class="sidebar-cta">Submit RFQ →</a>
+      </div>
+      <div class="sidebar-block">
+        <div class="sidebar-block-head">Related</div>
+        <a href="/blog/" style="font-size:0.75rem;color:var(--c500);display:block;text-decoration:none;padding:6px 0;transition:color .15s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--c500)'">← All Articles</a>
+      </div>
+    </aside>
+  </div>
+</div>
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-col"><span class="footer-logo">Precision Machining Co.</span><p class="footer-tagline">US machined &amp; turned parts sourcing. RFQ to delivery, handled.</p></div>
+      <div class="footer-col"><div class="footer-col-head">Processes</div><a href="/#capabilities">CNC Milling</a><a href="/#capabilities">CNC Turning</a><a href="/#capabilities">Mill-Turn</a><a href="/#capabilities">Swiss Machining</a></div>
+      <div class="footer-col"><div class="footer-col-head">Industries</div><a href="/#capabilities">Aerospace</a><a href="/#capabilities">Defense / ITAR</a><a href="/#capabilities">Medical Devices</a><a href="/#capabilities">Robotics</a></div>
+      <div class="footer-col"><div class="footer-col-head">Contact</div><a href="mailto:rfq@precisionmachining.co">rfq@precisionmachining.co</a><p>+1 312-579-0808</p><p>Wilmington, DE</p><p>United States</p></div>
+    </div>
+    <div class="footer-bottom"><span>© <span class="copyright-year"></span> Advanced Tech Solutions LLC. All rights reserved.</span><span>Privacy Policy · Terms of Service</span></div>
+  </div>
+</footer>
+<script>
+  document.querySelectorAll('.copyright-year').forEach(el => {
+    el.textContent = new Date().getFullYear();
+  });
+</script>
+</body>
+</html>

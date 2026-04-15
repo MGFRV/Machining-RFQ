@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Understanding Tolerances in CNC Machining — Precision Machining Co.</title>
-  <meta name="description" content="Specifying tolerances too tight drives up cost. Too loose and parts don&#39;t fit. Here&#39;s how to find the right balance for your application." />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <title>Machining tolerances guide: general, precision, and high-precision — Precision Machining Co.</title>
+  <meta name="description" content="Machining tolerances guide for machined parts - what general, precision, and high-precision really cost and when each level makes sense." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -98,11 +99,11 @@
     <div class="breadcrumb"><a href="/">Home</a><span>/</span><a href="/blog/">Blog</a>
   <a href="/about/">About</a><span>/</span><span>Tolerances Guide</span></div>
     <div class="article-meta-row">
-      <span class="section-label">// category: Quality &amp; Inspection</span>
-      <span class="article-date">Feb 20, 2025</span>
+      <span class="section-label">// category: Design &amp; Tolerances</span>
+      <span class="article-date">Apr 13, 2026</span>
     </div>
-    <h1 class="article-h1"><strong>Understanding Tolerances in CNC Machining</strong></h1>
-    <p class="article-lead">Specifying tolerances too tight drives up cost. Too loose and parts don&#39;t fit. Here&#39;s how to find the right balance for your application.</p>
+    <h1 class="article-h1"><strong>Machining tolerances guide: general, precision, and high-precision</strong></h1>
+    <p class="article-lead">Machining tolerances guide for machined parts - what general, precision, and high-precision really cost and when each level makes sense.</p>
   </div>
 </div>
 <div class="container">
@@ -110,56 +111,55 @@
     <article class="article-content">
       <a href="/blog/" class="back-link">← Back to Blog</a>
 
-<pre><code>  &lt;h2&gt;Why Tolerances Matter&lt;/h2&gt;
-  &lt;p&gt;Tolerance is the permissible variation in a dimension. A shaft specified as &lt;strong&gt;1.000&quot; ± 0.001&quot;&lt;/strong&gt; may measure anywhere from 0.999&quot; to 1.001&quot; and still pass inspection. Every additional zero you add to a tolerance specification — going from ±0.005&quot; to ±0.0005&quot; — can double or triple machining cost.&lt;/p&gt;
-  &lt;p&gt;The key principle: &lt;strong&gt;specify tolerances as loose as your design allows&lt;/strong&gt;. Reserve tight tolerances only for surfaces that actually mate, seal, or bear load.&lt;/p&gt;
-
-  &lt;h2&gt;Standard Tolerance Tiers&lt;/h2&gt;
-  &lt;p&gt;Most CNC shops work within three practical tiers:&lt;/p&gt;
-  &lt;table class=&quot;tol-table&quot;&gt;
-    &lt;thead&gt;
-      &lt;tr&gt;&lt;th&gt;Tier&lt;/th&gt;&lt;th&gt;Tolerance&lt;/th&gt;&lt;th&gt;Typical Use&lt;/th&gt;&lt;th&gt;Relative Cost&lt;/th&gt;&lt;/tr&gt;
-    &lt;/thead&gt;
-    &lt;tbody&gt;
-      &lt;tr&gt;&lt;td&gt;General&lt;/td&gt;&lt;td&gt;±0.005&quot; (±0.13 mm)&lt;/td&gt;&lt;td&gt;Non-critical dimensions, clearance holes&lt;/td&gt;&lt;td&gt;1×&lt;/td&gt;&lt;/tr&gt;
-      &lt;tr&gt;&lt;td&gt;Precision&lt;/td&gt;&lt;td&gt;±0.001&quot; (±0.025 mm)&lt;/td&gt;&lt;td&gt;Fits, bearing seats, threaded bosses&lt;/td&gt;&lt;td&gt;2–3×&lt;/td&gt;&lt;/tr&gt;
-      &lt;tr&gt;&lt;td&gt;High-Precision&lt;/td&gt;&lt;td&gt;±0.0005&quot; (±0.013 mm)&lt;/td&gt;&lt;td&gt;Press fits, sealing bores, gauge surfaces&lt;/td&gt;&lt;td&gt;4–6×&lt;/td&gt;&lt;/tr&gt;
-    &lt;/tbody&gt;
-  &lt;/table&gt;
-  &lt;p&gt;Tolerances tighter than ±0.0002&quot; typically require grinding or lapping after machining and should be flagged explicitly in your drawing.&lt;/p&gt;
-
-  &lt;h2&gt;Title Block vs. Explicit Callouts&lt;/h2&gt;
-  &lt;p&gt;Most engineering drawings include a title block tolerance such as &lt;em&gt;&quot;Unless otherwise specified: ±0.005&quot;&quot;&lt;/em&gt;. This covers the majority of dimensions. But for anything critical — mating diameters, press fits, thread engagement lengths — always call out the tolerance explicitly on the dimension.&lt;/p&gt;
-  &lt;p&gt;Never rely on a title block for a critical feature. If it matters, put the number on the part.&lt;/p&gt;
-
-  &lt;h2&gt;GD&amp;T: Beyond Plus/Minus&lt;/h2&gt;
-  &lt;p&gt;Geometric Dimensioning and Tolerancing (GD&amp;T) communicates form, orientation, and position — things a simple ±0.005&quot; can&#39;t express. Common callouts:&lt;/p&gt;
-  &lt;ul&gt;
-    &lt;li&gt;&lt;strong&gt;Flatness (⏥)&lt;/strong&gt; — controls surface variation, not location. Use for sealing faces and mating flanges.&lt;/li&gt;
-    &lt;li&gt;&lt;strong&gt;Cylindricity (⌀)&lt;/strong&gt; — controls roundness and straightness of a bore simultaneously.&lt;/li&gt;
-    &lt;li&gt;&lt;strong&gt;True Position (⊕)&lt;/strong&gt; — controls hole location relative to a datum. More useful than coordinate tolerances for bolt patterns.&lt;/li&gt;
-    &lt;li&gt;&lt;strong&gt;Runout (↗)&lt;/strong&gt; — controls total surface variation as a part rotates. Critical for rotating shafts and bearing fits.&lt;/li&gt;
-  &lt;/ul&gt;
-  &lt;p&gt;Over-specifying GD&amp;T adds inspection cost. Apply it only where the geometric relationship genuinely affects function.&lt;/p&gt;
-
-  &lt;h2&gt;Surface Finish&lt;/h2&gt;
-  &lt;p&gt;Surface finish is often overlooked but impacts sealing, fatigue life, and mating behavior. Common specifications:&lt;/p&gt;
-  &lt;ul&gt;
-    &lt;li&gt;&lt;strong&gt;Ra 3.2 µm (125 µin)&lt;/strong&gt; — Standard machined finish. Adequate for most non-critical surfaces.&lt;/li&gt;
-    &lt;li&gt;&lt;strong&gt;Ra 1.6 µm (63 µin)&lt;/strong&gt; — Typical turned or milled finish. Good for general mating surfaces.&lt;/li&gt;
-    &lt;li&gt;&lt;strong&gt;Ra 0.8 µm (32 µin)&lt;/strong&gt; — Requires a finishing pass or fine toolpath. Use for O-ring grooves and sliding fits.&lt;/li&gt;
-    &lt;li&gt;&lt;strong&gt;Ra 0.4 µm (16 µin)&lt;/strong&gt; — Ground or honed. Bearing bores, precision sealing surfaces.&lt;/li&gt;
-  &lt;/ul&gt;
-
-  &lt;h2&gt;Practical Checklist&lt;/h2&gt;
-  &lt;ol&gt;
-    &lt;li&gt;Identify every surface that mates, seals, or bears load — these get explicit tolerances.&lt;/li&gt;
-    &lt;li&gt;Everything else falls to the title block default (typically ±0.005&quot;).&lt;/li&gt;
-    &lt;li&gt;Use GD&amp;T for location and form requirements that ± alone can&#39;t describe.&lt;/li&gt;
-    &lt;li&gt;Call out surface finish only where it matters functionally.&lt;/li&gt;
-    &lt;li&gt;Review your drawing against this list before sending to a shop — tight tolerances you don&#39;t need are money left on the table.&lt;/li&gt;
-  &lt;/ol&gt;
-</code></pre>
+<h2>The short answer</h2>
+<p>Tolerance cost is not linear. General commercial tolerances are relatively cheap. Precision tolerances cost more because the process and inspection tighten up. High-precision tolerances cost much more because the supplier has to manage thermal behavior, tool wear, part stability, and sometimes secondary finishing with very little margin for drift.</p>
+<h2>General tolerance</h2>
+<p>General tolerance is where many non-critical machined features should live. The supplier can run a stable route, use standard inspection methods, and avoid turning every feature into a process-control exercise. That keeps the quote sane and the route flexible.</p>
+<p>For brackets, covers, housings, and non-critical geometry, this is often exactly where the drawing should stay.</p>
+<h2>Precision tolerance</h2>
+<p>Precision features usually involve fit, alignment, hole position, sealing, or controlled motion. The supplier still machines the part efficiently, but the fixturing, tool-offset control, and inspection plan become more disciplined. That costs more because the process window gets narrower.</p>
+<p>This level is normal and justified for many real functional features. It just should not spread across the whole print.</p>
+<h2>High-precision tolerance</h2>
+<p>High-precision work is where the route may need thermal control, more frequent in-process checks, grinding or honing, selective assembly, or more expensive metrology. The cost jump here is real because the supplier is buying down very small process risk.</p>
+<p>A five-piece lot can still be expensive if one bore or journal needs high-precision behavior. Quantity does not eliminate the discipline required.</p>
+<h2>How to use tolerances intelligently</h2>
+<p>Tighten only the dimensions tied to function. Leave non-critical dimensions on rational title-block tolerances. Related reading: <a href="/blog/surface-finish-guide">Surface finish guide for machined parts: Ra, Rz, and what to call out</a> and <a href="/blog/drawing-best-practices">Engineering drawing best practices for machined parts</a>.</p>
+<p>A good drawing separates critical from non-critical. A bad drawing taxes every feature equally.</p>
+<h2>Comparison table where relevant</h2>
+<table>
+<thead>
+<tr>
+<th>Tolerance level</th>
+<th>Best use</th>
+<th>Cost effect</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>General</td>
+<td>Non-critical geometry</td>
+<td>Baseline</td>
+</tr>
+<tr>
+<td>Precision</td>
+<td>Fit and assembly features</td>
+<td>Noticeable increase</td>
+</tr>
+<tr>
+<td>High precision</td>
+<td>Bearing, sealing, calibration features</td>
+<td>Steep increase</td>
+</tr>
+<tr>
+<td>Undefined but tight intent</td>
+<td>No clear function</td>
+<td>Worst commercial outcome</td>
+</tr>
+</tbody></table>
+<h2>How to specify this in your RFQ</h2>
+<p>Identify the few dimensions that actually drive fit, motion, sealing, or calibration. If one feature needs a special route such as grinding or honing, say so. Buyers save money by being selective, not by being vague.</p>
+<hr>
+<p><em>Have a part that needs quoting? Email your drawings to <a href="mailto:rfq@precisionmachining.co">rfq@precisionmachining.co</a> - 
+we return a competitive quote within 24 hours. Phone: +1 312-579-0808.</em></p>
 
 
     </article>

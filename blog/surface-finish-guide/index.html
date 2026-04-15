@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Surface Finish in CNC Machining: Ra, Rz, and Callout Best Practices — Precision Machining Co.</title>
-  <meta name="description" content="Ra 125, Ra 32, ground finish — surface finish callouts affect cost and lead time significantly. Here&#39;s how to specify only what your design actually needs." />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <title>Surface finish guide for machined parts: Ra, Rz, and what to call out — Precision Machining Co.</title>
+  <meta name="description" content="Surface finish guide for machined parts - how to use Ra, Rz, and practical finish notes without overpaying for unnecessary polish." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -99,10 +100,10 @@
   <a href="/about/">About</a><span>/</span><span>Surface Finish Guide</span></div>
     <div class="article-meta-row">
       <span class="section-label">// category: Design &amp; Tolerances</span>
-      <span class="article-date">Jan 28, 2025</span>
+      <span class="article-date">Apr 13, 2026</span>
     </div>
-    <h1 class="article-h1"><strong>Surface Finish in CNC Machining: Ra, Rz, and Callout Best Practices</strong></h1>
-    <p class="article-lead">Ra 125, Ra 32, ground finish — surface finish callouts affect cost and lead time significantly. Here&#39;s how to specify only what your design actually needs.</p>
+    <h1 class="article-h1"><strong>Surface finish guide for machined parts: Ra, Rz, and what to call out</strong></h1>
+    <p class="article-lead">Surface finish guide for machined parts - how to use Ra, Rz, and practical finish notes without overpaying for unnecessary polish.</p>
   </div>
 </div>
 <div class="container">
@@ -110,11 +111,55 @@
     <article class="article-content">
       <a href="/blog/" class="back-link">← Back to Blog</a>
 
-<pre><code>  &lt;div class=&quot;coming-soon&quot;&gt;
-    &lt;div class=&quot;coming-soon-label&quot;&gt;// coming soon&lt;/div&gt;
-    &lt;div class=&quot;coming-soon-title&quot;&gt;Full article in progress.&lt;/div&gt;
-  &lt;/div&gt;
-</code></pre>
+<h2>The short answer</h2>
+<p>Surface finish should be called out on purpose. Use Ra for most machined-part drawings, use Rz when the requirement or customer standard really needs it, and avoid fine-finish notes on surfaces that have no functional or cosmetic reason to be controlled.</p>
+<h2>Ra and Rz are not interchangeable</h2>
+<p>Ra is the arithmetic average roughness and the most common callout on machined drawings. Rz captures peak-to-valley style information and can tell a different story about the same surface. Buyers should not convert one into the other casually or assume a shop will treat them as interchangeable.</p>
+<p>If the finish requirement is tight, the drawing should be clear about which parameter controls.</p>
+<h2>What machining processes usually mean for finish</h2>
+<p>Ordinary milling and turning can produce perfectly acceptable commercial surfaces for many parts. Finer finishes usually mean lighter passes, different tooling, grinding, honing, or lapping. That means every step toward a finer finish adds either time, another process, or both.</p>
+<p>A finish note is a cost note whether the buyer intended that or not.</p>
+<h2>Tie finish to function</h2>
+<p>Bearing journals, sealing faces, sliding interfaces, optical surfaces, and cosmetic show faces often justify explicit finish control. Hidden bracket sides usually do not. Good buyers ask why the finish matters before they ask how smooth it can be made.</p>
+<p>A lot of machining waste is really finish over-specification. Related reading: <a href="/blog/drawing-best-practices">Engineering drawing best practices for machined parts</a> and <a href="/blog/tolerances-guide">Machining tolerances guide: general, precision, and high-precision</a>.</p>
+<h2>Write the note cleanly</h2>
+<p>Call out only the target surfaces, use one unit system, and say whether the finish applies before or after coating. If lay direction or measurement method matters, include it. That is enough. Anything else is usually clutter.</p>
+<p>The best finish note is specific, short, and attached to a functional reason.</p>
+<h2>Comparison table where relevant</h2>
+<table>
+<thead>
+<tr>
+<th>Finish term</th>
+<th>Best use</th>
+<th>Buyer watchout</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Ra</td>
+<td>General machined surface callouts</td>
+<td>Most common and usually sufficient</td>
+</tr>
+<tr>
+<td>Rz</td>
+<td>When peak-to-valley style control matters</td>
+<td>Do not treat as Ra</td>
+</tr>
+<tr>
+<td>Fine finish on functional face</td>
+<td>Seals, bearings, sliding contact</td>
+<td>May require secondary process</td>
+</tr>
+<tr>
+<td>Fine finish everywhere</td>
+<td>Almost never justified</td>
+<td>Quiet cost multiplier</td>
+</tr>
+</tbody></table>
+<h2>How to specify this in your RFQ</h2>
+<p>Identify exactly which surfaces need finish control and give the value and unit clearly. If coating follows machining, say whether the finish requirement applies before or after coating. Otherwise the supplier and inspector may be checking different realities.</p>
+<hr>
+<p><em>Have a part that needs quoting? Email your drawings to <a href="mailto:rfq@precisionmachining.co">rfq@precisionmachining.co</a> - 
+we return a competitive quote within 24 hours. Phone: +1 312-579-0808.</em></p>
 
 
     </article>

@@ -145,6 +145,7 @@ function renderBlogIndex(articles, categories) {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <title>Blog — Precision Machining Co.</title>
   <meta name="description" content="Insights on CNC machining, tolerances, materials, and precision manufacturing sourcing." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />

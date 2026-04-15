@@ -1,0 +1,45 @@
+name: Auto-publish blog from MDX
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'content/articles/**'
+      - 'scripts/build-blog.js'
+      - 'scripts/templates/article.html'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/blog-autopublish.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-blog:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build static blog pages
+        run: npm run build
+
+      - name: Commit generated blog changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'chore(blog): auto-publish generated pages from MDX'
+          file_pattern: 'blog/**'
