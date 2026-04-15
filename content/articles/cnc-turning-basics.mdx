@@ -1,51 +1,55 @@
 ---
-title: "CNC Turning Basics: What Every Engineer Should Know"
-slug: "cnc-turning-basics"
-date: "2025-03-01"
-preview: "CNC turning is one of the most efficient ways to produce cylindrical parts. This guide breaks down tolerances, materials, and when turning beats milling."
-description: "CNC turning is one of the most efficient ways to produce cylindrical parts. This guide breaks down tolerances, materials, and when turning beats milling."
-h1: "CNC Turning Basics: What Every Engineer Should Know"
+title: "CNC turning basics: what it does best and where cost comes from"
+description: "CNC turning basics for buyers of machined parts - where turning fits, what tolerances are realistic, and what drives cost."
+publishedAt: "2026-04-13"
 category: "process"
-icon: "lathe"
+keywords: ["CNC turning basics", "CNC turning", "turned parts"]
+author: "PMC Editorial"
+readingTime: "3 min read"
 ---
 
-      <h2>What is CNC Turning?</h2>
-      <p>CNC turning is a subtractive manufacturing process where a workpiece rotates at high speed while a stationary cutting tool removes material. The result is a cylindrical or conical part produced with high repeatability and tight tolerances.</p>
-      <p>Unlike milling — where the tool moves — in turning the part moves. This fundamental difference makes turning ideal for shafts, pins, bushings, and any rotationally symmetric geometry.</p>
+## The short answer
 
-      <h2>When to Choose Turning Over Milling</h2>
-      <p>Use turning when your part is primarily cylindrical. Common examples include:</p>
-      <ul>
-        <li>Shafts and axles</li>
-        <li>Threaded fasteners and studs</li>
-        <li>Hydraulic fittings and connectors</li>
-        <li>Bushings and spacers</li>
-        <li>Nozzles and valve bodies</li>
-      </ul>
-      <p>Milling is better suited for prismatic parts with flat surfaces, pockets, or complex 3D features that can't be achieved through rotation.</p>
+CNC turning is the natural process for shafts, pins, bushings, rings, threaded bodies, and other parts whose critical geometry shares one axis. It is fast and efficient on rotational parts, but cost rises when the design adds off-axis milling, thin walls, aggressive runout control, or blanket precision where it is not needed.
 
-      <h2>Tolerances You Can Expect</h2>
-      <p>Standard CNC turning tolerances run <strong>±0.005"</strong> (±0.127 mm) without special effort. With careful setup and finishing passes, tolerances of <strong>±0.001"</strong> (±0.025 mm) are achievable on diameter.</p>
-      <p>Surface finish of Ra 1.6 µm (63 µin) is typical off the machine. Ground finishes can reach Ra 0.4 µm (16 µin) for bearing fits and sealing surfaces.</p>
+## What turning does well
 
-      <h2>Material Considerations</h2>
-      <p>Most machinable metals run well on a lathe. Here's a quick reference:</p>
-      <ul>
-        <li><strong>6061 Aluminum</strong> — Fast, cheap, excellent finish. Default choice for non-critical parts.</li>
-        <li><strong>303 Stainless</strong> — Free-machining grade. Better choice than 304 for turned parts.</li>
-        <li><strong>4140 Steel</strong> — Strong, tough, machines well. Good for shafts under load.</li>
-        <li><strong>Brass (C360)</strong> — Exceptional machinability. Great for fittings and connectors.</li>
-        <li><strong>Titanium Grade 5</strong> — Slow feeds, sharp tools, coolant required. High cost but high performance.</li>
-      </ul>
+Turning rotates the workpiece while the tool cuts diameters, shoulders, tapers, grooves, faces, and threads. That makes it excellent for concentric features, controlled diameters, and smooth rotational surfaces. On the right part, turning is faster and simpler than trying to force the same geometry through a mill.
 
-      <h2>Specifying Your Turned Parts</h2>
-      <p>When submitting an RFQ for turned parts, include:</p>
-      <ol>
-        <li>STEP or IGES file (or a 2D print with full GD&amp;T)</li>
-        <li>Material and any required certifications (e.g., material certs, ITAR)</li>
-        <li>Critical tolerances called out explicitly — don't rely on title block defaults for anything that matters</li>
-        <li>Surface finish requirements and any post-processing (anodize, plating, passivation)</li>
-        <li>Quantity and target delivery</li>
-      </ol>
-      <p>The more complete your package, the faster and more accurate the quotes you'll receive.</p>
-    
+If the part function depends on diameters and coaxial relationships, turning should be the first process under discussion.
+
+## What raises price
+
+Material, part rigidity, length-to-diameter ratio, thread requirements, and finish targets all push cost. Long slender parts want better support. Thin-wall sleeves want careful cutting. Hard materials and tight surface-finish requirements want better tooling and more process control.
+
+The biggest mistake buyers make is assuming every turned part is cheap just because the geometry is round. A difficult turned part is still difficult.
+
+## Tolerance reality
+
+General turned features are often quoted around commercial tolerances, while precision diameters and controlled runout require a tighter process and more inspection. Once you push toward very tight limits, the supplier starts managing machine condition, insert wear, thermal growth, and gaging much more aggressively.
+
+That is why one tight journal can be cheap and the same tolerance on a long thin shaft can become a very different quote. Related reading: [Machining tolerances guide: general, precision, and high-precision](/blog/tolerances-guide) and [Thread standards for machined parts: UNC, UNF, and metric](/blog/thread-standards).
+
+## When turning is not enough by itself
+
+As soon as the part needs flats, cross-holes, slots, keyways, polygons, or off-axis features, the quote moves beyond simple turning. That can still be fine. But the buyer should ask whether the part belongs on a live-tool lathe, a mill-turn platform, or in a second operation.
+
+The process route should follow the part's real feature mix, not the stock shape alone.
+
+## Comparison table where relevant
+
+| Turning factor | Lower-cost case | Higher-cost case |
+| -- | -- | -- |
+| Geometry | Pure rotational features | Mixed with off-axis features |
+| Rigidity | Short stable part | Long or thin-wall part |
+| Tolerance | Selective precision | Blanket tight runout and size |
+| Threads | Standard production threads | Fine blind or difficult threads |
+
+## How to specify this in your RFQ
+
+Call out the few diameters, runout requirements, and thread classes that actually matter. If the part will be finish-ground or heat-treated later, say that in the RFQ. Buyers lose money when the supplier has to guess whether the turned dimensions are pre- or post-secondary process.
+
+---
+
+*Have a part that needs quoting? Email your drawings to rfq@precisionmachining.co - 
+we return a competitive quote within 24 hours. Phone: +1 312-579-0808.*

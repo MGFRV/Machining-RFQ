@@ -1,16 +1,55 @@
 ---
-title: "CNC Milling: 3-Axis, 4-Axis, and 5-Axis Explained"
-slug: "cnc-milling-guide"
-date: "2025-02-05"
-preview: "More axes means more capability — but also more cost. A practical breakdown of when to use 3-axis vs 4-axis vs full 5-axis simultaneous machining."
-description: "More axes means more capability — but also more cost. A practical breakdown of when to use 3-axis vs 4-axis vs full 5-axis simultaneous machining."
-h1: "CNC Milling: 3-Axis, 4-Axis, and 5-Axis Explained"
+title: "CNC milling guide: how the process works and when to use it"
+description: "CNC milling guide for machined parts - what milling does best, what drives cost, and how buyers should specify milled geometry."
+publishedAt: "2026-04-13"
 category: "process"
-icon: "default"
+keywords: ["CNC milling guide", "CNC milling", "milled parts"]
+author: "PMC Editorial"
+readingTime: "3 min read"
 ---
 
-      <div class="coming-soon">
-        <div class="coming-soon-label">// coming soon</div>
-        <div class="coming-soon-title">Full article in progress.</div>
-      </div>
-    
+## The short answer
+
+CNC milling is the right process for prismatic geometry, pockets, slots, faces, hole patterns, and 3D contours that do not revolve around one axis. It is flexible, common, and capable of excellent precision, but it gets expensive fast when the design forces too many setups, deep narrow pockets, or unnecessary tight tolerances.
+
+## What CNC milling is good at
+
+Milling removes material with a rotating cutter while the part is held in place and moved across controlled axes. That makes it ideal for block-like parts, plates, housings, brackets, manifolds, and mixed-geometry components with flats, pockets, and drilled features.
+
+If the part's critical dimensions live across faces instead of around one central axis, milling is usually the natural starting point.
+
+## What drives milling cost
+
+The big cost drivers are setup count, tool access, material removal volume, wall stiffness, and tolerance strategy. A part that can be reached from one or two sides is dramatically easier than a part that needs repeated re-clamping. Deep narrow pockets and tall thin walls slow everything down because the tool gets long and the part gets unstable.
+
+Material matters too. Aluminum is forgiving. Titanium and hard steels narrow the process window and make cycle time and tool wear much more painful.
+
+## What good milled-part design looks like
+
+Good milled parts use realistic corner radii, standard hole sizes, reachable chamfers, and rational tolerances. They avoid decorative complexity that adds no function. A lot of expensive milling quotes are not caused by the process. They are caused by lazy CAD decisions.
+
+This is why early DFM review matters. One corner radius change or one thicker wall can save more money than weeks of supplier negotiation. Related reading: [Engineering drawing best practices for machined parts](/blog/drawing-best-practices) and [Machining tolerances guide: general, precision, and high-precision](/blog/tolerances-guide).
+
+## When milling is the wrong first choice
+
+Milling is not always the cheapest route. Pure shafts, rings, bushings, and other rotational parts often belong on a lathe first. Mixed parts may fit mill-turn. Features that need zero cutting force or internal detail can push toward EDM. Good sourcing teams choose milling because the geometry fits, not because it is familiar.
+
+That is the decision rule: use milling when the geometry is naturally milled, not when the buyer simply wants a generic CNC process.
+
+## Comparison table where relevant
+
+| Milling factor | Low-cost case | Higher-cost case |
+| -- | -- | -- |
+| Setup count | One or two stable setups | Many re-clamps |
+| Tool access | Open faces and wide pockets | Deep narrow cavities |
+| Wall stiffness | Thicker supported geometry | Tall thin walls |
+| Tolerance strategy | Tight only where needed | Whole print tightened |
+
+## How to specify this in your RFQ
+
+Send the 3D model and 2D print together. Mark the functional datums, critical hole locations, and any surfaces that must stay in one setup. If the supplier can choose the machining orientation freely, say so. That freedom often lowers cost.
+
+---
+
+*Have a part that needs quoting? Email your drawings to rfq@precisionmachining.co - 
+we return a competitive quote within 24 hours. Phone: +1 312-579-0808.*

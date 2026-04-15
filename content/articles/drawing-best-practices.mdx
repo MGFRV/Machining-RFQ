@@ -1,16 +1,55 @@
 ---
-title: "Engineering Drawing Best Practices for CNC Sourcing"
-slug: "drawing-best-practices"
-date: "2024-12-05"
-preview: "A poor drawing slows quoting, causes misquotes, and leads to rework. The ten most common drawing mistakes and how to fix them before sending your RFQ."
-description: "A poor drawing slows quoting, causes misquotes, and leads to rework. The ten most common drawing mistakes and how to fix them before sending your RFQ."
-h1: "Engineering Drawing Best Practices for CNC Sourcing"
+title: "Engineering drawing best practices for machined parts"
+description: "Engineering drawing best practices for machined parts - what to include, what to stop doing, and how to get cleaner quotes."
+publishedAt: "2026-04-13"
 category: "design"
-icon: "default"
+keywords: ["drawing best practices", "machined parts drawings", "engineering drawing CNC"]
+author: "PMC Editorial"
+readingTime: "3 min read"
 ---
 
-      <div class="coming-soon">
-        <div class="coming-soon-label">// coming soon</div>
-        <div class="coming-soon-title">Full article in progress.</div>
-      </div>
-    
+## The short answer
+
+A good machining drawing is not the one with the most notes. It is the one that tells the supplier exactly what matters for function, quality, and inspection without burying the part under noise. Clear datums, rational tolerances, complete material and finish notes, and revision discipline beat decorative drafting every time.
+
+## Start with function, not drafting habit
+
+The drawing should show how the part works in assembly. That means datums tied to mating faces, bearing fits, sealing surfaces, hole patterns, and alignment features. A dimensioning scheme built around convenient edges or inherited CAD references creates avoidable setup and inspection pain.
+
+If the shop has to reverse-engineer what actually matters, the drawing failed before the quote was issued.
+
+## What every machinable print should include
+
+At minimum, include revision, units, material, condition or temper where relevant, finish or coating requirements, general tolerances, and clear dimensions for the features that drive fit and function. Add thread class, surface-finish callouts, and cert or report requirements where they matter.
+
+Most RFQ confusion comes from missing basics, not exotic GD&T.
+
+## What to stop doing
+
+Stop tightening every dimension because the part is precision. Stop adding cosmetic finish notes to hidden faces. Stop calling out generic material names like steel or stainless. Stop mixing plus-minus dimensions and GD&T with no logic behind which one controls. That is how shops end up quoting defensively or asking for clarification three times.
+
+A drawing should reduce interpretation, not multiply it. Related reading: [Surface finish guide for machined parts: Ra, Rz, and what to call out](/blog/surface-finish-guide) and [RFQ checklist for machined parts: what to send before you ask for quote](/blog/rfq-checklist).
+
+## Think about inspection while you draft
+
+If a feature needs special inspection, the drawing should make that clear. That does not mean putting CMM on everything. It means using a datum structure and tolerance scheme that can actually be checked without turning every part into a metrology project.
+
+Good drawings lower both machining cost and inspection cost because they tell the supplier where precision matters and where it does not.
+
+## Comparison table where relevant
+
+| Drawing element | Good practice | Common failure |
+| -- | -- | -- |
+| Datums | Tie to function and assembly | Dimension from convenience edges |
+| Material note | Exact spec and condition | Generic material name |
+| Tolerances | Tight only where needed | Everything made precision |
+| Finish notes | Only on functional or visible surfaces | Blanket finish everywhere |
+
+## How to specify this in your RFQ
+
+Send the latest revision-controlled 2D print and 3D model together. In the RFQ email, name the few features that are function-critical, especially if they are not obvious from the drawing alone. That one step reduces misquotes and slow clarifying loops.
+
+---
+
+*Have a part that needs quoting? Email your drawings to rfq@precisionmachining.co - 
+we return a competitive quote within 24 hours. Phone: +1 312-579-0808.*

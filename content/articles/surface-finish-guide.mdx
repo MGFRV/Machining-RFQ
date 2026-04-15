@@ -1,16 +1,55 @@
 ---
-title: "Surface Finish in CNC Machining: Ra, Rz, and Callout Best Practices"
-slug: "surface-finish-guide"
-date: "2025-01-28"
-preview: "Ra 125, Ra 32, ground finish — surface finish callouts affect cost and lead time significantly. Here's how to specify only what your design actually needs."
-description: "Ra 125, Ra 32, ground finish — surface finish callouts affect cost and lead time significantly. Here's how to specify only what your design actually needs."
-h1: "Surface Finish in CNC Machining: Ra, Rz, and Callout Best Practices"
+title: "Surface finish guide for machined parts: Ra, Rz, and what to call out"
+description: "Surface finish guide for machined parts - how to use Ra, Rz, and practical finish notes without overpaying for unnecessary polish."
+publishedAt: "2026-04-13"
 category: "design"
-icon: "gauge"
+keywords: ["surface finish guide", "Ra Rz machining", "machined parts finish callout"]
+author: "PMC Editorial"
+readingTime: "3 min read"
 ---
 
-      <div class="coming-soon">
-        <div class="coming-soon-label">// coming soon</div>
-        <div class="coming-soon-title">Full article in progress.</div>
-      </div>
-    
+## The short answer
+
+Surface finish should be called out on purpose. Use Ra for most machined-part drawings, use Rz when the requirement or customer standard really needs it, and avoid fine-finish notes on surfaces that have no functional or cosmetic reason to be controlled.
+
+## Ra and Rz are not interchangeable
+
+Ra is the arithmetic average roughness and the most common callout on machined drawings. Rz captures peak-to-valley style information and can tell a different story about the same surface. Buyers should not convert one into the other casually or assume a shop will treat them as interchangeable.
+
+If the finish requirement is tight, the drawing should be clear about which parameter controls.
+
+## What machining processes usually mean for finish
+
+Ordinary milling and turning can produce perfectly acceptable commercial surfaces for many parts. Finer finishes usually mean lighter passes, different tooling, grinding, honing, or lapping. That means every step toward a finer finish adds either time, another process, or both.
+
+A finish note is a cost note whether the buyer intended that or not.
+
+## Tie finish to function
+
+Bearing journals, sealing faces, sliding interfaces, optical surfaces, and cosmetic show faces often justify explicit finish control. Hidden bracket sides usually do not. Good buyers ask why the finish matters before they ask how smooth it can be made.
+
+A lot of machining waste is really finish over-specification. Related reading: [Engineering drawing best practices for machined parts](/blog/drawing-best-practices) and [Machining tolerances guide: general, precision, and high-precision](/blog/tolerances-guide).
+
+## Write the note cleanly
+
+Call out only the target surfaces, use one unit system, and say whether the finish applies before or after coating. If lay direction or measurement method matters, include it. That is enough. Anything else is usually clutter.
+
+The best finish note is specific, short, and attached to a functional reason.
+
+## Comparison table where relevant
+
+| Finish term | Best use | Buyer watchout |
+| -- | -- | -- |
+| Ra | General machined surface callouts | Most common and usually sufficient |
+| Rz | When peak-to-valley style control matters | Do not treat as Ra |
+| Fine finish on functional face | Seals, bearings, sliding contact | May require secondary process |
+| Fine finish everywhere | Almost never justified | Quiet cost multiplier |
+
+## How to specify this in your RFQ
+
+Identify exactly which surfaces need finish control and give the value and unit clearly. If coating follows machining, say whether the finish requirement applies before or after coating. Otherwise the supplier and inspector may be checking different realities.
+
+---
+
+*Have a part that needs quoting? Email your drawings to rfq@precisionmachining.co - 
+we return a competitive quote within 24 hours. Phone: +1 312-579-0808.*

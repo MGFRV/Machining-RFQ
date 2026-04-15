@@ -1,61 +1,55 @@
 ---
-title: "Understanding Tolerances in CNC Machining"
-slug: "tolerances-guide"
-date: "2025-02-20"
-preview: "Specifying tolerances too tight drives up cost. Too loose and parts don't fit. Here's how to find the right balance for your application."
-description: "Specifying tolerances too tight drives up cost. Too loose and parts don't fit. Here's how to find the right balance for your application."
-h1: "Understanding Tolerances in CNC Machining"
-category: "quality"
-icon: "gauge"
+title: "Machining tolerances guide: general, precision, and high-precision"
+description: "Machining tolerances guide for machined parts - what general, precision, and high-precision really cost and when each level makes sense."
+publishedAt: "2026-04-13"
+category: "design"
+keywords: ["machining tolerances guide", "precision machining tolerances", "tolerance cost machining"]
+author: "PMC Editorial"
+readingTime: "3 min read"
 ---
 
-      <h2>Why Tolerances Matter</h2>
-      <p>Tolerance is the permissible variation in a dimension. A shaft specified as <strong>1.000" ± 0.001"</strong> may measure anywhere from 0.999" to 1.001" and still pass inspection. Every additional zero you add to a tolerance specification — going from ±0.005" to ±0.0005" — can double or triple machining cost.</p>
-      <p>The key principle: <strong>specify tolerances as loose as your design allows</strong>. Reserve tight tolerances only for surfaces that actually mate, seal, or bear load.</p>
+## The short answer
 
-      <h2>Standard Tolerance Tiers</h2>
-      <p>Most CNC shops work within three practical tiers:</p>
-      <table class="tol-table">
-        <thead>
-          <tr><th>Tier</th><th>Tolerance</th><th>Typical Use</th><th>Relative Cost</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>General</td><td>±0.005" (±0.13 mm)</td><td>Non-critical dimensions, clearance holes</td><td>1×</td></tr>
-          <tr><td>Precision</td><td>±0.001" (±0.025 mm)</td><td>Fits, bearing seats, threaded bosses</td><td>2–3×</td></tr>
-          <tr><td>High-Precision</td><td>±0.0005" (±0.013 mm)</td><td>Press fits, sealing bores, gauge surfaces</td><td>4–6×</td></tr>
-        </tbody>
-      </table>
-      <p>Tolerances tighter than ±0.0002" typically require grinding or lapping after machining and should be flagged explicitly in your drawing.</p>
+Tolerance cost is not linear. General commercial tolerances are relatively cheap. Precision tolerances cost more because the process and inspection tighten up. High-precision tolerances cost much more because the supplier has to manage thermal behavior, tool wear, part stability, and sometimes secondary finishing with very little margin for drift.
 
-      <h2>Title Block vs. Explicit Callouts</h2>
-      <p>Most engineering drawings include a title block tolerance such as <em>"Unless otherwise specified: ±0.005""</em>. This covers the majority of dimensions. But for anything critical — mating diameters, press fits, thread engagement lengths — always call out the tolerance explicitly on the dimension.</p>
-      <p>Never rely on a title block for a critical feature. If it matters, put the number on the part.</p>
+## General tolerance
 
-      <h2>GD&T: Beyond Plus/Minus</h2>
-      <p>Geometric Dimensioning and Tolerancing (GD&T) communicates form, orientation, and position — things a simple ±0.005" can't express. Common callouts:</p>
-      <ul>
-        <li><strong>Flatness (⏥)</strong> — controls surface variation, not location. Use for sealing faces and mating flanges.</li>
-        <li><strong>Cylindricity (⌀)</strong> — controls roundness and straightness of a bore simultaneously.</li>
-        <li><strong>True Position (⊕)</strong> — controls hole location relative to a datum. More useful than coordinate tolerances for bolt patterns.</li>
-        <li><strong>Runout (↗)</strong> — controls total surface variation as a part rotates. Critical for rotating shafts and bearing fits.</li>
-      </ul>
-      <p>Over-specifying GD&T adds inspection cost. Apply it only where the geometric relationship genuinely affects function.</p>
+General tolerance is where many non-critical machined features should live. The supplier can run a stable route, use standard inspection methods, and avoid turning every feature into a process-control exercise. That keeps the quote sane and the route flexible.
 
-      <h2>Surface Finish</h2>
-      <p>Surface finish is often overlooked but impacts sealing, fatigue life, and mating behavior. Common specifications:</p>
-      <ul>
-        <li><strong>Ra 3.2 µm (125 µin)</strong> — Standard machined finish. Adequate for most non-critical surfaces.</li>
-        <li><strong>Ra 1.6 µm (63 µin)</strong> — Typical turned or milled finish. Good for general mating surfaces.</li>
-        <li><strong>Ra 0.8 µm (32 µin)</strong> — Requires a finishing pass or fine toolpath. Use for O-ring grooves and sliding fits.</li>
-        <li><strong>Ra 0.4 µm (16 µin)</strong> — Ground or honed. Bearing bores, precision sealing surfaces.</li>
-      </ul>
+For brackets, covers, housings, and non-critical geometry, this is often exactly where the drawing should stay.
 
-      <h2>Practical Checklist</h2>
-      <ol>
-        <li>Identify every surface that mates, seals, or bears load — these get explicit tolerances.</li>
-        <li>Everything else falls to the title block default (typically ±0.005").</li>
-        <li>Use GD&T for location and form requirements that ± alone can't describe.</li>
-        <li>Call out surface finish only where it matters functionally.</li>
-        <li>Review your drawing against this list before sending to a shop — tight tolerances you don't need are money left on the table.</li>
-      </ol>
-    
+## Precision tolerance
+
+Precision features usually involve fit, alignment, hole position, sealing, or controlled motion. The supplier still machines the part efficiently, but the fixturing, tool-offset control, and inspection plan become more disciplined. That costs more because the process window gets narrower.
+
+This level is normal and justified for many real functional features. It just should not spread across the whole print.
+
+## High-precision tolerance
+
+High-precision work is where the route may need thermal control, more frequent in-process checks, grinding or honing, selective assembly, or more expensive metrology. The cost jump here is real because the supplier is buying down very small process risk.
+
+A five-piece lot can still be expensive if one bore or journal needs high-precision behavior. Quantity does not eliminate the discipline required.
+
+## How to use tolerances intelligently
+
+Tighten only the dimensions tied to function. Leave non-critical dimensions on rational title-block tolerances. Related reading: [Surface finish guide for machined parts: Ra, Rz, and what to call out](/blog/surface-finish-guide) and [Engineering drawing best practices for machined parts](/blog/drawing-best-practices).
+
+A good drawing separates critical from non-critical. A bad drawing taxes every feature equally.
+
+## Comparison table where relevant
+
+| Tolerance level | Best use | Cost effect |
+| -- | -- | -- |
+| General | Non-critical geometry | Baseline |
+| Precision | Fit and assembly features | Noticeable increase |
+| High precision | Bearing, sealing, calibration features | Steep increase |
+| Undefined but tight intent | No clear function | Worst commercial outcome |
+
+## How to specify this in your RFQ
+
+Identify the few dimensions that actually drive fit, motion, sealing, or calibration. If one feature needs a special route such as grinding or honing, say so. Buyers save money by being selective, not by being vague.
+
+---
+
+*Have a part that needs quoting? Email your drawings to rfq@precisionmachining.co - 
+we return a competitive quote within 24 hours. Phone: +1 312-579-0808.*
