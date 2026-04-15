@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to choose between 3-axis and 5-axis milling for your part — Precision Machining Co.</title>
+  <meta name="description" content="Choose between 3-axis and 5-axis milling by tool access, setup count, and tolerance stack-up." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    :root {
+      --c50: #F5F4F0; --c100: #ECEAE6; --c200: #D5D1CB;
+      --c400: #9E978D; --c500: #857F77; --c600: #665F57;
+      --c900: #1C1917; --white: #FFFFFF; --accent: #0A1930;
+      --mono: 'IBM Plex Mono', monospace;
+    }
+    body { font-family: var(--mono); background: var(--c50); color: var(--c900); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    .grid-bg { background-image: linear-gradient(rgba(28,25,23,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(28,25,23,.04) 1px, transparent 1px); background-size: 44px 44px; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+    .section-label { display: inline-flex; align-items: center; gap: 8px; font-size: 0.68rem; font-weight: 500; color: var(--accent); text-transform: uppercase; letter-spacing: 0.18em; border-bottom: 1px solid var(--accent); padding-bottom: 2px; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; background: rgba(245,244,240,.96); backdrop-filter: blur(10px); border-bottom: 1px solid var(--c200); height: 64px; }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; height: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-size: 0.82rem; font-weight: 600; color: var(--c900); text-decoration: none; letter-spacing: 0.16em; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 36px; }
+    .nav-links a:not(.nav-cta) { font-size: 0.68rem; font-weight: 500; color: var(--c600); text-decoration: none; text-transform: uppercase; letter-spacing: 0.14em; transition: color .15s; }
+    .nav-links a:not(.nav-cta):hover { color: var(--c900); }
+    .nav-cta { font-size: 0.68rem; font-weight: 600; background: var(--accent); color: var(--white); padding: 10px 22px; text-decoration: none; text-transform: uppercase; letter-spacing: 0.12em; border: 1px solid var(--accent); transition: background .15s; display: flex; align-items: center; gap: 8px; }
+    .nav-cta:hover { background: #162840; border-color: #162840; }
+    .article-header { padding: 112px 0 56px; border-bottom: 1px solid var(--c200); }
+    .article-header .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 0.65rem; color: var(--c400); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 24px; }
+    .article-header .breadcrumb a { color: var(--c400); text-decoration: none; transition: color .15s; }
+    .article-header .breadcrumb a:hover { color: var(--accent); }
+    .article-header .breadcrumb span { color: var(--c200); }
+    .article-meta-row { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; flex-wrap: wrap; }
+    .article-date { font-size: 0.65rem; color: var(--c400); text-transform: uppercase; letter-spacing: 0.12em; }
+    .article-h1 { font-size: clamp(1.6rem, 3.5vw, 2.8rem); font-weight: 300; line-height: 1.15; letter-spacing: -0.02em; max-width: 800px; margin-bottom: 20px; }
+    .article-h1 strong { font-weight: 500; }
+    .article-lead { font-size: 0.9rem; color: var(--c500); max-width: 640px; line-height: 1.7; }
+    .article-wrap { padding: 56px 0 80px; display: grid; grid-template-columns: 1fr 280px; gap: 80px; align-items: start; }
+    .article-content h2 { font-size: 1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; margin: 40px 0 14px; padding-top: 40px; border-top: 1px solid var(--c200); }
+    .article-content h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+    .article-content h3 { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; margin: 28px 0 10px; }
+    .article-content p { font-size: 0.85rem; color: var(--c600); line-height: 1.8; margin-bottom: 16px; }
+    .article-content ul, .article-content ol { padding-left: 20px; margin-bottom: 16px; }
+    .article-content li { font-size: 0.85rem; color: var(--c600); line-height: 1.8; margin-bottom: 6px; }
+    .article-content strong { color: var(--c900); font-weight: 500; }
+    .article-content table { width: 100%; border-collapse: collapse; margin-bottom: 16px; }
+    .article-content th { font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--c500); text-align: left; padding: 10px 16px; background: var(--c100); border: 1px solid var(--c200); }
+    .article-content td { font-size: 0.8rem; color: var(--c600); padding: 10px 16px; border: 1px solid var(--c200); line-height: 1.5; }
+    .article-content tr:nth-child(even) td { background: var(--c50); }
+    .article-sidebar { position: sticky; top: 88px; }
+    .sidebar-block { border: 1px solid var(--c200); padding: 24px; margin-bottom: 24px; }
+    .sidebar-block-head { font-size: 0.65rem; font-weight: 600; color: var(--c500); text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 16px; }
+    .sidebar-cta { display: inline-flex; align-items: center; gap: 8px; font-size: 0.68rem; font-weight: 600; background: var(--accent); color: var(--white); padding: 12px 20px; text-decoration: none; text-transform: uppercase; letter-spacing: 0.12em; border: 1px solid var(--accent); transition: background .15s; width: 100%; justify-content: center; }
+    .sidebar-cta:hover { background: #162840; }
+    .sidebar-p { font-size: 0.75rem; color: var(--c500); line-height: 1.65; margin-bottom: 16px; }
+    .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 0.68rem; font-weight: 500; color: var(--c500); text-decoration: none; text-transform: uppercase; letter-spacing: 0.12em; transition: color .15s; margin-bottom: 40px; }
+    .back-link:hover { color: var(--accent); }
+    footer { background: var(--c900); padding: 56px 0 32px; }
+    .footer-top { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 0; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,.08); margin-bottom: 28px; }
+    .footer-col { padding-right: 40px; }
+    .footer-col:last-child { padding-right: 0; }
+    .footer-logo { font-size: 0.82rem; font-weight: 600; color: var(--white); letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 10px; display: block; }
+    .footer-tagline { font-size: 0.75rem; color: var(--c500); line-height: 1.65; max-width: 220px; }
+    .footer-col-head { font-size: 0.65rem; font-weight: 600; color: var(--c500); text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 14px; }
+    .footer-col a, .footer-col p { font-size: 0.75rem; color: var(--c400); display: block; text-decoration: none; margin-bottom: 7px; line-height: 1.5; }
+    .footer-col a:hover { color: var(--white); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; font-size: 0.65rem; color: var(--c600); flex-wrap: wrap; gap: 8px; letter-spacing: 0.06em; }
+    @media (max-width: 960px) {
+      .container { padding: 0 28px; } .nav-inner { padding: 0 28px; }
+      .nav-links a { display: none; }
+      .article-wrap { grid-template-columns: 1fr; gap: 48px; }
+      .article-sidebar { position: static; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+    @media (max-width: 640px) { .footer-top { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">Precision Machining Co.</a>
+    <div class="nav-links">
+      <a href="/#process">Process</a>
+      <a href="/#capabilities">Capabilities</a>
+      <a href="/#why">Why Us</a>
+      <a href="/blog/">Blog</a>
+  <a href="/about/">About</a>
+      <a href="/#rfq" class="nav-cta">Contact Us →</a>
+    </div>
+  </div>
+</nav>
+<div class="article-header grid-bg">
+  <div class="container">
+    <div class="breadcrumb"><a href="/">Home</a><span>/</span><a href="/blog/">Blog</a>
+  <a href="/about/">About</a><span>/</span><span>How To Choose Between 3 Axis And 5 Axis Milling For Your Part</span></div>
+    <div class="article-meta-row">
+      <span class="section-label">// category: CNC Processes</span>
+      <span class="article-date">Apr 13, 2026</span>
+    </div>
+    <h1 class="article-h1"><strong>How to choose between 3-axis and 5-axis milling for your part</strong></h1>
+    <p class="article-lead">Choose between 3-axis and 5-axis milling by tool access, setup count, and tolerance stack-up.</p>
+  </div>
+</div>
+<div class="container">
+  <div class="article-wrap">
+    <article class="article-content">
+      <a href="/blog/" class="back-link">← Back to Blog</a>
+
+<h2>The short answer</h2>
+<p>Use 3-axis milling when the part&#39;s critical geometry matches that process naturally. Use 5-axis milling when it reduces setups and holds the important features with less risk. The cheapest route is usually the one that keeps the part closest to its natural geometry, not the one with the lowest hourly rate. Buyers should choose based on datum structure, feature access, and secondary operations.</p>
+<h2>Which geometry favors each process</h2>
+<p>3-axis milling is the better fit when the part is driven by the part is accessible from one orientation or can be indexed once or twice without losing datum control. 5-axis milling is the better fit when the part is driven by the part needs complex multi-face access, shorter tools, or one-setup control of angular relationships. Buyers get cleaner quotes when they classify the part by its functional features, not by the first operation that comes to mind.</p>
+<p>A simple rule helps. If the critical dimensions revolve around one axis, start with 5-axis milling. If the critical dimensions live across faces, pockets, patterns, or contours, start with 3-axis milling. Mixed parts need a more honest conversation about combined processes, secondary operations, or whether one setup must control both feature families.</p>
+<h2>What moves cost and lead time</h2>
+<p>3-axis usually wins on hourly rate and programming simplicity. 5-axis wins when it removes fixtures, hand blending, extra ops, or tolerance stack from multiple setups.</p>
+<p>This is why similar-looking parts can price very differently. Two suppliers may both be able to make the part. One may be able to make it in the natural process route. The other may be forcing the geometry through workarounds. That shows up in cycle time, tool life, fixture count, and inspection effort.</p>
+<h2>Tolerance and quality implications</h2>
+<p>A 3-axis machine can hold excellent tolerances on accessible features. The issue is not basic accuracy. It is whether the part can be reached without long tools, awkward workholding, or repeated refixturing.</p>
+<p>Good sourcing teams separate true function from inherited drawing habits. If the tolerance callout is really about concentricity, runout, flatness, or hole position, the process choice should support that directly. Otherwise you end up paying for extra handling just to chase geometry that the wrong machine created in the first place.</p>
+<h2>The decision error that costs money</h2>
+<p>The wrong call is paying for simultaneous 5-axis when 3+2 indexing will do, or forcing a true 5-axis part through three fixtures on 3-axis and wondering why the quote exploded.</p>
+<p>Related reading: <a href="/blog/cnc-turning-tolerances-whats-achievable-and-what-drives-cost">CNC turning tolerances: what&#39;s achievable and what drives cost</a> and <a href="/blog/cnc-milling-feeds-and-speeds-what-procurement-teams-need-to-know">CNC milling feeds and speeds: what procurement teams need to know</a>.</p>
+<h2>Comparison table where relevant</h2>
+<table>
+<thead>
+<tr>
+<th>Best for</th>
+<th>Accessible faces and simple setups</th>
+<th>Complex multi-face access</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Machine rate</td>
+<td>Lower</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Programming effort</td>
+<td>Lower</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Setup count</td>
+<td>Often higher on complex parts</td>
+<td>Often lower</td>
+</tr>
+<tr>
+<td>Decision trigger</td>
+<td>Can you reach features with rigid tools?</td>
+<td>Do you need one-setup geometry control?</td>
+</tr>
+</tbody></table>
+<h2>How to specify this in your RFQ</h2>
+<p>Tell the shop which feature relationships must stay in one setup and which can tolerate re-clamping. If the part only needs indexed positions, say simultaneous 5-axis is not required. That one note can change the quote.</p>
+<p>If suppliers are free to propose an alternate route, say that explicitly. If one process is mandatory because of qualification, source control, or validated history, state that too.</p>
+<hr>
+<p><em>Have a part that needs quoting? Email your drawings to <a href="mailto:rfq@precisionmachining.co">rfq@precisionmachining.co</a>  -<br>we return a competitive quote within 24 hours. Phone: +1 312-579-0808.</em></p>
+
+
+    </article>
+    <aside class="article-sidebar">
+      <div class="sidebar-block">
+        <div class="sidebar-block-head">Need a Quote?</div>
+        <p class="sidebar-p">Submit your RFQ and get quotes from vetted US manufacturers within 24 hours.</p>
+        <a href="/#rfq" class="sidebar-cta">Submit RFQ →</a>
+      </div>
+      <div class="sidebar-block">
+        <div class="sidebar-block-head">Related</div>
+        <a href="/blog/" style="font-size:0.75rem;color:var(--c500);display:block;text-decoration:none;padding:6px 0;transition:color .15s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--c500)'">← All Articles</a>
+      </div>
+    </aside>
+  </div>
+</div>
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-col"><span class="footer-logo">Precision Machining Co.</span><p class="footer-tagline">US machined &amp; turned parts sourcing. RFQ to delivery, handled.</p></div>
+      <div class="footer-col"><div class="footer-col-head">Processes</div><a href="/#capabilities">CNC Milling</a><a href="/#capabilities">CNC Turning</a><a href="/#capabilities">Mill-Turn</a><a href="/#capabilities">Swiss Machining</a></div>
+      <div class="footer-col"><div class="footer-col-head">Industries</div><a href="/#capabilities">Aerospace</a><a href="/#capabilities">Defense / ITAR</a><a href="/#capabilities">Medical Devices</a><a href="/#capabilities">Robotics</a></div>
+      <div class="footer-col"><div class="footer-col-head">Contact</div><a href="mailto:rfq@precisionmachining.co">rfq@precisionmachining.co</a><p>+1 312-579-0808</p><p>Wilmington, DE</p><p>United States</p></div>
+    </div>
+    <div class="footer-bottom"><span>© <span class="copyright-year"></span> Advanced Tech Solutions LLC. All rights reserved.</span><span>Privacy Policy · Terms of Service</span></div>
+  </div>
+</footer>
+<script>
+  document.querySelectorAll('.copyright-year').forEach(el => {
+    el.textContent = new Date().getFullYear();
+  });
+</script>
+</body>
+</html>
